@@ -1,55 +1,61 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recipes index{% endblock %}
+{% block title %}Coobook
+{% endblock %}
 
 {% block body %}
-    <h1>Recipes index</h1>
+	<section class="recipes-background">
+		<div class="recipes">
+			<p class="pagename">Discover Culinary Delights</p>
+			<p class="p-intro">
+				Elevate your home cooking with our curated collection of mouthwatering recipes.
+				                From Mediterranean-inspired Pan-Roasted Chicken to classic American Baked Potato Soup,
+				                explore diverse flavors and create unforgettable meals in your own kitchen.
+				                Let the adventure begin!
+			</p>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Recipe_id</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Ingredients</th>
-                <th>Instructions</th>
-                <th>Level</th>
-                <th>Budget</th>
-                <th>Cuisine</th>
-                <th>Image</th>
-                <th>User_id</th>
-                <th>Created_at</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for recipe in recipes %}
-            <tr>
-                <td>{{ recipe.id }}</td>
-                <td>{{ recipe.recipeId }}</td>
-                <td>{{ recipe.title }}</td>
-                <td>{{ recipe.description }}</td>
-                <td>{{ recipe.ingredients }}</td>
-                <td>{{ recipe.instructions }}</td>
-                <td>{{ recipe.level }}</td>
-                <td>{{ recipe.budget }}</td>
-                <td>{{ recipe.cuisine }}</td>
-                <td>{{ recipe.image }}</td>
-                <td>{{ recipe.userId }}</td>
-                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_recipes_show', {'id': recipe.id}) }}">show</a>
-                    <a href="{{ path('app_recipes_edit', {'id': recipe.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="13">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+			<div class="gallery-recipes">
+				{% for recipe in recipes %}
+					<div class="recipes-card">
+						<a class="recipe-link" href="{{ path('app_recipes_show', {'id': recipe.id}) }}">
+							<div class="recipes-content-up">
+								<h5>{{ recipe.title }}</h5>
+								<div class="recipes-icons">
+									<i class='bx bxs-heart'></i>
+									<i class='bx bxs-share-alt'></i>
+								</div>
+							</div>
 
-    <a href="{{ path('app_recipes_new') }}">Create new</a>
+							{% if recipe.image %}
+								<div class="recipes-card-img">
+									<img class="crop-horizontal" src="/uploads/{{ recipe.image }}">
+								</div>
+							{% endif %}
+
+							<div id="recipe-details">
+								<p class="recipes-card-description">{{ recipe.description }}</p>
+								<div class="level-budget">
+									<p>
+										<i class='bx bx-globe'></i>:
+										{{ recipe.cuisine }}</p>
+									<p>
+										<i class='bx bxs-bowl-rice'></i>:
+										{{ recipe.level }}</p>
+									<p>
+										<i class='bx bx-euro'></i>:
+										{{ recipe.budget }}</p>
+								</div>
+							</div>
+
+							<button class="btn-getCooking">Get Cooking!</button>
+						</a>
+					</div>
+				{% else %}
+					<p>No records found</p>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+
+	<a href="{{ path('app_recipes_new') }}">Create new</a>
 {% endblock %}
