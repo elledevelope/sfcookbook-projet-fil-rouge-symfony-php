@@ -1,0 +1,42 @@
+<nav>
+	<!-- logo -->
+	<div id="logo">
+		<a href="{{ path('home') }}">CookBook
+			<img id="logoImg" src="{{ asset('assets/img/icons/chef-hat.svg') }}" alt="logo Cookbook"></a>
+	</div>
+
+	<!-- burger -->
+	<div class="burger">
+		<img src="{{ asset('assets/img/icons/bars.svg') }}" alt="bars">
+	</div>
+
+	<div
+		class="nav-links show-menu hide-menu" id="navLinks">
+
+		<!-- close-X -->
+		<div class="close-x">
+			<img src="{{ asset('assets/img/icons/x.svg') }}" alt="bars">
+		</div>
+		<ul>
+			<li>
+				<a href="{{ path('home') }}">Home</a>
+			</li>
+			<li>
+				<a href="{{ path('app_recipes_index') }}">Recipes</a>
+			</li>
+			<li>
+				<a href="#">Cuisines</a>
+			</li>
+			<li>
+				{# <a href="{{ path('login') }}">Log In</a> #}
+			</li>
+			<li>
+				{# <a href="{{ path('register') }}">Sign up</a> #}
+			</li>
+			<!-- <li><a href="#">Favorites</a></li> -->
+			<!-- <li><a href="#">My Recipes</a></li> -->
+		</ul>
+
+		<!-- <div id="login"> <img id="login-Img" src="{{ asset('assets/img/icons/login.svg') }}" alt="logIn"></div> -->
+	</div>
+</nav>
