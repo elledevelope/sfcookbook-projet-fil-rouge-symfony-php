@@ -66,11 +66,19 @@
 			<section class="container-footer">
 				<div class="footer-links">
 					<ul>
-						<li><a href="#">About Us</a></li>
-						<li><ahref="{{path('app_privacy_policy')}}">Privacy Policy</a></li>
-						<li><ahref="{{path('app_terms_conditions')}}">Terms & Conditions</a></li>
-						<li><a href="#">Contact</a></li>
-					</ul>
+						<li>
+							<a href="#">About Us</a>
+						</li>
+						<li>
+							<a href="{{ path('app_privacy_policy') }}">Privacy Policy</a>
+						</li>
+						<li>
+							<a href="{{ path('app_terms_conditions') }}">Terms & Conditions</a>
+						</li>
+						<li>
+							<a href="#">Contact</a>
+						</li>
+					</li</ul>
 				</div>
 
 				<div class="footer-right">
@@ -86,7 +94,7 @@
 						<p>&copy;
 							{{ "now"|date("Y") }}
 							Cookbook | Designed and developed by
-							<a href="https://github.com/elledevelope">elledevelope</a>
+							<a href="https://github.com/elledevelope" target="_blank">elledevelope</a>
 						</p>
 					</div>
 				</div>
