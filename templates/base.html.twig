@@ -47,7 +47,11 @@
 			<link
 			href="{{ asset('assets/css/privacy-terms.css') }}" rel="stylesheet"/>
 		{# privacy-terms.css #}
+		{% endblock %}
 
+		{# Include ImportMap and other JavaScript files #}
+		{% block javascripts %}
+			 <script src="{{ asset('assets/js/script.js') }}" defer></script>
 		{% endblock %}
 	</head>
 
@@ -62,14 +66,10 @@
 			<section class="container-footer">
 				<div class="footer-links">
 					<ul>
-						<li>
-							<a href="#">About Us</a>
-						</li>
-						{# <li><ahref="{{ path('privacy_policy') }}">Privacy Policy</a></li> #}
-						{# <li><ahref="{{ path('terms_conditions') }}">Terms & Conditions</a></li> #}
-						<li>
-							<a href="#">Contact</a>
-						</li>
+						<li><a href="#">About Us</a></li>
+						<li><ahref="{{path('app_privacy_policy')}}">Privacy Policy</a></li>
+						<li><ahref="{{path('app_terms_conditions')}}">Terms & Conditions</a></li>
+						<li><a href="#">Contact</a></li>
 					</ul>
 				</div>
 
@@ -92,11 +92,5 @@
 				</div>
 			</section>
 		</footer>
-
-
-		{# Include ImportMap and other JavaScript files #}
-		{% block javascripts %}
-			 <script src="{{ asset('js/script.js') }}"></script>
-		{% endblock %}
 	</body>
 </html>
