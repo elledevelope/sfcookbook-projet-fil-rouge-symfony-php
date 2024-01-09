@@ -12,7 +12,7 @@ class RecipesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('recipe_id')
+            // ->add('recipe_id')
             ->add('title')
             ->add('description')
             ->add('ingredients')
@@ -21,7 +21,7 @@ class RecipesType extends AbstractType
             ->add('budget')
             ->add('cuisine')
             ->add('image')
-            ->add('user_id')
+            // ->add('user_id')
             ->add('created_at')
         ;
     }

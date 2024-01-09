@@ -14,8 +14,8 @@ class Recipes
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $recipe_id = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $recipe_id;
 
     #[ORM\Column(length: 255)]
     private ?string $title = null;
@@ -46,6 +46,11 @@ class Recipes
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $created_at = null;
+
+    public function __construct()
+    {
+        return $this->created_at = new \DateTime(); //added automatic DateTime for row created_at in our form (Form/LiensType)
+    }
 
     public function getId(): ?int
     {
