@@ -24,6 +24,7 @@ DATABASE_URL="mysql://root:@127.0.0.1:3306/sfcookbook?serverVersion=10.4.28-Mari
 - `php bin/console make:migration` !important: each time you make a change in table structure in php file, you have to run migrate command
 - `php bin/console doctrine:migrations:migrate`
 - `symfony.exe console doctrine:migrations:diff` 
+- `php bin/console doctrine:migrations:status`
 
 ## Create CRUD :
 - `symfony.exe console make:crud` created CRUD for table 
