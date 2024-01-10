@@ -1,11 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Recipes{% endblock %}
+{% block title %}Cookbook
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Recipes</h1>
+	<section class="new-recipe">
+		<div class="sub-new-recipe">
+			<h2>Share Your Culinary Creations!</h2>
+			<p>
+				Let's build a community filled with delicious inspirations together!<br><br>
 
-    {{ include('recipes/_form.html.twig') }}
+				We believe in the power of community and the joy of cooking. Whether you're a seasoned chef or a passionate home cook, we invite you to showcase your favorite recipes on our platform.<br><br>
 
-    <a href="{{ path('app_recipes_index') }}">back to list</a>
+				To share your culinary masterpiece, simply upload the details below. Don't forget to include the description, ingredients,and step-by-step instructions that make your recipe unique. 
+				Get ready to inspire others and celebrate the love of cooking. Your recipe might be the next favorite for someone around the world.
+			</p>
+			<p class="happyCooking">Happy cooking!</p>
+					{{ include('recipes/_form.html.twig') }}
+		</div>
+
+
+	</section>
+
+	<a href="{{ path('app_recipes_index') }}">back to list</a>
 {% endblock %}

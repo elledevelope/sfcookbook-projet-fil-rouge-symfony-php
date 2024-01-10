@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Recipes;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,7 +21,12 @@ class RecipesType extends AbstractType
             ->add('level')
             ->add('budget')
             ->add('cuisine')
-            ->add('image')
+            // FileType for the image field
+            ->add('image', FileType::class, [
+                'label' => 'Image',
+                'required' => true, // true if the image is mandatory
+            ])            
+
             // ->add('user_id')
             ->add('created_at')
         ;

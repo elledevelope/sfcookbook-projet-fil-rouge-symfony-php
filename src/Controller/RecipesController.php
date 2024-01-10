@@ -11,9 +11,19 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Entity\Users;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+
 #[Route('/recipes')]
 class RecipesController extends AbstractController
 {
+    private EntityManagerInterface $entityManager;
+
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
     #[Route('/', name: 'app_recipes_index', methods: ['GET'])]
     public function index(RecipesRepository $recipesRepository): Response
     {
@@ -30,7 +40,34 @@ class RecipesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($recipe);
+            
+            //IMG !!!!!!!!!
+                        // Handle file upload
+                        $file = $form['image']->getData();
+
+                        // Check if a file was uploaded
+                        if ($file) {
+                            $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+                            $newFilename = $originalFilename . '-' . uniqid() . '.' . $file->guessExtension();
+            
+                            // Move the file to the desired directory
+                            try {
+                                $file->move(
+                                    $this->getParameter('upload_directory'),
+                                    $newFilename
+                                );
+            
+                                // Set the image property of the recipe entity to the filename
+                                $recipe->setImage($newFilename);
+                            } catch (FileException $e) {
+                                // Handle file upload error
+                                // Log the error or display a message
+                                $this->addFlash('error', 'Error uploading the file.');
+                            }
+                        }
+                        //////// END IMG !!!!!
+
+            $entityManager->persist($recipe);            
             $entityManager->flush();
 
             return $this->redirectToRoute('app_recipes_index', [], Response::HTTP_SEE_OTHER);
@@ -42,11 +79,19 @@ class RecipesController extends AbstractController
         ]);
     }
 
+   
     #[Route('/{id}', name: 'app_recipes_show', methods: ['GET'])]
     public function show(Recipes $recipe): Response
     {
+        // Fetch user information based on user_id from the recipe
+        // $user = $this->getDoctrine()->getRepository(Users::class)->find($recipe->getUserId());
+
+        $userRepository = $this->entityManager->getRepository(Users::class);
+        $user = $userRepository->find($recipe->getUserId());
+
         return $this->render('recipes/show.html.twig', [
             'recipe' => $recipe,
+            'user' => $user,
         ]);
     }
 
@@ -68,10 +113,11 @@ class RecipesController extends AbstractController
         ]);
     }
 
+
     #[Route('/{id}', name: 'app_recipes_delete', methods: ['POST'])]
     public function delete(Request $request, Recipes $recipe, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$recipe->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $recipe->getId(), $request->request->get('_token'))) {
             $entityManager->remove($recipe);
             $entityManager->flush();
         }
