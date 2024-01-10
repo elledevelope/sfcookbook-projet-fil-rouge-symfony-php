@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+
 class RecipesType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -25,6 +26,7 @@ class RecipesType extends AbstractType
             ->add('image', FileType::class, [
                 'label' => 'Image',
                 'required' => true, // true if the image is mandatory
+                'data_class' => null, // Allow handling as array
             ])            
 
             // ->add('user_id')

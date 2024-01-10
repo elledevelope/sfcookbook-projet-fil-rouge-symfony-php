@@ -1,13 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Recipes{% endblock %}
+{% block title %}Cookbook
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Recipes</h1>
+	<section class="new-recipe">
+		<div class="sub-new-recipe">
+			<h2>Recipe Update</h2>
 
-    {{ include('recipes/_form.html.twig', {'button_label': 'Update'}) }}
+			<p>
+				Update your recipe details effortlessly using the form below. Adjust quantities, refine instructions, and keep your dish in sync with your evolving culinary genius. Your kitchen canvas awaits its next stroke of perfection!
+			</p>
+			{{ include('recipes/_form.html.twig', {'button_label': 'Update'}) }}
+	</section>
 
-    <a href="{{ path('app_recipes_index') }}">back to list</a>
+		<a href="{{ path('app_recipes_index') }}">back to list</a>
 
-    {{ include('recipes/_delete_form.html.twig') }}
-{% endblock %}
+		{{ include('recipes/_delete_form.html.twig') }}
+	{% endblock %}

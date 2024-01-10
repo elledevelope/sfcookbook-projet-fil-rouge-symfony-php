@@ -13,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\Users;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 #[Route('/recipes')]
 class RecipesController extends AbstractController
@@ -95,23 +96,69 @@ class RecipesController extends AbstractController
         ]);
     }
 
+    //original code:
+    // #[Route('/{id}/edit', name: 'app_recipes_edit', methods: ['GET', 'POST'])]
+    // public function edit(Request $request, Recipes $recipe, EntityManagerInterface $entityManager): Response
+    // {
+    //     $form = $this->createForm(RecipesType::class, $recipe);
+    //     $form->handleRequest($request);
+
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $entityManager->flush();
+
+    //         return $this->redirectToRoute('app_recipes_index', [], Response::HTTP_SEE_OTHER);
+    //     }
+
+    //     return $this->render('recipes/edit.html.twig', [
+    //         'recipe' => $recipe,
+    //         'form' => $form,
+    //     ]);
+    // }
+
+    //added 10.01.2024:
     #[Route('/{id}/edit', name: 'app_recipes_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Recipes $recipe, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(RecipesType::class, $recipe);
-        $form->handleRequest($request);
+public function edit(Request $request, Recipes $recipe, EntityManagerInterface $entityManager): Response
+{
+    $form = $this->createForm(RecipesType::class, $recipe);
+    $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
+    if ($form->isSubmitted() && $form->isValid()) {
+        // Check if a new image file was uploaded
+        $newImage = $form['image']->getData();
 
-            return $this->redirectToRoute('app_recipes_index', [], Response::HTTP_SEE_OTHER);
+        if ($newImage instanceof UploadedFile) {
+            // Handle file upload
+            $originalFilename = pathinfo($newImage->getClientOriginalName(), PATHINFO_FILENAME);
+            $newFilename = $originalFilename . '-' . uniqid() . '.' . $newImage->guessExtension();
+
+            // Move the file to the desired directory
+            try {
+                $newImage->move(
+                    $this->getParameter('upload_directory'), // Ensure that this matches your configured directory
+                    $newFilename
+                );
+
+                // Set the image property of the recipe entity to the new filename
+                $recipe->setImage($newFilename);
+            } catch (FileException $e) {
+                // Handle file upload error
+                // Log the error or display a message
+                $this->addFlash('error', 'Error uploading the file.');
+            }
         }
 
-        return $this->render('recipes/edit.html.twig', [
-            'recipe' => $recipe,
-            'form' => $form,
-        ]);
+        // Continue with the rest of the form submission logic
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_recipes_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    return $this->render('recipes/edit.html.twig', [
+        'recipe' => $recipe,
+        'form' => $form->createView(), // Note: Create the form view using createView() method
+    ]);
+}
+
 
 
     #[Route('/{id}', name: 'app_recipes_delete', methods: ['POST'])]

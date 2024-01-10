@@ -19,8 +19,9 @@
 {{ form_row(form.budget) }}
 {{ form_row(form.cuisine) }}
 
-{# Render the image field as a file input #}
-{{ form_row(form.image) }}
+{# Render the image field as a file input with required #}
+{{ form_row(form.image)}}
+{# {{ form_row(form.image, { 'required': false }) }} #}
 
 {# Create a separate button for image upload #}
 <input type="submit" class="btn-upload" id="btn" value="{{ button_label|default('Upload') }}" name="upload_image">
