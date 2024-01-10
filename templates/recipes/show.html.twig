@@ -1,66 +1,92 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recipes{% endblock %}
+{% block title %}
+	{{ recipe.title }}
+{% endblock %}
 
 {% block body %}
-    <h1>Recipes</h1>
+	<section
+		class="recipe-page">
+		{# <!-- title --> #}
+		<h2 class="recipe-title">{{ recipe.title }}</h2>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ recipe.id }}</td>
-            </tr>
-            <tr>
-                <th>Recipe_id</th>
-                <td>{{ recipe.recipeId }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ recipe.title }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ recipe.description }}</td>
-            </tr>
-            <tr>
-                <th>Ingredients</th>
-                <td>{{ recipe.ingredients }}</td>
-            </tr>
-            <tr>
-                <th>Instructions</th>
-                <td>{{ recipe.instructions }}</td>
-            </tr>
-            <tr>
-                <th>Level</th>
-                <td>{{ recipe.level }}</td>
-            </tr>
-            <tr>
-                <th>Budget</th>
-                <td>{{ recipe.budget }}</td>
-            </tr>
-            <tr>
-                <th>Cuisine</th>
-                <td>{{ recipe.cuisine }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ recipe.image }}</td>
-            </tr>
-            <tr>
-                <th>User_id</th>
-                <td>{{ recipe.userId }}</td>
-            </tr>
-            <tr>
-                <th>Created_at</th>
-                <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+		<div
+			class="recipe-content">
+			{# <!-- description --> #}
+			<p class="p-description">{{ recipe.description }}</p>
 
-    <a href="{{ path('app_recipes_index') }}">back to list</a>
+			<div
+				class="recipe-sub-content">
+				{# <!-- img --> #}
+				{% if recipe.image %}
+					<div class="recipe-img">
+						<img src="{{ asset('uploads/' ~ recipe.image) }}" alt="{{ recipe.image }}">
+					</div>
+				{% endif %}
 
-    <a href="{{ path('app_recipes_edit', {'id': recipe.id}) }}">edit</a>
+				{# <!-- ingredients --> #}
+				<div>
+					{% set ingredientsArray = recipe.ingredients|split(';') %}
+					<p class="p-sub-title p-ingredients">Ingredients:</p>
+					<ul class="ul-recipe">
+						{% for ingredient in ingredientsArray %}
+							<li>{{ ingredient|trim }}</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
 
-    {{ include('recipes/_delete_form.html.twig') }}
+			{# <!-- instructions --> #}
+			<div>
+				{% set instructionsArray = recipe.instructions|split(';') %}
+				<p class="p-sub-title">Instructions:</p>
+				<ul class="ul-recipe instructions">
+					{% for index, instruction in instructionsArray %}
+						<li>
+							<strong>{{ (index + 1) }}.</strong>
+							{{ instruction|trim }}.</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+
+		<div
+			class="recipe-bottom">
+			{# <!-- cuisine --> #}
+			<p>
+				<i class='bx bx-globe'></i>:
+				{{ recipe.cuisine }}</p>
+			{# <!-- level --> #}
+			<p>
+				<i class='bx bxs-bowl-rice'></i>:
+				{{ recipe.level }}</p>
+			{# <!-- budget --> #}
+			<p>
+				<i class='bx bx-euro'></i>:
+				{{ recipe.budget }}</p>
+		</div>
+
+		{# <!-- created_at --> #}
+		<p class="recipe-created-by">Created
+			{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}
+			by
+			{# {% if user %}
+									<strong>{{ user.username }}</strong>
+								{% endif %} #}
+		</p>
+
+		{# <!-- btn Go Back --> #}
+		<div class="div-btnGoBack">
+			<button type="button" class="btnGoBack">
+				<a href="{{ path('app_recipes_index') }}">Back to recipes</a>
+				<svg stroke-width="4" stroke="currentColor" viewbox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
+					<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+				</svg>
+			</button>
+		</div>
+
+		<a href="{{ path('app_recipes_edit', {'id': recipe.id}) }}">edit</a>
+
+		{{ include('recipes/_delete_form.html.twig') }}
+	</section>
 {% endblock %}
