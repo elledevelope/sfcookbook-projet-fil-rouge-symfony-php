@@ -86,12 +86,12 @@ class RecipesController extends AbstractController
         // Fetch user information based on user_id from the recipe
         // $user = $this->getDoctrine()->getRepository(Users::class)->find($recipe->getUserId());
 
-        $userRepository = $this->entityManager->getRepository(Users::class);
-        $user = $userRepository->find($recipe->getUserId());
+        // $userRepository = $this->entityManager->getRepository(Users::class);
+        // $user = $userRepository->find($recipe->getUserId());
 
         return $this->render('recipes/show.html.twig', [
             'recipe' => $recipe,
-            'user' => $user,
+            // 'user' => $user,
         ]);
     }
 
