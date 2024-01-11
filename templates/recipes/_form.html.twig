@@ -9,21 +9,25 @@
 
 
 {# added 10.01.24 #}
+<section class="new-recipe">
+
 {{ form_start(form) }}
 
-{{ form_row(form.title) }}
-{{ form_row(form.description) }}
-{{ form_row(form.ingredients) }}
-{{ form_row(form.instructions) }}
-{{ form_row(form.level) }}
-{{ form_row(form.budget) }}
-{{ form_row(form.cuisine) }}
+{{ form_row(form.title) }}<br>
+{{ form_row(form.description) }}<br>
+{{ form_row(form.ingredients) }}<br>
+{{ form_row(form.instructions) }}<br>
+{{ form_row(form.level) }}<br>
+{{ form_row(form.budget) }}<br>
+{{ form_row(form.cuisine) }}<br>
 
 {# Render the image field as a file input with required #}
-{{ form_row(form.image)}}
+<div class="input-img">{{ form_row(form.image)}}</div><br>
 {# {{ form_row(form.image, { 'required': false }) }} #}
 
 {# Create a separate button for image upload #}
-<input type="submit" class="btn-upload" id="btn" value="{{ button_label|default('Upload') }}" name="upload_image">
+<input type="submit" class="btn-upload" id="btn" value="{{ button_label|default('Upload') }}" name="upload_image"><br>
 
 {{ form_end(form) }}
+
+</section>
