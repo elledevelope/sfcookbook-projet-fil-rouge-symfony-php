@@ -23,7 +23,7 @@ class Recipes
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 1000)]
     private ?string $ingredients = null;
 
     #[ORM\Column(length: 2000)]
@@ -35,7 +35,7 @@ class Recipes
     #[ORM\Column(length: 50)]
     private ?string $budget = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 20)]
     private ?string $cuisine = null;
 
     #[ORM\Column(length: 255, nullable: true)]
