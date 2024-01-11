@@ -20,7 +20,7 @@ class RecipesType extends AbstractType
             ->add('description')
             ->add('ingredients')
             ->add('instructions')
-            
+
             // Use ChoiceType as radio buttons
             ->add('level', ChoiceType::class, [
                 'label' => 'Level',
@@ -54,7 +54,7 @@ class RecipesType extends AbstractType
             ])            
 
             // ->add('user_id')
-            ->add('created_at')
+            // ->add('created_at')
         ;
     }
 
