@@ -31,11 +31,30 @@ class RecipesType extends AbstractType
                 ],
             ])
 
-            ->add('description')
+
+            ->add('description', TextType::class, [
+                'label' => 'Description',
+                'constraints' => [
+                    new Length([
+                        'min' => 5, 
+                        'minMessage' => 'The description must be at least {{ limit }} characters!',
+                        'max' => 100,
+                        'maxMessage' => 'The description cannot be longer than {{ limit }} characters!',
+                    ]),
+                ],
+            ])
+
 
             ->add('ingredients', TextareaType::class, [
-                'label' => 'Ingredients',
-                
+                'label' => 'Ingredients', 
+                'constraints' => [
+                    new Length([
+                        'min' => 5, 
+                        'minMessage' => 'The description must be at least {{ limit }} characters!',
+                        'max' => 1000,
+                        'maxMessage' => 'The description cannot be longer than {{ limit }} characters!',
+                    ]),
+                ],               
                 'attr' => [
                     'placeholder' => 'example: 
 Preheat your oven to 220°C;
@@ -51,14 +70,23 @@ Add sliced onions;
                 ],
             ])
 
+
             ->add('instructions', TextareaType::class, [
                 'label' => 'Instructions',
+                'constraints' => [
+                    new Length([
+                        'min' => 5, 
+                        'minMessage' => 'The instructions must be at least {{ limit }} characters!',
+                        'max' => 2000,
+                        'maxMessage' => 'The instructions cannot be longer than {{ limit }} characters!',
+                    ]),
+                ],
                 'attr' => [
                     'placeholder' => 'example: 
-700g boneless chicken; 
-1/4 cup olive oil;
-...;',
-                    'class' => 'form-control', // Add your form control class if needed
+            700g boneless chicken; 
+            1/4 cup olive oil;
+            ...;',
+                    'class' => 'form-control',
                     'rows' => 10,
                     'cols' => 50,
                 ],
@@ -73,26 +101,37 @@ Add sliced onions;
             ->add('level', ChoiceType::class, [
                 'label' => 'Level',
                 'choices' => [
-                    'Easy' => 'easy',
-                    'Medium' => 'medium',
-                    'Hard' => 'hard',
+                    'Easy' => 'Easy',
+                    'Medium' => 'Medium',
+                    'Hard' => 'Hard',
                 ],
                 'expanded' => true, // Render as radio buttons
                 'multiple' => false, // Allow only one selection
             ])
 
+
             ->add('budget', ChoiceType::class, [
                 'label' => 'Budget',
                 'choices' => [
-                    'Low' => 'low',
-                    'Medium' => 'medium',
-                    'High' => 'high',
+                    'Low' => 'Low',
+                    'Medium' => 'Medium',
+                    'High' => 'High',
                 ],
                 'expanded' => true,
                 'multiple' => false,
             ])
 
-            ->add('cuisine')
+            ->add('cuisine', TextType::class, [
+                'label' => 'Cuisine',
+                'constraints' => [
+                    new Length([
+                        'min' => 2, 
+                        'minMessage' => 'The cuisine must be at least {{ limit }} characters!',
+                        'max' => 20,
+                        'maxMessage' => 'The cuisine cannot be longer than {{ limit }} characters!',
+                    ]),
+                ],
+            ])
 
             // FileType for the image field
             ->add('image', FileType::class, [
