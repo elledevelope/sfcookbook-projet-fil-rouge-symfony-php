@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Recipes;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,9 +20,32 @@ class RecipesType extends AbstractType
             ->add('description')
             ->add('ingredients')
             ->add('instructions')
-            ->add('level')
-            ->add('budget')
+            
+            // Use ChoiceType as radio buttons
+            ->add('level', ChoiceType::class, [
+                'label' => 'Level',
+                'choices' => [
+                    'Easy' => 'easy',
+                    'Medium' => 'medium',
+                    'Hard' => 'hard',
+                ],
+                'expanded' => true, // Render as radio buttons
+                'multiple' => false, // Allow only one selection
+            ])
+
+            ->add('budget', ChoiceType::class, [
+                'label' => 'Budget',
+                'choices' => [
+                    'Low' => 'low',
+                    'Medium' => 'medium',
+                    'High' => 'high',
+                ],
+                'expanded' => true,
+                'multiple' => false,
+            ])
+
             ->add('cuisine')
+
             // FileType for the image field
             ->add('image', FileType::class, [
                 'label' => 'Image',
