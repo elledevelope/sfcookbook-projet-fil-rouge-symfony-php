@@ -42,3 +42,6 @@ DATABASE_URL="mysql://root:@127.0.0.1:3306/sfcookbook?serverVersion=10.4.28-Mari
 ## Cache clear :
 - `php bin/console cache:clear` clear syfmony cache
 - `php bin/console doctrine:cache:clear-metadata` clear cache database
+
+## Delete a table from database :
+`php bin/console doctrine:query:sql "DROP TABLE your_table_name;"`
