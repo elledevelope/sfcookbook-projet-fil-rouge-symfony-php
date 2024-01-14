@@ -45,3 +45,20 @@ DATABASE_URL="mysql://root:@127.0.0.1:3306/sfcookbook?serverVersion=10.4.28-Mari
 
 ## Delete a table from database :
 `php bin/console doctrine:query:sql "DROP TABLE your_table_name;"`
+
+## User Symfony :
+`composer require symfony/security-bundle` SecurityBundle
+`symfony console make:user` create User
+`php bin/console doctrine:migrations:migrate`
+`php bin/console doctrine:migrations:migrate`
+`symfony console make:auth` Login form authenticator
+`symfony console make:registration-form`
+
+## Dashboard (easy admin) :
+https://symfony.com/bundles
+https://symfony.com/bundles/EasyAdminBundle/current/index.html
+https://easyadmin.readthedocs.io/en/latest/
+
+`composer require easycorp/easyadmin-bundle`
+`php bin/console make:admin:dashboard`
+`php bin/console make:admin:crud` here you choose Admin or User
