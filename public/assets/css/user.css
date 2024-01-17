@@ -1,0 +1,68 @@
+/* USER HOME PAGE */
+.user-profile{
+    /* background-color: #f4f4f4; */
+    background: url(/public/assets/img/userHome_background.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 100px;
+}
+
+.user-profile .user-intro {
+    width: 90%;
+    margin: auto;
+}
+
+.user-profile h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: black;
+    line-height: 35px;
+    text-align: center;
+    padding-top: 120px;
+    margin-bottom: 10px;
+}
+
+.user-profile p {
+    text-align: justify;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: .9rem;
+    font-weight: 900;
+}
+
+.card-user{
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    /* background-color: #fff; */
+    /* background-color: #f4f4f4; */
+    background: #fff3f3;
+    border-radius: 10px;
+    box-shadow: 0 0 20PX 0PX rgba(0, 0, 0, 0.2);
+}
+
+.card-user img {
+    border-radius: 50%;
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.card-user h1,
+h2 {
+    color: #333;
+}
+
+.card-user p {
+    color: #666;
+}
+
+.card-user ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card-user li {
+    margin-bottom: 10px;
+}
