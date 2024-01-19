@@ -35,6 +35,22 @@
 			</li>
 			<!-- <li><a href="#">Favorites</a></li> -->
 			<!-- <li><a href="#">My Recipes</a></li> -->
+
+			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+				<li>
+					<div>
+						<span>{{ app.user.username }}</span>
+						<a href="{{path('app_logout')}}">Logout</a>
+					</div>
+				</li>
+			{% else %}
+				<li>
+					<div>
+						<a href="{{path('app_login')}}">Login</a>
+						<a href="{{path('app_register')}}">Sing In</a>
+					</div>
+				</li>
+			{% endif %}
 		</ul>
 
 		<!-- <div id="login"> <img id="login-Img" src="{{ asset('assets/img/icons/login.svg') }}" alt="logIn"></div> -->
