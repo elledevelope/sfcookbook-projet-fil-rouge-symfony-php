@@ -9,9 +9,9 @@
 			<p class="pagename">Discover Culinary Delights</p>
 			<p class="p-intro">
 				Elevate your home cooking with our curated collection of mouthwatering recipes.
-				From Mediterranean-inspired Pan-Roasted Chicken to classic American Baked Potato Soup,
-				explore diverse flavors and create unforgettable meals in your own kitchen.
-				Let the adventure begin!
+								From Mediterranean-inspired Pan-Roasted Chicken to classic American Baked Potato Soup,
+								explore diverse flavors and create unforgettable meals in your own kitchen.
+								Let the adventure begin!
 			</p>
 
 			<div class="gallery-recipes">
@@ -28,7 +28,9 @@
 
 							{% if recipe.image %}
 								<div class="recipes-card-img">
-									<img class="crop-horizontal" src="/uploads/{{ recipe.image }}">
+									<img
+									class="crop-horizontal" src="/uploads/{{ recipe.image }}" alt="{{ recipe.title }}">
+								{# <img src="{{ asset('uploads/' ~ recipe.id ~ '.jpg') }}" alt="{{ recipe.title }}"> #}
 								</div>
 							{% endif %}
 

@@ -20,7 +20,9 @@
 				{# <!-- img --> #}
 				{% if recipe.image %}
 					<div class="recipe-img">
-						<img src="{{ asset('uploads/' ~ recipe.image) }}" alt="{{ recipe.image }}">
+						<img
+						src="/uploads/{{ recipe.image }}" alt="{{ recipe.title }}">
+					{# <img src="{{ asset('uploads/' ~ recipe.id ~ '.jpg') }}" alt="{{ recipe.title }}"> #}
 					</div>
 				{% endif %}
 
@@ -71,8 +73,8 @@
 			{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}
 			by
 			{# {% if user %}
-									<strong>{{ user.username }}</strong>
-								{% endif %} #}
+												<strong>{{ user.username }}</strong>
+											{% endif %} #}
 		</p>
 
 		{# <!-- btn Go Back --> #}
