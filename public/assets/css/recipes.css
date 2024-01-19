@@ -35,11 +35,17 @@ p {
 }
 
 .recipes .gallery-recipes {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: center; */
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 2fr);
+    grid-column-gap: 50px;
+    grid-row-gap: 20px;
 }
 
 .recipes-card {
@@ -309,6 +315,7 @@ p {
     width: 15px;
     transition-delay: 0.2s;
 }
+
 /* btnGoBack end */
 
 /* ---------------- New recipe page: recipe-new.view ------------ */
