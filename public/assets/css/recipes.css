@@ -41,25 +41,24 @@ p {
     justify-content: space-around;
     align-items: center; */
 
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, 2fr);
-    grid-column-gap: 50px;
-    grid-row-gap: 20px;
+    display: flex;
+    flex-wrap: wrap; 
 }
 
 .recipes-card {
-    flex-basis: 31%;
+    /* flex-basis: 31%; */
     background: #fff3f3;
     border-radius: 10px;
     margin: 10px 10px;
     padding: 20px 12px;
-    /* box-sizing: border-box; */
     transition: 0.5s;
 
-    min-width: 475px;
-    min-height: 630px;
-    position: relative;
+    /* min-width: 475px;
+    min-height: 630px; */
+    /* position: relative; */
+
+    flex: 1 0 calc(50% - 50px); /* 50% width with a 50px gap between items */
+    margin-bottom: 20px; 
 }
 
 .recipes-card:hover {
@@ -149,8 +148,8 @@ p {
     cursor: pointer;
     margin-top: 20px;
 
-    position: absolute;
-    bottom: 20px;
+    /* position: absolute; */
+    /* bottom: 20px; */
 }
 
 .btn-getCooking:hover {
