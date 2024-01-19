@@ -14,8 +14,9 @@
 
 	{{ form_row(registrationForm.password.first) }}
 	{{ form_row(registrationForm.password.second) }}
-    
-	{{ form_row(registrationForm.agreeTerms) }}
+
+	<a href="{{ path('app_terms_conditions') }}">{{ form_row(registrationForm.agreeTerms) }}</a>
+
 
 	<button type="submit" class="btn">Register</button>
 	{{ form_end(registrationForm) }}
