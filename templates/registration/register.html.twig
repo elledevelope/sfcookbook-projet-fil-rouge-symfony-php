@@ -4,20 +4,48 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Register</h1>
 
-	{{ form_errors(registrationForm) }}
+	<div class="container-log">
+		<div class="wrapper">
 
-	{{ form_start(registrationForm) }}
-	{{ form_row(registrationForm.email) }}
-	{{ form_row(registrationForm.username) }}
+			<h5>Register</h5>
 
-	{{ form_row(registrationForm.password.first) }}
-	{{ form_row(registrationForm.password.second) }}
+			{{ form_errors(registrationForm) }}
 
-	<a href="{{ path('app_terms_conditions') }}">{{ form_row(registrationForm.agreeTerms) }}</a>
+			{{ form_start(registrationForm) }}
+
+			<div class="input-box">
+				{{ form_row(registrationForm.email) }}
+				<i class='bx bxs-envelope'></i>
+			</div>
+
+			<div class="input-box">
+				{{ form_row(registrationForm.username) }}
+				<i class='bx bxs-user'></i>
+			</div>
+
+			<div class="input-box">
+				{{ form_row(registrationForm.password.first) }}
+				<i class='bx bxs-lock-alt'></i>
+			</div>
+
+			<div class="input-box">
+				{{ form_row(registrationForm.password.second) }}
+				<i class='bx bxs-lock-alt'></i>
+			</div>
+
+			<a href="{{ path('app_terms_conditions') }}">{{ form_row(registrationForm.agreeTerms) }}</a>
 
 
-	<button type="submit" class="btn">Register</button>
-	{{ form_end(registrationForm) }}
+			<button type="submit" class="btn">Register</button>
+
+			<div class="register-link">
+				<p>Already a member?</p>
+				<a href="{{ path('app_login') }}"> Login </a>
+			</div>
+
+			{{ form_end(registrationForm) }}
+
+		</div>
+	</div>
 {% endblock %}
