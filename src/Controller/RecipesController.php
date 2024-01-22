@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Recipes;
 use App\Form\RecipesType;
+use Knp\Component\Pager\PaginatorInterface;
 use App\Repository\RecipesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,9 +29,14 @@ class RecipesController extends AbstractController
     }
 
     #[Route('/', name: 'app_recipes_index', methods: ['GET'])]
-    public function index(RecipesRepository $recipesRepository): Response
+    public function index(RecipesRepository $recipesRepository, PaginatorInterface $paginator, Request $request): Response
     {
-        $recipes = $recipesRepository->findBy([], ['created_at' => 'DESC']);
+        // $recipes = $recipesRepository->findBy([], ['created_at' => 'DESC']);
+        $recipes = $paginator->paginate(
+            $recipesRepository->findBy([], ['id' => 'DESC']),
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
 
         return $this->render('recipes/index.html.twig', [
             'recipes' => $recipes,
