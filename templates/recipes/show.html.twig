@@ -15,8 +15,8 @@
 			{# <!-- description --> #}
 			<p class="p-description">{{ recipe.description }}</p>
 
-			<div
-				class="recipe-sub-content">
+			<div class="recipe-sub-content">
+
 				{# <!-- img --> #}
 				{% if recipe.image %}
 					<div class="recipe-img">
@@ -25,24 +25,41 @@
 					{# <img src="{{ asset('uploads/' ~ recipe.id ~ '.jpg') }}" alt="{{ recipe.title }}"> #}
 					</div>
 				{% endif %}
+					<div>
+						<div class="recipe-cuisine-budget">
+							{# <!-- cuisine --> #}
+							<p>
+								<i class='bx bx-globe'></i>:
+								{{ recipe.cuisine }}</p>
+							{# <!-- level --> #}
+							<p>
+								<i class='bx bxs-bowl-rice'></i>:
+								{{ recipe.level }}</p>
+							{# <!-- budget --> #}
+							<p>
+								<i class='bx bx-euro'></i>:
+								{{ recipe.budget }}</p>
+						</div>
 
-				{# <!-- ingredients --> #}
-				<div>
-					{% set ingredientsArray = recipe.ingredients|split(';') %}
-					<p class="p-sub-title p-ingredients">Ingredients:</p>
-					<ul class="ul-recipe">
-						{% for ingredient in ingredientsArray %}
-							<li>{{ ingredient|trim }}</li>
-						{% endfor %}
-					</ul>
+					{# <!-- ingredients --> #}
+					<div>
+						{% set ingredientsArray = recipe.ingredients|split(';') %}
+						<p class="p-sub-title ingredients-title">Ingredients:</p>
+						<ul class="ul-recipe text-ingredients">
+							{% for ingredient in ingredientsArray %}
+								<li>{{ ingredient|trim }}</li>
+							{% endfor %}
+						</ul>
+					</div>
 				</div>
+
 			</div>
 
 			{# <!-- instructions --> #}
 			<div>
 				{% set instructionsArray = recipe.instructions|split(';') %}
 				<p class="p-sub-title">Instructions:</p>
-				<ul class="ul-recipe instructions">
+				<ul class="ul-recipe text-instructions">
 					{% for index, instruction in instructionsArray %}
 						<li>
 							<strong>{{ (index + 1) }}.</strong>
@@ -50,22 +67,6 @@
 					{% endfor %}
 				</ul>
 			</div>
-		</div>
-
-		<div
-			class="recipe-bottom">
-			{# <!-- cuisine --> #}
-			<p>
-				<i class='bx bx-globe'></i>:
-				{{ recipe.cuisine }}</p>
-			{# <!-- level --> #}
-			<p>
-				<i class='bx bxs-bowl-rice'></i>:
-				{{ recipe.level }}</p>
-			{# <!-- budget --> #}
-			<p>
-				<i class='bx bx-euro'></i>:
-				{{ recipe.budget }}</p>
 		</div>
 
 		{# <!-- created_at --> #}
