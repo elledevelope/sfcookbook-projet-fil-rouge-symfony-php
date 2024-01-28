@@ -10,7 +10,8 @@
 		<img src="{{ asset('assets/img/icons/bars.svg') }}" alt="bars-icon">
 	</div>
 
-	<div class="nav-links show-menu hide-menu" id="navLinks">
+	<div
+		class="nav-links show-menu hide-menu" id="navLinks">
 		<!-- close-X -->
 		<div class="close-x">
 			<img src="{{ asset('assets/img/icons/x.svg') }}" alt="close-icon">
@@ -25,20 +26,32 @@
 			</li>
 			<li>
 				<a href="#">Cuisines</a>
-			</li>		
-			
-		
+			</li>
+
 
 			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-				<li class="li-no-hover">					
-					 <a class="nav-profile" href="{{ path('app_user_show', {'id': app.user.id}) }}"><span>{#<img class="avatar" src="{{asset('assets/img/') ~ app.user.avatar}}" alt="{{ app.user.username }}">#} My Profile</span></a>	 
-					 
+				<li class="li-no-hover">
+					<a class="nav-profile" href="{{ path('app_user_show', {'id': app.user.id}) }}">
+						<span>
+							{#<img class="avatar" src="{{asset('assets/img/') ~ app.user.avatar}}" alt="{{ app.user.username }}">#}
+							My Profile</span>
+					</a>
 				</li>
-				<li class="li-no-hover">				
-					<a class="logout-btn" href="{{path('app_logout')}}">Logout</a>						
+				
+				{% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN') %}
+				{# admin dashboard #}
+					<li class="li-no-hove">
+						<a class="nav-profile" href="{{ path('admin') }}">Dashboard</a>
+					</li>
+				{# admin dashboard #}
+				{% endif %}
+
+				<li class="li-no-hover">
+					<a class="logout-btn" href="{{path('app_logout')}}">Logout</a>
 					<!-- <li><a href="#">Profile</a></li> -->
 					<!-- <li><a href="#">Favorites</a></li> -->
 				</li>
+
 			{% else %}
 				<li class="login-li">
 					<div class="login-div">
@@ -47,9 +60,9 @@
 					</div>
 				</li>
 				{# <li>
-					<a href="{{path('app_register')}}">Sing In</a>
-				</li> #}
+													<a href="{{path('app_register')}}">Sing In</a>
+												</li> #}
 			{% endif %}
-		</ul>	
+		</ul>
 	</div>
 </nav>
