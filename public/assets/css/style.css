@@ -15,7 +15,7 @@ input {
 
 
 :root {
---color-heading: #1c212a;
+    --color-heading: #1c212a;
 
     --doc-width: 90%;
     --spacing-medium: 15px;
@@ -93,19 +93,14 @@ form a {
 }
 
 form label {
-    color: #34495e00;
-}
-
-#agreeToTerms {
-    color: #3f4954;
-
+    color: #5e3a34;
 }
 
 .container-log {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 90vh;
     background-image: url("/assets/img/background_login.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -133,6 +128,14 @@ form label {
     width: 100%;
     height: 50px;
     margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-box i {
+    font-size: 20px;
+    padding-left: 5px;
 }
 
 .input-box input {
@@ -148,33 +151,12 @@ form label {
     padding: 20px 45px 20px 20px;
 }
 
-.input-box input::placeholder {
+input[type="checkbox"] {
+width: 20px;
+}
+
+/* .input-box input::placeholder {
     color: #666;
-}
-
-.input-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.input-box i {
-    font-size: 20px;
-    padding-left: 5px;
-}
-
-/* .wrapper .remember-forgot {
-    font-size: 14.5px;
-    margin: -15px 0 15px;
-}
-
-.remember-forgot a {
-    color: #808080;
-    text-decoration: none;
-}
-
-.remember-forgot a:hover {
-    text-decoration: underline;
 } */
 
 .wrapper .btn {
@@ -185,14 +167,15 @@ form label {
     outline: none;
     border-radius: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    font-weight: 500;
     font-size: 1rem;
+    letter-spacing: 2px;
     color: #fff;
-    font-weight: 600;
+    margin-top: 20px;
 }
 
 .wrapper .btn:hover {
-    background-color: #aaa4a4;
-    color: black;
+    background-color: #04091eb3;
     transition: 0.5s;
 }
 
@@ -208,6 +191,16 @@ form label {
     align-items: center;
 }
 
+.register-link p {
+    margin-right: 10px;
+}
+
 .register-link a:hover {
     text-decoration: underline;
 }
+
+.wrapper .input-inner{
+    width: 400px;
+    margin: auto;
+}
+

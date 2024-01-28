@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register
+{% block title %}Register!
 {% endblock %}
 
 {% block body %}
@@ -34,8 +34,10 @@
 				<i class='bx bxs-lock-alt'></i>
 			</div>
 
-			<a href="{{ path('app_terms_conditions') }}">{{ form_row(registrationForm.agreeTerms) }}</a>
-
+			<div class="terms-check-box">
+			{{ form_row(registrationForm.agreeTerms) }}
+				{# <a href="{{ path('app_terms_conditions') }}"></a> #}
+			</div>
 
 			<button type="submit" class="btn">Register</button>
 
