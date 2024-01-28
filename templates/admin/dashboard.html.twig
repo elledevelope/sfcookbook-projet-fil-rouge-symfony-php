@@ -1,0 +1,24 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block stylesheets %}
+	<link
+	href="{{ asset('assets/css/dashboard.css') }}" rel="stylesheet"/>
+{# dashboard.css #}
+{% endblock %}
+
+{% block title %}
+	Admin dashboard
+{% endblock %}
+
+
+{% block main %}
+	<section class="admin-dashboard">
+		<h1>Welcome to the Admin Dashboard</h1>
+		<h4>Here you can view and manage:</h4><br>
+		<ol>
+			<li> <h6>All registered <strong>users</strong> on the platform;</h6></li><br>
+			<li> <h6><strong>Recipes</strong>, posted by users.</h6></li>
+		</ol>
+
+	</section>
+{% endblock %}
