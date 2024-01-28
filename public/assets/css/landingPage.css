@@ -124,8 +124,28 @@ nav ul li a {
     margin-bottom: 3px;  
 }
 
+.nav-profile span {
+    display: inline-block;
+    width: 120px;
+    color: #CFC4A6;
+    text-transform: capitalize;
+}
 
+.nav-links ul li.li-no-hover:hover::after {
+    width: 0%; 
+}
 
+.logout-btn {
+    text-transform: capitalize;
+    padding: 7px 10px;
+    border-radius: 7px;
+    background-color: #414769;
+    color: white;
+}
+
+.logout-btn:hover{
+    background-color: #05071279;
+}
 
 /* ------------- Hero section ------------- */
 .hero .index-page-cover-img {
@@ -587,6 +607,13 @@ nav ul li a {
         display: block;
         margin: auto;
         transition: 0.5s;
+    }
+
+    .nav-profile span {
+        color: #414769;    
+    }
+    .logout-btn:hover{
+        background-color: #414769;
     }
 
     /* Hero media query */

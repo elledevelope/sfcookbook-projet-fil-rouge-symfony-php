@@ -30,11 +30,12 @@
 		
 
 			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-				<li>
-					<div>
-						<span>{{ app.user.username }}</span>
-						<a href="{{path('app_logout')}}">Logout</a>
-					</div>	
+				<li class="li-no-hover">					
+					 <a class="nav-profile" href="{{ path('app_user_show', {'id': app.user.id}) }}"><span>{#<img class="avatar" src="{{asset('assets/img/') ~ app.user.avatar}}" alt="{{ app.user.username }}">#} My Profile</span></a>	 
+					 
+				</li>
+				<li class="li-no-hover">				
+					<a class="logout-btn" href="{{path('app_logout')}}">Logout</a>						
 					<!-- <li><a href="#">Profile</a></li> -->
 					<!-- <li><a href="#">Favorites</a></li> -->
 				</li>
