@@ -109,6 +109,22 @@ nav ul li a {
 .nav-links ul li.active a {
     color: #090909;
 }
+/* ------------- scroll nav js end ------------- */
+
+.login-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 7px;
+    margin-bottom: 3px;  
+}
+
+
 
 
 /* ------------- Hero section ------------- */
@@ -513,6 +529,7 @@ nav ul li a {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 0 4rem;
     }
 
     nav .burger,
@@ -523,11 +540,10 @@ nav ul li a {
     nav ul {
         display: flex;
         flex-direction: row;
-        width: 500px;
         position: absolute;
         top: 0;
         right: 0;
-        padding: 15px;
+        padding: 15px 4rem;        
     }
 
     nav ul li a {

@@ -7,16 +7,15 @@
 
 	<!-- burger -->
 	<div class="burger">
-		<img src="{{ asset('assets/img/icons/bars.svg') }}" alt="bars">
+		<img src="{{ asset('assets/img/icons/bars.svg') }}" alt="bars-icon">
 	</div>
 
-	<div
-		class="nav-links show-menu hide-menu" id="navLinks">
-
+	<div class="nav-links show-menu hide-menu" id="navLinks">
 		<!-- close-X -->
 		<div class="close-x">
-			<img src="{{ asset('assets/img/icons/x.svg') }}" alt="bars">
+			<img src="{{ asset('assets/img/icons/x.svg') }}" alt="close-icon">
 		</div>
+
 		<ul>
 			<li>
 				<a href="{{ path('app_home') }}">Home</a>
@@ -26,33 +25,30 @@
 			</li>
 			<li>
 				<a href="#">Cuisines</a>
-			</li>
-			<li>
-				{# <a href="{{ path('login') }}">Log In</a> #}
-			</li>
-			<li>
-				{# <a href="{{ path('register') }}">Sign up</a> #}
-			</li>
-			<!-- <li><a href="#">Favorites</a></li> -->
-			<!-- <li><a href="#">My Recipes</a></li> -->
+			</li>		
+			
+		
 
 			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 				<li>
 					<div>
 						<span>{{ app.user.username }}</span>
 						<a href="{{path('app_logout')}}">Logout</a>
-					</div>
+					</div>	
+					<!-- <li><a href="#">Profile</a></li> -->
+					<!-- <li><a href="#">Favorites</a></li> -->
 				</li>
 			{% else %}
-				<li>
-					<div>
-						<a href="{{path('app_login')}}">Login</a>
-						<a href="{{path('app_register')}}">Sing In</a>
+				<li class="login-li">
+					<div class="login-div">
+						<a href="{{path('app_register')}}">Login</a>
+						<img class="login-icon" src="{{ asset('assets/img/icons/login.svg') }}" alt="logIn">
 					</div>
 				</li>
+				{# <li>
+					<a href="{{path('app_register')}}">Sing In</a>
+				</li> #}
 			{% endif %}
-		</ul>
-
-		<!-- <div id="login"> <img id="login-Img" src="{{ asset('assets/img/icons/login.svg') }}" alt="logIn"></div> -->
+		</ul>	
 	</div>
 </nav>
