@@ -179,23 +179,23 @@ width: 20px;
     transition: 0.5s;
 }
 
-.wrapper .register-link {
+.wrapper .member-link {
     font-size: 14.5px;
     text-align: center;
     margin: 20px 0 15px;
 }
 
-.register-link {
+.member-link {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.register-link p {
+.member-link p {
     margin-right: 10px;
 }
 
-.register-link a:hover {
+.member-link a:hover {
     text-decoration: underline;
 }
 
@@ -203,4 +203,8 @@ width: 20px;
     width: 400px;
     margin: auto;
 }
-
+/* 
+.member-link {
+margin-top: 20px;
+text-align: center;
+} */
