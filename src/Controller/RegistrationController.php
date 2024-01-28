@@ -26,7 +26,7 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $created = new \DateTimeImmutable();
             $user->setCreatedAt($created);
-            $user->setRoles(['ROLE_USER']);
+            $user->setRoles(['ROLE_USER']);  //set ['ROLE_USER'] par default during registration
 
             // encode the password
             $user->setPassword(
