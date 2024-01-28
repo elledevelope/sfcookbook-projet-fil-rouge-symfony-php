@@ -1,7 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	<!-- Hero index -->
+
+	{# ------------------------------------------------- Hero index ------------------------------------------------- #}
 	<section class="hero">
 		<div class="index-page-cover-img parallax-one ">
 			<div class="text-box">
@@ -13,102 +14,99 @@
 		</div>
 	</section>
 
-	<!-- About - landing page -->
+	{# ------------------------------------------------- About - landing page ------------------------------------------------- #}
 	<section class="about-landing">
-		<h2>Introducing Cookbook –
+		<h2>Introducing Cookbook – <br> your ultimate culinary companion! 🍳🌟</h2>			
+			<div class="about-intro">
+				<p>
+					Cookbook is not just a recipe manager, it's a vibrant online community where passionate foodies unite to explore and revel in the delight of cooking.
+				</p>
+				{# <a href="{{ path('about') }}">Learn more about Cookbook</a> #}
+				<a href="#">Learn more about Cookbook</a>
+			</div>
 			<br>
-			your ultimate culinary companion! 🍳🌟</h2>
-		<div class="about-intro">
+
 			<p>
-				Cookbook is not just a recipe manager, it's a vibrant online community where passionate foodies unite to explore and revel in the delight of cooking.
+				This dynamic system has been
+				<span>carefully designed to make recipe management a breeze</span>.
+				<br>
+				<strong>Unlock the power to effortlessly create, add, update, and delete your recipes with just a few clicks</strong>
+				⬇️
 			</p>
-			{# <a href="{{ path('about') }}">Learn more about Cookbook</a> #}
-			<a href="#">Learn more about Cookbook</a>
-		</div> <br>
 
-		<p>
-			This dynamic system has been
-			<span>carefully designed to make recipe management a breeze</span>. <br>
-		<strong>Unlock the power to effortlessly create, add, update, and delete your recipes with just a few clicks</strong> ⬇️
-		</p>
+			<p class="line-break"></p><br>
+			<p id="p-join">Join us on this exciting culinary journey and experience the joy of creating and discovering delicious dishes together!</p>
+				{# <a class="join-btn" href="{{ path('register') }}">Join now!</a> #}
+				<a class="join-btn" href="#">Join now!</a>
+</section>
 
-		<p class="line-break"></p><br>
+	{# ------------------------------------------------- Key Features ------------------------------------------------- #}
+<section class="parallax-two">
+	<div class="features">
 
-		<p id="p-join">Join us on this exciting culinary journey
-		</p>
-	</span>
-	and experience the joy of creating and discovering delicious dishes together! 
-</p>
-{# <a class="join-btn" href="{{ path('register') }}">Join now!</a> #}
-<a class="join-btn" href="#">Join now!</a></section><!-- Key Features --><section class="parallax-two">
-<div class="features">
-	<div class="collaborative-cooking">
-		<div>
-			<h3>Collaborative Cooking</h3>
-			<p>
-				Embrace the
-				<strong>spirit of community</strong>
-				by sharing your favorite recipes and discovering new ones
-			</p>
+		<div class="collaborative-cooking avantages">
+			<h3>Collaborative <br>Cooking</h3>
+			<p>	Embrace the	<span>spirit of community</span> by sharing your favorite recipes and discovering new ones</p>
+			<div class="avantages-icon">
+			<img src="{{ asset('assets/img/icons/collaborative-cooking.png') }}" alt="Collaborative Cooking">
+			</div>
+		</div>
+
+		<div class="save-favorites avantages">
+			<h3>Save<br> Favorites</h3>
+			<p>Bookmark and <span>save your favorite recipes</span> for quick access</p>
+			<div class="avantages-icon">
+			<img src="{{ asset('assets/img/icons/save-favorites.png') }}" alt="Save Favorites">
+			</div>
+		</div>
+
+		<div class="no-fuss-interface avantages">
+			<h3>No-Fuss <br>Interface</h3>
+			<p>A simple and straightforward <span>interface for a hassle-free cooking experience</span></p>
+			<div class="avantages-icon">
+			<img src="{{ asset('assets/img/icons/no-fuss-interface.png') }}" alt="No-Fuss Interface">
+			</div>
 		</div>
 	</div>
+</section>
 
-	<div class="save-favorites">
-		<div>
-			<h3>Save Favorites</h3>
-			<p>
-				Bookmark and
-				<strong>save your favorite recipes</strong>
-				for quick access
-			</p>
-		</div>
+	{# ------------------------------------------------- World of Recipes ------------------------------------------------- #}
+<section class="worldRecipes">
+	<h2>Explore<br> a World of Recipes 🌍🍽️</h2>
+	<p>
+		Dive into a treasure trove of mouthwatering recipes from around the globe. Whether you're a novice cook or a seasoned chef, our extensive collection has something for everyone.
+	</p>
+
+	<div id="div-btn">
+		<button type="button" class="btn-dicover">
+			<a href="{{ path('app_recipes_index') }}">Discover More Recipes</a>
+			<svg stroke-width="4" stroke="currentColor" viewbox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
+				<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+			</svg>
+		</button>
 	</div>
 
-	<div class="no-fuss-interface">
-		<div>
-			<h3>No-Fuss Interface</h3>
-			<p>
-				A simple and straightforward
-				<strong>interface for a hassle-free cooking experience</strong>
-			</p>
+	<div class="worldRecipes-gallery">
+		<div class="worldRecipes-card">
+			<img src="{{ asset('assets/img/italian-cuisine.jpg') }}" alt="Italian Cuisine">
+			<div class="layer">
+				<h3>Italian Cuisine</h3>
+			</div>
+		</div>
+
+		<div class="worldRecipes-card">
+			<img src="{{ asset('assets/img/french-cuisine.jpg') }}" alt="French Cuisine">
+			<div class="layer">
+				<h3>French Cuisine</h3>
+			</div>
+		</div>
+
+		<div class="worldRecipes-card">
+			<img src="{{ asset('assets/img/asian-cuisine.jpg') }}" alt="Asian Cuisine">
+			<div class="layer">
+				<h3>Asian Cuisine</h3>
+			</div>
 		</div>
 	</div>
-</div></section><!-- World of Recipes --><section id="worldRecipes">
-<h2>Explore
-	<br>
-	a World of Recipes 🌍🍽️</h2>
-<p>
-	Dive into a treasure trove of mouthwatering recipes from around the globe. Whether you're a novice cook or a seasoned chef, our extensive collection has something for everyone.
-</p>
-
-<div id="div-btn">
-	<button type="button" class="btn-dicover">
-		<a href="{{ path('app_recipes_index') }}">Discover More Recipes</a>
-		<svg stroke-width="4" stroke="currentColor" viewbox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
-			<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
-		</svg>
-	</button>
-</div>
-
-<div class="row">
-	<div id="worldRecipes-col">
-		<img src="{{ asset('assets/img/italian-cuisine.jpg') }}">
-		<div class="layer">
-			<h3>Italian Cuisine</h3>
-		</div>
-	</div>
-
-	<div id="worldRecipes-col">
-		<img src="{{ asset('assets/img/french-cuisine.jpg') }}">
-		<div class="layer">
-			<h3>French Cuisine</h3>
-		</div>
-	</div>
-
-	<div id="worldRecipes-col">
-		<img src="{{ asset('assets/img/asian-cuisine.jpg') }}">
-		<div class="layer">
-			<h3>Asian Cuisine</h3>
-		</div>
-	</div>
-</div></section>{% endblock %}
+</section>
+{% endblock %}
