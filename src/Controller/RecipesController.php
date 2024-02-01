@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-// use App\Entity\Users;
+
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -95,15 +95,9 @@ public function new(Request $request, EntityManagerInterface $entityManager): Re
     #[Route('/{id}', name: 'app_recipes_show', methods: ['GET'])]
     public function show(Recipes $recipe): Response
     {
-        // Fetch user information based on user_id from the recipe
-        // $user = $this->getDoctrine()->getRepository(Users::class)->find($recipe->getUserId());
-
-        // $userRepository = $this->entityManager->getRepository(Users::class);
-        // $user = $userRepository->find($recipe->getUserId());
 
         return $this->render('recipes/show.html.twig', [
-            'recipe' => $recipe,
-            // 'user' => $user,
+            'recipe' => $recipe,         
         ]);
     }
 
