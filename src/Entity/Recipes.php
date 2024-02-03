@@ -14,9 +14,6 @@ class Recipes
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $recipe_id;
-
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
@@ -41,9 +38,6 @@ class Recipes
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $user_id = null;
-
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $created_at = null;
 
@@ -55,19 +49,7 @@ class Recipes
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getRecipeId(): ?int
-    {
-        return $this->recipe_id;
-    }
-
-    public function setRecipeId(int $recipe_id): static
-    {
-        $this->recipe_id = $recipe_id;
-
-        return $this;
-    }
+    } 
 
     public function getTitle(): ?string
     {
@@ -161,18 +143,6 @@ class Recipes
     public function setImage(?string $image): static
     {
         $this->image = $image;
-
-        return $this;
-    }
-
-    public function getUserId(): ?int
-    {
-        return $this->user_id;
-    }
-
-    public function setUserId(?int $user_id): static
-    {
-        $this->user_id = $user_id;
 
         return $this;
     }
