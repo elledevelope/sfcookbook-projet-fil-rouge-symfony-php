@@ -19,8 +19,8 @@
 				{% if user.avatar %}
 					<img src="{{ asset('uploads/avatar/' ~ user.avatar) }}" alt="My avatar">
 				{% else %}
-					<p>No avatar available</p>
-				{% endif %}
+					<img src="{{ asset('uploads/avatar/default_avatar.png') }}" alt="Avatar">
+				{% endif %}                	
 
 				{# usermane #}
 				<h2>username:

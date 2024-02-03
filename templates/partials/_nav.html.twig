@@ -32,18 +32,22 @@
 			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 				<li class="li-no-hover">
 					<a class="nav-profile" href="{{ path('app_user_show', {'id': app.user.id}) }}">
-						<span>
-							{#<img class="avatar" src="{{asset('assets/img/') ~ app.user.avatar}}" alt="{{ app.user.username }}">#}
-							My Profile</span>
+						<span>{{ app.user.username }}</span>
+						{# user avatar #}
+						{% if app.user.avatar %}
+							<img src="{{ asset('uploads/avatar/' ~ app.user.avatar) }}" alt="{{ app.user.username }}">
+						{% else %}
+							<img src="{{ asset('uploads/avatar/default_avatar.png') }}" alt="Avatar">					
+						{% endif %}
 					</a>
 				</li>
-				
+
 				{% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN') %}
-				{# admin dashboard #}
+					{# admin dashboard #}
 					<li class="li-no-hove">
 						<a class="nav-profile" href="{{ path('admin') }}">Dashboard</a>
 					</li>
-				{# admin dashboard #}
+					{# admin dashboard #}
 				{% endif %}
 
 				<li class="li-no-hover">
@@ -59,9 +63,6 @@
 						<img class="login-icon" src="{{ asset('assets/img/icons/login.svg') }}" alt="logIn">
 					</div>
 				</li>
-				{# <li>
-													<a href="{{path('app_register')}}">Sing In</a>
-												</li> #}
 			{% endif %}
 		</ul>
 	</div>

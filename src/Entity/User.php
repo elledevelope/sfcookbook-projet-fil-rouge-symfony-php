@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+// use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
@@ -145,7 +146,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->avatar;
     }
 
-    public function setAvatar(string $avatar): static
+    // public function setAvatar(string $avatar): static
+    // {
+    //     $this->avatar = $avatar;
+
+    //     return $this;
+    // }
+
+    // public function getAvatar(): ?string
+    // {
+    //     // If the avatar is not set, return the default avatar path
+    //     return $this->avatar ?: 'uploads/avatar/default_avatar.png';
+    // }
+
+    public function setAvatar(?string $avatar): self
     {
         $this->avatar = $avatar;
 
