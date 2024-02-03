@@ -1,50 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User{% endblock %}
+{% block title %}Your profile
+{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
+	<section class="user-profile">
+		<div class="user-intro">
+			<h1>Welcome to Your Profile Hub</h1>
+			<p>
+				<span>Your profile is the heart of our community — make it uniquely yours!</span>
+				Dive into a world of flavors and personalize your cooking haven. Update your bio to share your culinary story, set a profile picture that reflects your kitchen charisma, and showcase your favorite recipes. Track your culinary milestones, see the recipes you've loved.
+			</p>
+		</div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>Roles</th>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ user.password }}</td>
-            </tr>
-            <tr>
-                <th>Username</th>
-                <td>{{ user.username }}</td>
-            </tr>
-            <tr>
-                <th>About</th>
-                <td>{{ user.about }}</td>
-            </tr>
-            <tr>
-                <th>Avatar</th>
-                <td>{{ user.avatar }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+		<div class="card-user">
+			<div>
+				{# avatar #}
+				{% if user.avatar %}
+					<img src="{{ asset('uploads/avatar/' ~ user.avatar) }}" alt="My avatar">
+				{% else %}
+					<p>No avatar available</p>
+				{% endif %}
 
-    <a href="{{ path('app_user_index') }}">back to list</a>
+				{# usermane #}
+				<h2>username:
+					<span>{{ user.username }}</span>
+				</h2>
 
-    <a href="{{ path('app_user_edit', {'id': user.id}) }}">edit</a>
+				{# email #}
+				<p>email:
+					{{ user.email }}</p>
 
-    {{ include('user/_delete_form.html.twig') }}
-{% endblock %}
+				{# about  #}
+				<h2>About me:</h2>
+				<p class="user-about">{{ user.about }}</p>
+
+				{# created_at #}
+				<p>You are a member of Cookbook community since:
+					<span>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</span>
+				</p>
+			</div>
+
+			<a href="{{ path('app_user_edit', {'id': user.id}) }}">Edit profile</a>
+
+			{{ include('user/_delete_form.html.twig') }}
+
+		</section>
+	{% endblock %}
