@@ -3,25 +3,31 @@
 namespace App\Form;
 
 use App\Entity\Recipes;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
-
-
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 
 class RecipesType extends AbstractType
 {
+    private $session;
+
+    public function __construct($session)
+    {
+        $this->session = $session;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            // ->add('recipe_id')
-
             ->add('title', TextType::class, [
                 'label' => 'Title',
                 'constraints' => [
@@ -33,6 +39,7 @@ class RecipesType extends AbstractType
                     ]),
                 ],
             ])
+
 
 
             ->add('description', TextType::class, [
@@ -158,9 +165,10 @@ Add sliced onions;
                 ]
             ])
 
-            // ->add('user_id')
-            // ->add('created_at')
-        ;
+            // Add a hidden field for user_id
+            ->add('user_id', HiddenType::class, [
+                'mapped' => false, // This field is not mapped to any entity property
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -168,5 +176,11 @@ Add sliced onions;
         $resolver->setDefaults([
             'data_class' => Recipes::class,
         ]);
+    }
+
+    public function buildView(FormView $view, FormInterface $form, array $options): void
+    {
+        // Set the value of user_id dynamically based on the logged-in user ID stored in the session
+        $view->vars['value']['user_id'] = $this->session->get('user_id');
     }
 }

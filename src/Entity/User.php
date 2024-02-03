@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -41,9 +43,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'datetime_immutable')]
     private ?\DateTimeImmutable $createdAt;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Recipes::class)]
+    private Collection $recipes;
+
+    #[ORM\ManyToMany(targetEntity: Recipes::class, inversedBy: 'users')]
+    private Collection $favoriteRecipe;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
+        $this->recipes = new ArrayCollection();
+        $this->favoriteRecipe = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -160,6 +170,60 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Recipes>
+     */
+    public function getRecipes(): Collection
+    {
+        return $this->recipes;
+    }
+
+    public function addRecipe(Recipes $recipe): static
+    {
+        if (!$this->recipes->contains($recipe)) {
+            $this->recipes->add($recipe);
+            $recipe->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecipe(Recipes $recipe): static
+    {
+        if ($this->recipes->removeElement($recipe)) {
+            // set the owning side to null (unless already changed)
+            if ($recipe->getUser() === $this) {
+                $recipe->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Recipes>
+     */
+    public function getFavoriteRecipe(): Collection
+    {
+        return $this->favoriteRecipe;
+    }
+
+    public function addFavoriteRecipe(Recipes $favoriteRecipe): static
+    {
+        if (!$this->favoriteRecipe->contains($favoriteRecipe)) {
+            $this->favoriteRecipe->add($favoriteRecipe);
+        }
+
+        return $this;
+    }
+
+    public function removeFavoriteRecipe(Recipes $favoriteRecipe): static
+    {
+        $this->favoriteRecipe->removeElement($favoriteRecipe);
 
         return $this;
     }

@@ -1,0 +1,4 @@
+Recipe - User [ManyToOne]
+Recipe - Favorites - User [ManyToMany]
+
+php bin/console make:entity

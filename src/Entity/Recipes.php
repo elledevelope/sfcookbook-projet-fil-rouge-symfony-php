@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RecipesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -41,9 +43,16 @@ class Recipes
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $created_at = null;
 
+    #[ORM\ManyToOne(inversedBy: 'recipes')]
+    private ?User $user = null;
+
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'favoriteRecipe')]
+    private Collection $users;
+
     public function __construct()
     {
         return $this->created_at = new \DateTime(); //added automatic DateTime for row created_at in our form (Form/LiensType)
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -155,6 +164,45 @@ class Recipes
     public function setCreatedAt(\DateTimeInterface $created_at): static
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): static
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->addFavoriteRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): static
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeFavoriteRecipe($this);
+        }
 
         return $this;
     }

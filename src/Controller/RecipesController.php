@@ -126,23 +126,23 @@ public function new(Request $request, EntityManagerInterface $entityManager): Re
     {
         $form = $this->createForm(RecipesType::class, $recipe);
         $form->handleRequest($request);
-
+    
         if ($form->isSubmitted() && $form->isValid()) {
             // Check if a new image file was uploaded
             $newImage = $form['image']->getData();
-
+    
             if ($newImage instanceof UploadedFile) {
                 // Handle file upload
                 $originalFilename = pathinfo($newImage->getClientOriginalName(), PATHINFO_FILENAME);
                 $newFilename = $originalFilename . '-' . uniqid() . '.' . $newImage->guessExtension();
-
+    
                 // Move the file to the desired directory
                 try {
                     $newImage->move(
                         $this->getParameter('upload_directory'),
                         $newFilename
                     );
-
+    
                     // Set the image property of the recipe entity to the new filename
                     $recipe->setImage($newFilename);
                 } catch (FileException $e) {
@@ -151,13 +151,13 @@ public function new(Request $request, EntityManagerInterface $entityManager): Re
                     $this->addFlash('error', 'Error uploading the file.');
                 }
             }
-
+    
             // Continue with the rest of the form submission logic
             $entityManager->flush();
-
+    
             return $this->redirectToRoute('app_recipes_index', [], Response::HTTP_SEE_OTHER);
         }
-
+    
         return $this->render('recipes/edit.html.twig', [
             'recipe' => $recipe,
             'form' => $form->createView(), // Note: Create the form view using createView() method
