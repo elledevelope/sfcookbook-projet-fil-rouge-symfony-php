@@ -16,6 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
+
 use \Gumlet\ImageResize;
 
 #[Route('/recipes')]
@@ -44,51 +45,51 @@ class RecipesController extends AbstractController
     }
 
     #[Route('/new', name: 'app_recipes_new', methods: ['GET', 'POST'])]
-public function new(Request $request, EntityManagerInterface $entityManager): Response
-{
-    $recipe = new Recipes();
-    $form = $this->createForm(RecipesType::class, $recipe);
-    $form->handleRequest($request);
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $recipe = new Recipes();
+        $form = $this->createForm(RecipesType::class, $recipe);
+        $form->handleRequest($request);
 
-    if ($form->isSubmitted() && $form->isValid()) {
-        // Persist the entity to generate the ID
-        $entityManager->persist($recipe);
-        $entityManager->flush();
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Persist the entity to generate the ID
+            $entityManager->persist($recipe);
+            $entityManager->flush();
 
-        // Now the entity has an ID
-        $entityId = $recipe->getId();
-        $file = $form['image']->getData();
-        if ($file) {
-            $newFilename = 'recipe_' . $entityId . '.' . $file->guessExtension();
+            // Now the entity has an ID
+            $entityId = $recipe->getId();
+            $file = $form['image']->getData();
+            if ($file) {
+                $newFilename = 'recipe_' . $entityId . '.' . $file->guessExtension();
 
-            // Move the file to the desired directory
-            try {
-                $file->move(
-                    $this->getParameter('upload_directory'),
-                    $newFilename
-                );
+                // Move the file to the desired directory
+                try {
+                    $file->move(
+                        $this->getParameter('upload_directory'),
+                        $newFilename
+                    );
 
-                // Set the image property of the recipe entity to the filename
-                $recipe->setImage($newFilename);
+                    // Set the image property of the recipe entity to the filename
+                    $recipe->setImage($newFilename);
 
-                // Persist the changes to the entity
-                $entityManager->persist($recipe);
-                $entityManager->flush();
-            } catch (FileException $e) {
-                // Handle file upload error
-                // Log the error or display a message
-                $this->addFlash('error', 'Error uploading the file.');
+                    // Persist the changes to the entity
+                    $entityManager->persist($recipe);
+                    $entityManager->flush();
+                } catch (FileException $e) {
+                    // Handle file upload error
+                    // Log the error or display a message
+                    $this->addFlash('error', 'Error uploading the file.');
+                }
             }
+
+            return $this->redirectToRoute('app_recipes_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->redirectToRoute('app_recipes_index', [], Response::HTTP_SEE_OTHER);
+        return $this->render('recipes/new.html.twig', [
+            'recipe' => $recipe,
+            'form' => $form,
+        ]);
     }
-
-    return $this->render('recipes/new.html.twig', [
-        'recipe' => $recipe,
-        'form' => $form,
-    ]);
-}
 
 
 
@@ -170,8 +171,6 @@ public function new(Request $request, EntityManagerInterface $entityManager): Re
         ]);
     }
 
-
-
     #[Route('/{id}', name: 'app_recipes_delete', methods: ['POST'])]
     public function delete(Request $request, Recipes $recipe, EntityManagerInterface $entityManager): Response
     {
@@ -181,5 +180,30 @@ public function new(Request $request, EntityManagerInterface $entityManager): Re
         }
 
         return $this->redirectToRoute('app_recipes_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/by-cuisine/{cuisine}', name: 'app_recipes_by_cuisine', methods: ['GET'])]
+    public function recipesByCuisine(string $cuisine, RecipesRepository $recipesRepository): Response
+    {
+        $recipes = $recipesRepository->findByCuisine($cuisine);
+
+        return $this->render('recipes/by_cuisine.html.twig', [
+            'recipes' => $recipes,
+            'cuisine' => $cuisine,
+        ]);
+    }
+
+    // Search recipes :
+    #[Route('/search/recipes-by-cuisine', name: 'app_search_recipes_by_cuisine', methods: ['GET'])]
+    public function searchRecipesByCuisine(Request $request, RecipesRepository $recipesRepository): Response
+    {
+        $cuisine = $request->query->get('cuisine');
+
+        $recipes = $recipesRepository->findByCuisine($cuisine);
+
+        return $this->render('recipes/by_cuisine.html.twig', [
+            'recipes' => $recipes,
+            'cuisine' => $cuisine,
+        ]);
     }
 }
