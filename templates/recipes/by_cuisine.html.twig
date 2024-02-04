@@ -15,11 +15,15 @@
 		</p>
 
 		{# Search recipes form #}
-		<form action="{{ path('app_search_recipes_by_cuisine') }}" method="get">
-			<label for="cuisine">Search by Cuisine:</label>
-			<input type="text" id="cuisine" name="cuisine" placeholder="Type a cuisine...">
-			<button type="submit">Search</button>
-		</form>
+		<div class="search-div">
+			<p>Search by Cuisine:</p>
+			<form action="{{ path('app_search_recipes_by_cuisine') }}" method="get">
+				<input type="text" id="cuisine" name="cuisine" placeholder="ex: Italian">
+				<button type="submit">
+					<i class='bx bx-search'></i>
+				</button>
+			</form>
+		</div>
 
 		<div class="gallery-recipes">
 			{% for recipe in recipes %}
@@ -53,15 +57,14 @@
 				<p>No recipes found.</p>
 			{% endfor %}
 		</div>
-	</section>
-
-	{# <a href="{{ path('app_recipes_new') }}">Create new recipe</a> #}
-	<div class="div-btnGoBack">
+        	<div class="div-btnGoBack">
 		<button type="button" class="btnGoBack">
-			<a href="{{ path('app_recipes_index') }}">Back to recipes</a>
+			<a href="{{ path('app_home') }}">Go back</a>
 			<svg stroke-width="4" stroke="currentColor" viewbox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
 				<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
 			</svg>
 		</button>
 	</div>
+	</section>
+
 {% endblock %}

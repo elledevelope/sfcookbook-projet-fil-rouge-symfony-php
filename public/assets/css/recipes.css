@@ -459,6 +459,43 @@ form ul {
     text-align: left;
 }
 
+/* -------------------------------------------- recipes by cusine */
+
+.recipes-by-cuisine h2 {
+    text-transform: capitalize;
+}
+
+.recipes .search-div form {
+    margin-bottom: 30px;
+    display: flex; 
+}
+
+.recipes .search-div form input {
+    border: 1px rgba(128, 128, 128, 0.26) solid;
+    border-right: none;
+    outline: none;
+    font-size: 1rem;
+    color: black;
+    border-radius: 3px 0 0 3px;
+}
+
+.recipes .search-div form button {
+    background-color: navajowhite;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 0 3px 3px 0;
+    font-size: 1rem;
+    font-weight: bolder;
+    border: 1px rgba(128, 128, 128, 0.26) solid;
+    border-left: none;
+}
+
+header nav .nav-links ul .search-div form button:hover {
+    opacity: 70%;
+}
+
+
+
 /*------------- MEDIA QUERY -------- */
 /*------------- MEDIA QUERY -------- */
 /*------------- MEDIA QUERY -------- */
