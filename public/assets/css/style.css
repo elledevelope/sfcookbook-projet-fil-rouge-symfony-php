@@ -11,8 +11,19 @@
 img,
 input {
     width: 100%;
+    vertical-align: bottom;
 }
 
+ul {
+    list-style: none;
+}
+
+a,
+li,
+button {
+    text-decoration: none;
+    cursor: pointer;
+}
 
 :root {
     --color-heading: #1c212a;
@@ -29,10 +40,10 @@ input {
     --umber: #705C53ff;
     --engineering-orange: #C83016ff;
     --dark-moss-green: #4C4D12ff;
-    * color: #718daa;
-    color: #e74c3c;
-    color: #34495e;
-    color: #777;
+    --color1: #718daa;
+    --color-brand: #e74c3c;
+    --color2: #34495e;
+    --color-grey: #777;
 
     --color_light: #f8f9fa;
     --color-white: #ffffff;
@@ -40,10 +51,7 @@ input {
     --color-medium: #e8e8e8;
 
     --spacing-small: 10px;
-
     --spacing-large: 30px;
-
-
 
     --border-radius: 5px;
     --box-shadow: 0 16px 24px 2px rgba(33, 37, 41, 0.02),
@@ -152,7 +160,7 @@ form label {
 }
 
 input[type="checkbox"] {
-width: 20px;
+    width: 20px;
 }
 
 /* .input-box input::placeholder {
@@ -199,8 +207,7 @@ width: 20px;
     text-decoration: underline;
 }
 
-.wrapper .input-inner{
+.wrapper .input-inner {
     width: 400px;
     margin: auto;
 }
-

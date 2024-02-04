@@ -24,45 +24,62 @@
 			<li>
 				<a href="{{ path('app_recipes_index') }}">Recipes</a>
 			</li>
-			<li>
-				<a href="#">Cuisines</a>
-			</li>
+
+			{# Search recipes bar #}
+			<div class="search-div">
+				<form
+					action="{{ path('app_search_recipes_by_cuisine') }}" method="get">
+					{# <label for="cuisine">Search by Cuisine:</label> #}
+					<input type="text" id="cuisine" name="cuisine" placeholder="Cuisine...">
+					<button type="submit">
+						<i class='bx bx-search'></i>
+					</button>
+				</form>
+			</div>
 
 
 			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-				<li class="li-no-hover">
-					<a class="nav-profile" href="{{ path('app_user_show', {'id': app.user.id}) }}">
-						<span>{{ app.user.username }}</span>
+				{# profile #}
+				<div class="nav-profile">
+					<a href="{{ path('app_user_show', {'id': app.user.id}) }}">
+						<span class="nav-username">{{ app.user.username }}</span>
 						{# user avatar #}
 						{% if app.user.avatar %}
-							<img src="{{ asset('uploads/avatar/' ~ app.user.avatar) }}" alt="{{ app.user.username }}">
+							<div class="nav-avatar">
+								<img src="{{ asset('uploads/avatar/' ~ app.user.avatar) }}" alt="{{ app.user.username }}">
+							</div>
+
 						{% else %}
-							<img src="{{ asset('uploads/avatar/default_avatar.png') }}" alt="Avatar">					
+							<div class="nav-avatar">
+								<img src="{{ asset('uploads/avatar/default_avatar.png') }}" alt="Avatar">
+							</div>
 						{% endif %}
 					</a>
-				</li>
+				</div>
 
+				{# admin dashboard #}
 				{% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN') %}
-					{# admin dashboard #}
-					<li class="li-no-hove">
-						<a class="nav-profile" href="{{ path('admin') }}">Dashboard</a>
-					</li>
-					{# admin dashboard #}
+					<div class="nav-dashboard">
+						<a href="{{ path('admin') }}">Dashboard</a>
+					</div>
 				{% endif %}
 
-				<li class="li-no-hover">
-					<a class="logout-btn" href="{{path('app_logout')}}">Logout</a>
-					<!-- <li><a href="#">Profile</a></li> -->
-					<!-- <li><a href="#">Favorites</a></li> -->
-				</li>
+				{# logout #}
+				<div class="logout-btn">
+					<a href="{{path('app_logout')}}">Logout</a>
+				</div>
 
 			{% else %}
-				<li class="login-li">
-					<div class="login-div">
+				{# login #}
+				<div class="login-li">
+					<div class="login-btn">
 						<a href="{{path('app_login')}}">Login</a>
-						<img class="login-icon" src="{{ asset('assets/img/icons/login.svg') }}" alt="logIn">
+						{# <img class="login-icon" src="{{ asset('assets/img/icons/login.svg') }}" alt="logIn"> #}
 					</div>
-				</li>
+					<div class="register-btn">
+						<a href="{{path('app_register')}}">Register</a>
+					</div>
+				</div>
 			{% endif %}
 		</ul>
 	</div>
