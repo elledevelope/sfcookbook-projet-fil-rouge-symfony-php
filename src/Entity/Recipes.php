@@ -43,19 +43,21 @@ class Recipes
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $created_at = null;
 
-    #[ORM\OneToMany(mappedBy: 'recipes', targetEntity: RecipeLike::class)]
+    /**
+     * @ORM\OneToMany(targetEntity=RecipeLike::class, mappedBy="recipes", orphanRemoval=true)
+     */
     private Collection $likes;
 
     public function __construct()
     {
-        return $this->created_at = new \DateTime(); //added automatic DateTime for row created_at in our form (Form/LiensType)
+        $this->created_at = new \DateTime();
         $this->likes = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    } 
+    }
 
     public function getTitle(): ?string
     {
@@ -173,17 +175,17 @@ class Recipes
         return $this->likes;
     }
 
-    public function addLike(RecipeLike $like): static
+    public function addLike(RecipeLike $like): self
     {
         if (!$this->likes->contains($like)) {
-            $this->likes->add($like);
+            $this->likes[] = $like;
             $like->setRecipes($this);
         }
 
         return $this;
     }
 
-    public function removeLike(RecipeLike $like): static
+    public function removeLike(RecipeLike $like): self
     {
         if ($this->likes->removeElement($like)) {
             // set the owning side to null (unless already changed)
