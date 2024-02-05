@@ -69,14 +69,28 @@
 			</div>
 		</div>
 
-		{# <!-- created_at --> #}
-		<p class="recipe-created-by">Created
-			{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}
-			by
-			{# {% if user %}
-												<strong>{{ user.username }}</strong>
-											{% endif %} #}
-		</p>
+        {# Created by #}
+<p class="recipe-created-by">
+    Created {{ recipe.createdAt ? recipe.createdAt|date('j F Y') : '' }} by
+    {% if recipe.author is not null %}
+        {% if recipe.author.id == app.user.id %}
+            <strong>{{ app.user.username }}</strong>
+        {% else %}
+            {{ recipe.author.username }}
+        {% endif %}
+    {% else %}
+        Unknown Author
+    {% endif %}
+</p>
+
+{# Edit and Delete buttons (only for the author) #}
+{% if recipe.author is not null and recipe.author.id == app.user.id %}
+   <div class="recipe-buttons">
+        <a href="{{ path('app_recipes_edit', {'id': recipe.id}) }}">Edit</a>
+        {{ include('recipes/_delete_form.html.twig') }}
+    </div>
+{% endif %}
+
 
 		{# <!-- btn Go Back --> #}
 		<div class="div-btnGoBack">
@@ -88,8 +102,5 @@
 			</button>
 		</div>
 
-		<a href="{{ path('app_recipes_edit', {'id': recipe.id}) }}">edit</a>
-
-		{{ include('recipes/_delete_form.html.twig') }}
 	</section>
 {% endblock %}
