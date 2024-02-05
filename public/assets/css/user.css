@@ -1,5 +1,6 @@
-/* USER HOME PAGE */
-.user-profile{
+/* ------------------------- /user/id (profile) */
+/* ------------------------- /user/id (profile) */
+.user-profile {
     background: url("/assets/img/user_profile_background.jpg");
     background-repeat: no-repeat;
     background-position: center;
@@ -7,12 +8,16 @@
     padding-bottom: 100px;
 }
 
+.user-profile p {
+    color: #666;
+}
+
 .user-profile .user-intro {
     width: 90%;
     margin: auto;
- }
+}
 
-.user-profile h1{
+.user-profile .user-intro h1 {
     font-size: 1.5rem;
     font-weight: 600;
     color: #333;
@@ -22,15 +27,54 @@
     margin-bottom: 10px;
 }
 
-/* .user-profile p {
-    text-align: justify;
-    margin-bottom: 30px;
+.user-profile .user-intro .member-since {
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: .9rem;
+}
+
+.user-profile .edit-delete {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.user-profile .btn-edit {
+    /* position: absolute;
+    top: 5px;
+    right: 5px; */
+    /* background-color: #dfcdcd; */
+    background-color: #b5c8a7;
+    padding: 5px 10px;
+    border-radius: 5px;
     color: #333;
     font-size: .9rem;
-    font-weight: 900;
-}  */
+}
 
-.card-user{
+.user-profile .btn-edit:hover {
+    opacity: 90%;
+}
+
+.user-profile .btn-delete-profile {
+    /* position: absolute;
+    bottom: 5px;
+    right: 5px; */
+    background-color: #df6c6c;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #333;
+    font-size: .9rem;
+    border: none;
+}
+
+.user-profile .btn-delete-profile:hover {
+    opacity: 90%;
+}
+
+.user-profile .card-user {
     width: 90%;
     max-width: 600px;
     margin: auto;
@@ -38,29 +82,59 @@
     background: #fff3f3;
     border-radius: 10px;
     box-shadow: 0 0 20PX 0PX rgba(0, 0, 0, 0.2);
+    /* position: relative; */
 }
 
-.card-user img {
+.user-profile .card-user img {
     border-radius: 50%;
     max-width: 150px;
     height: auto;
     margin-bottom: 10px;
 }
 
-.card-user h1,
-h2 {
-    color: #333;
+.user-profile .card-user .user-about {
+    margin: 20px 0;
 }
 
-.card-user p {
-    color: #666;
+
+
+/* ------------------------- /user/edit (profile) */
+/* ------------------------- /user/edit (profile) */
+.section-wrapper {
+    width: 90%;
+    margin: auto;
 }
 
-.card-user ul {
-    list-style: none;
-    padding: 0;
+.section-wrapper form .btn {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #34495e;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 20px;
+    padding: 15px 30px;
 }
 
-.card-user li {
-    margin-bottom: 10px;
+.section-wrapper form .btn:hover {
+    background-color: #C3C7D1ff;
+    color: black;
+    transition: 0.5s;
+}
+
+/* ------------------ MEDIA QUERY - USER  ------------------ */
+@media screen and (min-width: 576px) {
+
+    /* ------------------ media: USER EDIT */
+    .section-wrapper {
+        width: 50%;
+        margin: auto;
+    }
+
 }
