@@ -42,6 +42,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'datetime_immutable')]
     private ?\DateTimeImmutable $createdAt;
 
+    #[ORM\ManyToOne(inversedBy: 'user')]
+    private ?RecipeLike $likes = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -174,6 +177,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getLikes(): ?RecipeLike
+    {
+        return $this->likes;
+    }
+
+    public function setLikes(?RecipeLike $likes): static
+    {
+        $this->likes = $likes;
 
         return $this;
     }
