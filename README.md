@@ -1,3 +1,5 @@
+<!--  rich text editor library is TinyMCE. -->
+
 ## Server :
 - `symfony.exe server:start` https://127.0.0.1:8000/liens/new
 - `symfony.exe server:stop` stop server 

@@ -31,13 +31,13 @@
 				<p>email:
 					{{ user.email }}</p>
 
-				{# about  #}
+				{# about  #}				
 				<h2>About me:</h2>
-				<p class="user-about">{{ user.about }}</p>
-
+				<p class="user-about">{{ user.about ? user.about : 'Tell us about yourself...' }}</p>
+				
 				{# created_at #}
-				<p>You are a member of Cookbook community since:
-					<span>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</span>
+				<p>You are a member of Cookbook community since: <br>
+					<span>{{ user.createdAt ? user.createdAt|date('j F Y') : '' }}</span>
 				</p>
 			</div>
 
