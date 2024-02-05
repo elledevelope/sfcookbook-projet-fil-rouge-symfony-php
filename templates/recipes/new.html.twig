@@ -17,7 +17,16 @@
 			</p>
 			<p class="happyCooking">Happy cooking!</p>
 			{{ include('recipes/_form.html.twig') }}
-			<a href="{{ path('app_recipes_index') }}">back to list</a>
+
+		<div class="div-btnGoBack">
+			<button type="button" class="btnGoBack">
+				<a href="{{ path('app_recipes_index') }}">Back to recipes</a>
+				<svg stroke-width="4" stroke="currentColor" viewbox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
+					<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+				</svg>
+			</button>
+		</div>
+		
 		</div>
 	</section>
 {% endblock %}
