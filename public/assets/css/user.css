@@ -1,7 +1,7 @@
 /* USER HOME PAGE */
 .user-profile{
-    /* background-color: #f4f4f4; */
-    background: url(/public/assets/img/userHome_background.jpg) no-repeat;
+    background: url("/assets/img/user_profile_background.jpg");
+    background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     padding-bottom: 100px;
@@ -10,33 +10,31 @@
 .user-profile .user-intro {
     width: 90%;
     margin: auto;
-}
+ }
 
 .user-profile h1{
     font-size: 1.5rem;
     font-weight: 600;
-    color: black;
+    color: #333;
     line-height: 35px;
     text-align: center;
     padding-top: 120px;
     margin-bottom: 10px;
 }
 
-.user-profile p {
+/* .user-profile p {
     text-align: justify;
     margin-bottom: 30px;
     color: #333;
     font-size: .9rem;
     font-weight: 900;
-}
+}  */
 
 .card-user{
     width: 90%;
     max-width: 600px;
     margin: auto;
     padding: 20px;
-    /* background-color: #fff; */
-    /* background-color: #f4f4f4; */
     background: #fff3f3;
     border-radius: 10px;
     box-shadow: 0 0 20PX 0PX rgba(0, 0, 0, 0.2);
