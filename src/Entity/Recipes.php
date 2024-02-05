@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RecipesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -41,9 +43,13 @@ class Recipes
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $created_at = null;
 
+    #[ORM\OneToMany(mappedBy: 'recipes', targetEntity: RecipeLike::class)]
+    private Collection $likes;
+
     public function __construct()
     {
         return $this->created_at = new \DateTime(); //added automatic DateTime for row created_at in our form (Form/LiensType)
+        $this->likes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -155,6 +161,36 @@ class Recipes
     public function setCreatedAt(\DateTimeInterface $created_at): static
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, RecipeLike>
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(RecipeLike $like): static
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes->add($like);
+            $like->setRecipes($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(RecipeLike $like): static
+    {
+        if ($this->likes->removeElement($like)) {
+            // set the owning side to null (unless already changed)
+            if ($like->getRecipes() === $this) {
+                $like->setRecipes(null);
+            }
+        }
 
         return $this;
     }
