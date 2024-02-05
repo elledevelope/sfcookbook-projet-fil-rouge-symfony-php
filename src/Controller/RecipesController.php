@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use \Gumlet\ImageResize;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 #[Route('/recipes')]
 class RecipesController extends AbstractController
@@ -93,14 +94,19 @@ class RecipesController extends AbstractController
     public function show(Recipes $recipe): Response
     {
         return $this->render('recipes/show.html.twig', [
-            'recipe' => $recipe,          
+            'recipe' => $recipe,
         ]);
     }
 
-    //added 10.01.2024:
+
     #[Route('/{id}/edit', name: 'app_recipes_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Recipes $recipe, EntityManagerInterface $entityManager): Response
     {
+        // Check if the current user is the author of the recipe
+        if ($recipe->getAuthor() !== $this->getUser()) {
+            throw new AccessDeniedException('You are not allowed to edit this recipe.');
+        }
+
         $form = $this->createForm(RecipesType::class, $recipe);
         $form->handleRequest($request);
 
@@ -144,6 +150,11 @@ class RecipesController extends AbstractController
     #[Route('/{id}', name: 'app_recipes_delete', methods: ['POST'])]
     public function delete(Request $request, Recipes $recipe, EntityManagerInterface $entityManager): Response
     {
+        // Check if the current user is the author of the recipe
+        if ($recipe->getAuthor() !== $this->getUser()) {
+            throw new AccessDeniedException('You are not allowed to delete this recipe.');
+        }
+
         if ($this->isCsrfTokenValid('delete' . $recipe->getId(), $request->request->get('_token'))) {
             $entityManager->remove($recipe);
             $entityManager->flush();
