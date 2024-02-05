@@ -1,6 +1,5 @@
-/*-------------------Recipes PAGE: recipes.view-------------------*/
-/*-------------------Recipes PAGE: recipes.view-------------------*/
-/*-------------------Recipes PAGE: recipes.view-------------------*/
+/*-------------------------------------- /recipes ------------*/
+/*-------------------------------------- /recipes ------------*/
 .recipes {
     width: 80%;
     margin: auto;
@@ -134,10 +133,8 @@
 
 
 
-
-/*-------------------Recipe PAGE: recipe.view-------------------*/
-/*-------------------Recipe PAGE: recipe.view-------------------*/
-/*-------------------Recipe PAGE: recipe.view-------------------*/
+/*-------------------------------------- /recipe------------*/
+/*-------------------------------------- /recipe------------*/
 .recipe-page {
     width: 80%;
     margin: auto;
@@ -185,8 +182,7 @@
 }
 
 .recipe-page .recipe-img img {
-    border-radius: 6px;
-    /* box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4); */
+    border-radius: 6px;  
 }
 
 .recipe-page .recipe-cuisine-budget {
@@ -230,91 +226,10 @@
     font-style: italic;
 }
 
-/* btnGoBack start */
-.recipe-page .div-btnGoBack {
-    margin: 50px 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
 
-.recipe-page .btnGoBack {
-    padding: 0;
-    margin: 0;
-    border: none;
-    background: none;
-    position: relative;
-    display: flex;
-    font-weight: 600;
-    font-size: 20px;
-    gap: 0.5rem;
-    align-items: center;
-
-    --primary-color: rgb(189, 42, 42);
-    --hovered-color: #c84747;
-    --hovered-text-color: #e74c3c;
-}
-
-.recipe-page .btnGoBack a {
-    margin: 0;
-    position: relative;
-    font-size: 20px;
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-.recipe-page .btnGoBack a:hover {
-    color: var(--hovered-text-color);
-    transition: color 0.3s ease-out;
-}
-
-.recipe-page .btnGoBack::after,
-.recipe-page .btnGoBack a::before {
-    position: absolute;
-    content: "";
-    transition: width 0.3s ease-out;
-}
-
-.recipe-page .btnGoBack::after {
-    width: 0;
-    left: 0;
-    bottom: -7px;
-    background: var(--hovered-text-color);
-    height: 2px;
-}
-
-.recipe-page .btnGoBack a::before {
-    width: 0%;
-    inset: 0;
-    color: var(--hovered-text-color);
-    overflow: hidden;
-}
-
-.recipe-page .btnGoBack:hover::after,
-.recipe-page .btnGoBack:hover a::before {
-    width: 100%;
-}
-
-.recipe-page .btnGoBack:hover svg {
-    transform: translateX(4px);
-    color: var(--hovered-color);
-}
-
-.recipe-page .btnGoBack svg {
-    color: var(--primary-color);
-    transition: 0.2s;
-    position: relative;
-    width: 15px;
-    transition-delay: 0.2s;
-}
-
-/* btnGoBack end */
-
-/* ---------------- New recipe page: recipe-new.view ------------ */
-/* ---------------- New recipe page: recipe-new.view ------------ */
-/* ---------------- New recipe page: recipe-new.view ------------ */
+/*-------------------------------------- /recipes/new ------------*/
+/*-------------------------------------- /recipes/new ------------*/
 .new-recipe {
-    /* min-height: 100vh; */
     background-image: url("/assets/img/new-recipe.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -347,12 +262,11 @@
 
 .new-recipe .happyCooking {
     text-align: center;
-    padding-bottom: 50px;
+    padding: 20px 0 50px 0;
 }
 
 .new-recipe form label {
     font-style: italic;
-    /* font-weight: 600; */
     padding-right: 15px;
 }
 
@@ -370,7 +284,6 @@
 input {
     width: 100%;
     height: 100%;
-    /* background: transparent; */
     border: 2px solid rgba(94, 90, 90, 0.2);
     border-radius: 5px;
     font-size: 1rem;
@@ -384,10 +297,6 @@ input {
     flex-direction: column;
 }
 
-/* .new-recipe .input-img {
-    border: transparent;
-} */
-
 .new-recipe textarea::placeholder {
     color: grey;
     font-size: .9rem;
@@ -400,58 +309,11 @@ input {
     font-style: italic;
 }
 
-.new-recipe .btn-upload {
-    width: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #34495e;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    font-size: 1rem;
-    color: #fff;
-    margin-top: 20px;
-    padding: 15px 30px;
-}
-
-.new-recipe .btn-upload:hover {
-    background-color: #C3C7D1ff;
-    color: black;
-    transition: 0.5s;
-}
-
 input[type="radio" i] {
     display: inline;
     width: fit-content;
     margin-right: 10px;
 }
-
-.new-recipe .level-inputs {
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-}
-
-
-.new-recipe .level-input #radio {
-    /* display: flex; */
-    /* justify-content: flex-start; */
-    /* align-items: center; */
-}
-
-
-/* added 11.01.24 */
-/* .level-inputs label {
-    display: inline-block;
-    margin-right: 10px; 
-}
-
-.level-inputs input[type="radio"] {
-    margin-top: 5px; 
-} */
 
 form ul {
     color: red;
@@ -459,8 +321,9 @@ form ul {
     text-align: left;
 }
 
-/* -------------------------------------------- recipes by cusine */
 
+/*-------------------------------------- SEARCH /recipes by cusine  ------------*/
+/*-------------------------------------- SEARCH /recipes by cusine  ------------*/
 .recipes-by-cuisine h2 {
     text-transform: capitalize;
 }
@@ -496,12 +359,11 @@ header nav .nav-links ul .search-div form button:hover {
 
 
 
-/*------------- MEDIA QUERY -------- */
-/*------------- MEDIA QUERY -------- */
-/*------------- MEDIA QUERY -------- */
+/*============================================================ media qiery RECIPES*/
+/*============================================================ media qiery RECIPES*/
 @media screen and (min-width: 576px) {
 
-    /* ---------------- MEDIA QUERY: recipes page------------ */
+    /*============================================================ media qiery /RECIPES*/
     .recipes .pagename {
         font-size: 2.5rem;
     }
@@ -539,7 +401,7 @@ header nav .nav-links ul .search-div form button:hover {
         margin: 10px;
     }
 
-    /* ---------------- MEDIA QUERY: recipe page------------ */
+    /*============================================================ media qiery /RECIPE*/
     .recipe-page .recipe-title {
         font-size: 2rem;
     }
@@ -587,7 +449,7 @@ header nav .nav-links ul .search-div form button:hover {
         flex-direction: column;
     }
 
-    /* ---------------- MEDIA QUERY: New recipe page------------ */
+    /*============================================================ media qiery /RECIPES/NEW*/
     .sub-new-recipe {
         width: 60%;
         margin-right: 40px;
@@ -603,7 +465,7 @@ header nav .nav-links ul .search-div form button:hover {
     }
 
     .new-recipe .happyCooking {
-        padding-bottom: 50px;
+        padding: 20px 0 50px 0;
         text-align: left;
     }
 
