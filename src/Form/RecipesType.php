@@ -7,6 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -33,6 +34,24 @@ class RecipesType extends AbstractType
                     ]),
                 ],
             ])
+
+             // Hidden field for author (user)
+             ->add('author', HiddenType::class, [
+                'mapped' => false, // This field is not mapped to any property
+            ])
+
+            ->add('description', TextType::class, [
+                'label' => 'Description',
+                'constraints' => [
+                    new Length([
+                        'min' => 5,
+                        'minMessage' => 'The description must be at least {{ limit }} characters!',
+                        'max' => 500,
+                        'maxMessage' => 'The description cannot be longer than {{ limit }} characters!',
+                    ]),
+                ],
+            ])
+
 
 
             ->add('description', TextType::class, [
