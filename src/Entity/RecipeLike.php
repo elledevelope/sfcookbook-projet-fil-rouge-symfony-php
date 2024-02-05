@@ -18,13 +18,8 @@ class RecipeLike
     #[ORM\ManyToOne(inversedBy: 'likes')]
     private ?Recipes $recipes = null;
 
-    #[ORM\OneToMany(mappedBy: 'likes', targetEntity: User::class)]
-    private Collection $user;
-
-    public function __construct()
-    {
-        $this->user = new ArrayCollection();
-    }
+    #[ORM\ManyToOne(targetEntity: User::class)]
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -36,39 +31,21 @@ class RecipeLike
         return $this->recipes;
     }
 
-    public function setRecipes(?Recipes $recipes): static
+    public function setRecipes(?Recipes $recipes): self
     {
         $this->recipes = $recipes;
 
         return $this;
     }
 
-    /**
-     * @return Collection<int, User>
-     */
-    public function getUser(): Collection
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function addUser(User $user): static
+    public function setUser(?User $user): self
     {
-        if (!$this->user->contains($user)) {
-            $this->user->add($user);
-            $user->setLikes($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): static
-    {
-        if ($this->user->removeElement($user)) {
-            // set the owning side to null (unless already changed)
-            if ($user->getLikes() === $this) {
-                $user->setLikes(null);
-            }
-        }
+        $this->user = $user;
 
         return $this;
     }
