@@ -48,6 +48,10 @@ class RecipesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
+            $user = $this->getUser();
+            $recipe->setUser($user);
+
             // Persist the entity to generate the ID
             $entityManager->persist($recipe);
             $entityManager->flush();
@@ -88,12 +92,14 @@ class RecipesController extends AbstractController
     }
 
 
-
     #[Route('/{id}', name: 'app_recipes_show', methods: ['GET'])]
     public function show(Recipes $recipe): Response
     {
+        $user = $recipe->getUser();
+
         return $this->render('recipes/show.html.twig', [
-            'recipe' => $recipe,          
+            'recipe' => $recipe,
+            'user' => $user,
         ]);
     }
 
