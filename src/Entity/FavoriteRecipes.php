@@ -16,6 +16,9 @@ class FavoriteRecipes
     #[ORM\ManyToOne(inversedBy: 'favoriteRecipes')]
     private ?User $user = null;
 
+    #[ORM\ManyToOne]
+    private ?Recipes $recipe = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +32,18 @@ class FavoriteRecipes
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getRecipe(): ?Recipes
+    {
+        return $this->recipe;
+    }
+
+    public function setRecipe(?Recipes $recipe): static
+    {
+        $this->recipe = $recipe;
 
         return $this;
     }
