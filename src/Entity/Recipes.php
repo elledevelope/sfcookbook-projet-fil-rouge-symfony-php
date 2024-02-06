@@ -41,6 +41,9 @@ class Recipes
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $created_at = null;
 
+    #[ORM\ManyToOne(inversedBy: 'recipes')]
+    private ?User $user = null;
+
     public function __construct()
     {
         return $this->created_at = new \DateTime(); //added automatic DateTime for row created_at in our form (Form/LiensType)
@@ -155,6 +158,18 @@ class Recipes
     public function setCreatedAt(\DateTimeInterface $created_at): static
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
