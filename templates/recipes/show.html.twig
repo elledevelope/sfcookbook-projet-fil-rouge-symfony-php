@@ -72,10 +72,7 @@
 		{# <!-- created_at --> #}
 		<p class="recipe-created-by">Created
 			{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}
-			by
-			{# {% if user %}
-												<strong>{{ user.username }}</strong>
-											{% endif %} #}
+			by {{ recipe.user.username }}		
 		</p>
 
 		{# <!-- btn Go Back --> #}
