@@ -71,37 +71,25 @@
 			</div>
 		</div>
 
-		{# <!-- created_at --> #}
-		<p class="recipe-created-by">Created
-			{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}
-			{% if recipe.user is defined %}
-				by
-				{{ recipe.user.username }}
+		{# Created by #}
+			<p class="recipe-created-by"> Created
+			{{ recipe.createdAt ? recipe.createdAt|date('j F Y') : '' }}
+			by
+			{% if recipe.user is not null %}
+				{% if recipe.user.id == app.user.id %}
+					<strong>{{ app.user.username }}</strong>
+				{% else %}
+					{{ recipe.user.username }}
+				{% endif %}
 			{% else %}
-				<p>Unknown Author</p>
+				Unknown Author
 			{% endif %}
 		</p>
 
-
-		{# Created by #}
-		{# <p class="recipe-created-by">
-							Created
-							{{ recipe.createdAt ? recipe.createdAt|date('j F Y') : '' }}
-							by
-							{% if recipe.user is not null %}
-								{% if recipe.user.id == app.user.id %}
-									<strong>{{ app.user.username }}</strong>
-								{% else %}
-									{{ recipe.user.username }}
-								{% endif %}
-							{% else %}
-								Unknown Author
-							{% endif %}
-						</p> #}
-
 		{# Edit and Delete buttons (only for the author) #}
-			{% if recipe.user is not null and recipe.user.id == app.user.id %}
-				<div class="recipe-buttons"> <a href="{{ path('app_recipes_edit', {'id': recipe.id}) }}">Edit</a>
+		{% if recipe.user is not null and recipe.user.id == app.user.id %}
+			<div class="recipe-buttons">
+				<a href="{{ path('app_recipes_edit', {'id': recipe.id}) }}">Edit</a>
 				{{ include('recipes/_delete_form.html.twig') }}
 			</div>
 		{% endif %}
@@ -116,8 +104,5 @@
 				</svg>
 			</button>
 		</div>
-
-		<a href="{{ path('app_recipes_edit', {'id': recipe.id}) }}">edit</a>
-
-		{{ include('recipes/_delete_form.html.twig') }}</section>
+</section>
 {% endblock %}
