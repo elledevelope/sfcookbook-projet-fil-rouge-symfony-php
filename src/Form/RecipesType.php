@@ -34,6 +34,7 @@ class RecipesType extends AbstractType
                 ],
             ])
 
+            ->add('user')
 
             ->add('description', TextType::class, [
                 'label' => 'Description',
