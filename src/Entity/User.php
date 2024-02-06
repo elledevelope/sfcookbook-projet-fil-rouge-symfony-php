@@ -47,10 +47,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Recipes::class)]
     private Collection $recipes;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: FavoriteRecipes::class)]
+    private Collection $favoriteRecipes;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->recipes = new ArrayCollection();
+        $this->favoriteRecipes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -208,6 +212,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($recipe->getUser() === $this) {
                 $recipe->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, FavoriteRecipes>
+     */
+    public function getFavoriteRecipes(): Collection
+    {
+        return $this->favoriteRecipes;
+    }
+
+    public function addFavoriteRecipe(FavoriteRecipes $favoriteRecipe): static
+    {
+        if (!$this->favoriteRecipes->contains($favoriteRecipe)) {
+            $this->favoriteRecipes->add($favoriteRecipe);
+            $favoriteRecipe->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavoriteRecipe(FavoriteRecipes $favoriteRecipe): static
+    {
+        if ($this->favoriteRecipes->removeElement($favoriteRecipe)) {
+            // set the owning side to null (unless already changed)
+            if ($favoriteRecipe->getUser() === $this) {
+                $favoriteRecipe->setUser(null);
             }
         }
 
