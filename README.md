@@ -1,4 +1,5 @@
 <!--  rich text editor library is TinyMCE. -->
+<!-- https://symfony.com/doc/current/security.html Limiting Login Attempts -->
 
 ## Server :
 - `symfony.exe server:start` https://127.0.0.1:8000/liens/new
