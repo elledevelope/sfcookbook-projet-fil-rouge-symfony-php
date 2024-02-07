@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df5dbca21922ee00fc8ac2611bac45ed",
+    "content-hash": "553bc7c00e4ae98ad1577c36b2b56c6d",
     "packages": [
         {
             "name": "composer/semver",
@@ -8018,6 +8018,291 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "jawira/db-draw",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jawira/db-draw.git",
+                "reference": "f6d096eeda6ee017987ee2f27188933450ca02d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jawira/db-draw/zipball/f6d096eeda6ee017987ee2f27188933450ca02d6",
+                "reference": "f6d096eeda6ee017987ee2f27188933450ca02d6",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^3.3",
+                "jawira/the-lost-functions": "^1.1",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.13",
+                "ext-dom": "*",
+                "ext-mbstring": "*",
+                "ext-xml": "*",
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "jawira/plantuml": "^1.59",
+                "jawira/plantuml-client": "^1.0",
+                "jawira/skeleton": "^2.16",
+                "phpstan/phpstan": "^1.8",
+                "phpunit/phpunit": "^9.5",
+                "rector/rector": "^0.19.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jawira\\DbDraw\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jawira Portugal"
+                }
+            ],
+            "description": "📐 Takes a DoctrineORM connection and generates a database diagram in .puml format",
+            "homepage": "https://jawira.github.io/db-draw/",
+            "keywords": [
+                "database",
+                "db",
+                "dbal",
+                "diagram",
+                "doctrine",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/jawira/db-draw/issues",
+                "source": "https://github.com/jawira/db-draw/tree/v1.6.0"
+            },
+            "time": "2024-02-04T22:07:35+00:00"
+        },
+        {
+            "name": "jawira/doctrine-diagram-bundle",
+            "version": "v0.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jawira/doctrine-diagram-bundle.git",
+                "reference": "26089bfdd733091aa453b17badcc42c929d87f67"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jawira/doctrine-diagram-bundle/zipball/26089bfdd733091aa453b17badcc42c929d87f67",
+                "reference": "26089bfdd733091aa453b17badcc42c929d87f67",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "^2.5",
+                "doctrine/orm": "^2.9 || ^3.0",
+                "jawira/db-draw": "^1.2",
+                "jawira/plantuml-client": "^1.0",
+                "php": "^8.0",
+                "symfony/console": "^6.0 || ^7.0",
+                "symfony/filesystem": "^6.0 || ^7.0",
+                "symfony/framework-bundle": "^6.0 || ^7.0"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.31",
+                "friendsofphp/php-cs-fixer": "^3.46",
+                "jawira/skeleton": "^2.22",
+                "phpstan/extension-installer": "^1.3.1",
+                "phpstan/phpstan": "^1.10.55",
+                "phpstan/phpstan-symfony": "^1.3.7"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Jawira\\DoctrineDiagramBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jawira Portugal",
+                    "homepage": "https://jawira.com"
+                }
+            ],
+            "description": "📐 Symfony Bundle to generate database diagrams",
+            "homepage": "https://github.com/jawira/doctrine-diagram-bundle",
+            "keywords": [
+                "database",
+                "diagram",
+                "doctrine",
+                "symfony-bundle"
+            ],
+            "support": {
+                "issues": "https://github.com/jawira/doctrine-diagram-bundle/issues",
+                "source": "https://github.com/jawira/doctrine-diagram-bundle/tree/v0.7.0"
+            },
+            "time": "2024-01-13T23:10:03+00:00"
+        },
+        {
+            "name": "jawira/plantuml-client",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jawira/plantuml-client.git",
+                "reference": "28ca92b4e0825bd7f3a82fed10c7f3dbe0657fd5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jawira/plantuml-client/zipball/28ca92b4e0825bd7f3a82fed10c7f3dbe0657fd5",
+                "reference": "28ca92b4e0825bd7f3a82fed10c7f3dbe0657fd5",
+                "shasum": ""
+            },
+            "require": {
+                "jawira/plantuml-encoding": "^1.0",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.13",
+                "ext-fileinfo": "*",
+                "jawira/skeleton": "^2.16",
+                "phpstan/phpstan": "^1.8",
+                "phpunit/phpunit": "^9.5"
+            },
+            "suggest": {
+                "pds/skeleton": "Standard PHP package skeleton."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jawira\\PlantUmlClient\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jawira Portugal",
+                    "email": "dev@tugal.be"
+                }
+            ],
+            "description": "Convert PlantUML diagrams into images.",
+            "keywords": [
+                "diagram",
+                "image",
+                "plantuml",
+                "uml"
+            ],
+            "support": {
+                "issues": "https://github.com/jawira/plantuml-client/issues",
+                "source": "https://github.com/jawira/plantuml-client/tree/v1.0.3"
+            },
+            "time": "2022-11-08T23:48:25+00:00"
+        },
+        {
+            "name": "jawira/plantuml-encoding",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jawira/plantuml-encoding.git",
+                "reference": "cec097dfc062e7e13655d9594eacce5f9df639ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jawira/plantuml-encoding/zipball/cec097dfc062e7e13655d9594eacce5f9df639ad",
+                "reference": "cec097dfc062e7e13655d9594eacce5f9df639ad",
+                "shasum": ""
+            },
+            "require": {
+                "ext-zlib": "*",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "jawira/skeleton": "^2.14",
+                "phpstan/phpstan": "^1.0",
+                "vimeo/psalm": "^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/plantuml_functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jawira Portugal",
+                    "homepage": "https://jawira.com"
+                }
+            ],
+            "description": "PlantUML encoding functions",
+            "keywords": [
+                "encodep",
+                "encoding",
+                "functions",
+                "plantuml",
+                "uml"
+            ],
+            "support": {
+                "issues": "https://github.com/jawira/plantuml-encoding/issues",
+                "source": "https://github.com/jawira/plantuml-encoding/tree/v1.1.0"
+            },
+            "time": "2022-05-31T18:58:21+00:00"
+        },
+        {
+            "name": "jawira/the-lost-functions",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:jawira/the-lost-functions.git",
+                "reference": "ec416c5ead85749c3acb4b215b16479a26e0e719"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/jawira%2Fthe-lost-functions/repository/archive.zip?sha=ec416c5ead85749c3acb4b215b16479a26e0e719",
+                "reference": "ec416c5ead85749c3acb4b215b16479a26e0e719",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.13",
+                "ext-mbstring": "*",
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "jawira/skeleton": "^2.5",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jawira Portugal",
+                    "email": "dev@tugal.be"
+                }
+            ],
+            "description": "Collection of convenience functions.",
+            "keywords": [
+                "Year",
+                "array",
+                "function",
+                "get_class",
+                "is_initialized"
+            ],
+            "time": "2023-08-17T20:49:46+00:00"
+        },
         {
             "name": "masterminds/html5",
             "version": "2.8.1",
