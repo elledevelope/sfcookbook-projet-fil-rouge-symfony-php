@@ -7,11 +7,18 @@
 {% block body %}
 	<section
 		class="recipe-page">
+		{# like #}
+		<div class="favorite-icon like-icon" data-recipe-id="{{ recipe.id }}">
+			<i class='bx bx-heart'></i>
+		</div>
+
 		{# <!-- title --> #}
 		<h2 class="recipe-title">{{ recipe.title }}</h2>
 
 		<div
 			class="recipe-content">
+
+
 			{# <!-- description --> #}
 			<p class="p-description">{{ recipe.description }}</p>
 
@@ -72,7 +79,8 @@
 		</div>
 
 		{# Created by #}
-			<p class="recipe-created-by"> Created
+		<p class="recipe-created-by">
+			Created
 			{{ recipe.createdAt ? recipe.createdAt|date('j F Y') : '' }}
 			by
 			{% if recipe.user is not null %}
@@ -104,5 +112,5 @@
 				</svg>
 			</button>
 		</div>
-</section>
+	</section>
 {% endblock %}
