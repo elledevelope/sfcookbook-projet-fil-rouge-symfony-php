@@ -30,17 +30,31 @@ class RecipesController extends AbstractController
     #[Route('/', name: 'app_recipes_index', methods: ['GET'])]
     public function index(RecipesRepository $recipesRepository, PaginatorInterface $paginator, Request $request): Response
     {
-        // $recipes = $recipesRepository->findBy([], ['created_at' => 'DESC']);
         $recipes = $paginator->paginate(
             $recipesRepository->findBy([], ['id' => 'DESC']),
             $request->query->getInt('page', 1), /*page number*/
             10 /*limit per page*/
         );
 
+        $isFavorite = function ($recipeId) {
+            $currentUser = $this->getUser();
+            if (!$currentUser) {
+                return false;
+            }
+            $repository = $this->entityManager->getRepository(FavoriteRecipes::class);
+            $favoriteRecipe = $repository->findOneBy(['user' => $currentUser, 'recipe' => $recipeId]);
+            return $favoriteRecipe !== null;
+        };
+
+        foreach ($recipes as $recipe) {
+            $recipe->isFavorite = $isFavorite($recipe->getId());
+        }
+
         return $this->render('recipes/index.html.twig', [
             'recipes' => $recipes,
         ]);
     }
+
 
     #[Route('/new', name: 'app_recipes_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
@@ -97,11 +111,22 @@ class RecipesController extends AbstractController
     #[Route('/{id}', name: 'app_recipes_show', methods: ['GET'])]
     public function show(Recipes $recipe): Response
     {
-        $user = $recipe->getUser();
+        // Get the current user
+        $currentUser = $this->getUser();
 
+        // Check if the recipe is marked as favorite for the current user
+        $isFavorite = false;
+        if ($currentUser) {
+            $favoriteRecipe = $this->entityManager->getRepository(FavoriteRecipes::class)
+                ->findOneBy(['user' => $currentUser, 'recipe' => $recipe]);
+            $isFavorite = $favoriteRecipe !== null;
+        }
+
+        // Pass recipe, user, and isFavorite status to the Twig template
         return $this->render('recipes/show.html.twig', [
             'recipe' => $recipe,
-            'user' => $user,
+            'user' => $recipe->getUser(),
+            'isFavorite' => $isFavorite,
         ]);
     }
 
@@ -188,27 +213,45 @@ class RecipesController extends AbstractController
     // Add to favorite :
     #[Route('/add-to-favorites/{id}', name: 'add_to_favorites', methods: ['POST'])]
     public function addFavorite(Request $request, Recipes $recipe): JsonResponse
-    {        
+    {
         $currentUser = $this->getUser();
-        if (!$currentUser) {           
+        if (!$currentUser) {
             return new JsonResponse(['error' => 'User is not authenticated'], JsonResponse::HTTP_UNAUTHORIZED);
         }
-        
-        if (!$recipe) {           
+
+        if (!$recipe) {
             return new JsonResponse(['error' => 'Recipe not found'], JsonResponse::HTTP_NOT_FOUND);
         }
-        
+
         $favoriteRecipe = new FavoriteRecipes();
         $favoriteRecipe->setUser($currentUser);
         $favoriteRecipe->setRecipe($recipe);
-        
+
         $entityManager = $this->entityManager;
-        
+
         $entityManager->persist($favoriteRecipe);
         $entityManager->flush();
-        
+
         return new JsonResponse(['success' => true]);
     }
+    /**
+     * Check if a recipe is marked as favorite for the current user
+     */
+    public function isFavorite($recipeId): bool
+    {
+        $currentUser = $this->getUser();
+
+        if (!$currentUser) {
+            return false;
+        }
+
+        $favoriteRecipe = $this->entityManager->getRepository(FavoriteRecipes::class)
+            ->findOneBy(['user' => $currentUser, 'recipe' => $recipeId]);
+
+        return $favoriteRecipe !== null;
+    }
+
+
 
 
     // Remove from favorite : 

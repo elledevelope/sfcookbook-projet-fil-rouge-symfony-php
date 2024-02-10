@@ -67,34 +67,34 @@
 */
 
 /* LIKE ADD TO FAVORITE START */
-.recipes-card .favorite-icon {
+.favorite-icon {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin: 5px;
 }
 
-.recipes-card .favorite-icon:hover {
+.favorite-icon:hover {
     cursor: pointer;
     opacity: 50%;
 }
 
-.recipes-card .favorite-icon i {
+.favorite-icon i {
     font-size: 1.9rem;
     color: #d02718;
 }
 
-.recipes-card .favorite-icon p {
+.favorite-icon p {
     font-size: .9rem;
     color: rgba(128, 128, 128, 0.742);
 }
 
 .favorite-icon .bx-bookmark-heart {
-    display: inline-block;  
+    display: inline-block;
 }
 
 .favorite-icon .bx.bxs-bookmark-heart {
-    display: none; 
+    display: none;
 }
 
 .favorite-icon.like-icon.clicked .bx-bookmark-heart {
@@ -102,12 +102,13 @@
 }
 
 .favorite-icon.like-icon.clicked .bxs-bookmark-heart {
-    display: inline-block; 
+    display: inline-block;
 }
 
 .favorite-icon.like-icon.clicked p {
-    display: none; 
+    display: none;
 }
+
 /* LIKE ADD TO FAVORITE END */
 
 
@@ -493,7 +494,14 @@ header nav .nav-links ul .search-div form button:hover {
         margin: auto;
     }
 
-    .recipes-card .favorite-icon .bx-heart {
+    /* media: bookmark like */
+    .favorite-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    /* .recipes-card .favorite-icon .bx-heart {
         box-shadow: none;
         background-color: #a8a83a00;
         transition: all 0.5s;
@@ -503,7 +511,7 @@ header nav .nav-links ul .search-div form button:hover {
         font-size: 1.7rem;
         cursor: pointer;
 
-    }
+    } */
 
     .recipes .level-budget {
         display: flex;

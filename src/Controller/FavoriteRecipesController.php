@@ -34,6 +34,12 @@ class FavoriteRecipesController extends AbstractController
         $user = $this->getUser();     
         $favoriteRecipes = $this->entityManager->getRepository(FavoriteRecipes::class)->findBy(['user' => $user]);
 
+        // Calculate isFavorite status for each favorite recipe
+        foreach ($favoriteRecipes as $favoriteRecipe) {
+            $favoriteRecipe->isFavorite = true; // Assuming all favorite recipes are marked as favorite
+            // You can add logic to check if it's a favorite for the current user if needed
+        }
+
         return $this->render('favorite_recipes/index.html.twig', [
             'favoriteRecipes' => $favoriteRecipes,
         ]);

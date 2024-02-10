@@ -7,9 +7,11 @@
 {% block body %}
 	<section
 		class="recipe-page">
-		{# like #}
-		<div class="favorite-icon like-icon" data-recipe-id="{{ recipe.id }}">
-			<i class='bx bx-heart'></i>
+		{# like bookmark#}
+		<div class="favorite-icon like-icon {% if isFavorite %}clicked{% endif %}" data-recipe-id="{{ recipe.id }}">
+			<p>Add to favorite</p>
+			<i class='bx bx-bookmark-heart'></i>
+			<i class='bx bxs-bookmark-heart'></i>
 		</div>
 
 		{# <!-- title --> #}

@@ -21,9 +21,11 @@
 
 					<div
 						class="recipe-card-content">
-						{# like #}
-						<div class="favorite-icon like-icon" data-recipe-id="{{ favoriteRecipe.recipe.id }}">
-							<i class='bx bx-heart'></i>
+						{# like bookmark#}
+						<div class="favorite-icon like-icon {% if favoriteRecipe.isFavorite %}clicked{% endif %}" data-recipe-id="{{ favoriteRecipe.id }}">
+							<p>Add to favorite</p>
+							<i class='bx bx-bookmark-heart'></i>
+							<i class='bx bxs-bookmark-heart'></i>
 						</div>
 
 						<div class="level-budget">
