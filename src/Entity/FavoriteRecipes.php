@@ -20,12 +20,6 @@ class FavoriteRecipes
     #[ORM\ManyToOne]
     private ?Recipes $recipe = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $ModifiedAt = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -53,29 +47,5 @@ class FavoriteRecipes
         $this->recipe = $recipe;
 
         return $this;
-    }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $createdAt): static
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getModifiedAt(): ?\DateTimeInterface
-    {
-        return $this->ModifiedAt;
-    }
-
-    public function setModifiedAt(\DateTimeInterface $ModifiedAt): static
-    {
-        $this->ModifiedAt = $ModifiedAt;
-
-        return $this;
-    }
+    }    
 }

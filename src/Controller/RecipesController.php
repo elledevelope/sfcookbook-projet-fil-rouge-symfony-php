@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\FavoriteRecipes;
 use App\Entity\Recipes;
 use App\Form\RecipesType;
 use Knp\Component\Pager\PaginatorInterface;
@@ -14,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use \Gumlet\ImageResize;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 #[Route('/recipes')]
 class RecipesController extends AbstractController
@@ -48,7 +50,7 @@ class RecipesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
+
             $user = $this->getUser();
             $recipe->setUser($user);
 
@@ -181,5 +183,56 @@ class RecipesController extends AbstractController
             'recipes' => $recipes,
             'cuisine' => $cuisine,
         ]);
+    }
+
+    // Add to favorite :
+    #[Route('/add-to-favorites/{id}', name: 'add_to_favorites', methods: ['POST'])]
+    public function addFavorite(Request $request, Recipes $recipe): JsonResponse
+    {        
+        $currentUser = $this->getUser();
+        if (!$currentUser) {           
+            return new JsonResponse(['error' => 'User is not authenticated'], JsonResponse::HTTP_UNAUTHORIZED);
+        }
+        
+        if (!$recipe) {           
+            return new JsonResponse(['error' => 'Recipe not found'], JsonResponse::HTTP_NOT_FOUND);
+        }
+        
+        $favoriteRecipe = new FavoriteRecipes();
+        $favoriteRecipe->setUser($currentUser);
+        $favoriteRecipe->setRecipe($recipe);
+        
+        $entityManager = $this->entityManager;
+        
+        $entityManager->persist($favoriteRecipe);
+        $entityManager->flush();
+        
+        return new JsonResponse(['success' => true]);
+    }
+
+
+    // Remove from favorite : 
+    #[Route('/remove-from-favorites/{id}', name: 'remove_from_favorites', methods: ['POST'])]
+    public function removeFavorite(Request $request, Recipes $recipe): JsonResponse
+    {
+        if (!$this->getUser()) {
+            return new JsonResponse(['error' => 'User is not authenticated'], JsonResponse::HTTP_UNAUTHORIZED);
+        }
+
+        $favoriteRecipesRepository = $this->entityManager->getRepository(FavoriteRecipes::class);
+
+        $favoriteRecipe = $favoriteRecipesRepository->findOneBy([
+            'user' => $this->getUser(),
+            'recipe' => $recipe,
+        ]);
+
+        if (!$favoriteRecipe) {
+            return new JsonResponse(['error' => 'Recipe is not in favorites'], JsonResponse::HTTP_NOT_FOUND);
+        }
+
+        $this->entityManager->remove($favoriteRecipe);
+        $this->entityManager->flush();
+
+        return new JsonResponse(['success' => true]);
     }
 }
