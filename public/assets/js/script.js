@@ -65,6 +65,7 @@ $('.like-icon').click(function () {
     const recipeId = $(this).data('recipe-id');
     console.log(recipeId);
 
+    $(this).toggleClass('clicked'); 
     // AJAX-query
     $.ajax({
         url: '/add-to-favorites/' + recipeId,
@@ -83,3 +84,10 @@ $('.like-icon').click(function () {
 });
 
 
+// document.addEventListener("DOMContentLoaded", function() {
+//     const favoriteIcon = document.querySelector('.favorite-icon.like-icon');
+  
+//     favoriteIcon.addEventListener('click', function() {
+//       this.classList.toggle('clicked');
+//     });
+// });
