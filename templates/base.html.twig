@@ -9,7 +9,9 @@
 		</title>
 
 		{# Include external stylesheets #}
-		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'><!-- boxicons  -->
+		<link
+		href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+		<!-- boxicons  -->
 		<link
 		rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
@@ -53,9 +55,9 @@
 		{# privacy-terms.css #}
 		{% endblock %}
 
-		{# Include ImportMap and other JavaScript files #}
+		{# Include JavaScript files #}
 		{% block javascripts %}
-			 <script src="{{ asset('assets/js/script.js') }}" defer></script>
+			<script src="{{ asset('assets/js/script.js') }}" defer></script>
 		{% endblock %}
 	</head>
 
