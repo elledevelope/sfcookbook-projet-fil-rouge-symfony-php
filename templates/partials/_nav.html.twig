@@ -39,6 +39,10 @@
 
 
 			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+				{# favorite  #}
+				<li>
+					<a href="{{ path('app_favorites_index') }}">My Favorites</a>
+				</li>
 				{# profile #}
 				<div class="nav-profile">
 					<a href="{{ path('app_user_show', {'id': app.user.id}) }}">
