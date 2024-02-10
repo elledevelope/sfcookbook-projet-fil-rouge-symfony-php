@@ -42,6 +42,26 @@
     margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
+    position: relative;
+}
+
+.recipes-card .favorite-icon .bx-heart {
+    font-size: 1.5rem;
+    color: #c62d1f;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.929);
+    background-color: #a8a83a;
+    border-radius: 20px;
+    padding: 7px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.recipes-card .favorite-icon .bx-heart:hover {
+    font-size: 1.7rem;
+    padding: 10px;
 }
 
 .recipes-card:hover {
@@ -182,7 +202,7 @@
 }
 
 .recipe-page .recipe-img img {
-    border-radius: 6px;  
+    border-radius: 6px;
 }
 
 .recipe-page .recipe-cuisine-budget {
@@ -330,7 +350,7 @@ form ul {
 
 .recipes .search-div form {
     margin-bottom: 30px;
-    display: flex; 
+    display: flex;
 }
 
 .recipes .search-div form input {
@@ -389,6 +409,18 @@ header nav .nav-links ul .search-div form button:hover {
     .recipe-card-content {
         width: 50%;
         margin: auto;
+    }
+
+    .recipes-card .favorite-icon .bx-heart {
+        box-shadow: none;
+        background-color: #a8a83a00;
+        transition: all 0.5s;
+    }
+
+    .recipes-card .favorite-icon .bx-heart:hover {
+        font-size: 1.7rem;
+        cursor: pointer;
+
     }
 
     .recipes .level-budget {
