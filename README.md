@@ -24,15 +24,22 @@ This project is a web application developed using Symfony and PHP, designed to s
 
 Cookbook ``/recipes`` page (view by registered user), format desktop:
 
-![screenshot-cookbook-recipes-page-registered-user-desktop](/public/screenshots/8-screenshot-cookbook-recipes-page-registered-user-desktop.png)
+<a href="/public/screenshots/8-screenshot-cookbook-recipes-page-registered-user-desktop.png" target="_blank"><img src="/public/screenshots/8-screenshot-cookbook-recipes-page-registered-user-desktop.png" width="800"></a>
+
 
 Cookbook ``user profile``, format desktop:
 
-![screenshot-cookbook-user-profile-desktop](/public/screenshots/4-screenshot-cookbook-user-profile-desktop.png)
+<a href="/public/screenshots/4-screenshot-cookbook-user-profile-desktop.png" target="_blank"><img src="/public/screenshots/4-screenshot-cookbook-user-profile-desktop.png" width="800"></a>
+
 
 Recipe view by the recipe's author, format mobile:
 
-![screenshot-cookbook-recipe-view-by-author-mobile.png](/public/screenshots/6-screenshot-cookbook-recipe-view-by-author-mobile.png)
+<a href="/public/screenshots/6-screenshot-cookbook-recipe-view-by-author-mobile.png" target="_blank"><img src="/public/screenshots/6-screenshot-cookbook-recipe-view-by-author-mobile.png" width="400"></a>
+
+Recipe `update` form for a registered user, format desktop:
+
+<a href="/public/screenshots/7-screenshot-cookbook-recipe-edit-registered-user-desktop.png" target="_blank"><img src="/public/screenshots/7-screenshot-cookbook-recipe-edit-registered-user-desktop.png" width="800"></a>
+
 
 ## Technologies Used
 
