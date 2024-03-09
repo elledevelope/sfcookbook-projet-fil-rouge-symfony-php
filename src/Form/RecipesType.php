@@ -7,10 +7,14 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
+
+
+use Symfony\Component\Validator\Constraints\File;
 
 class RecipesType extends AbstractType
 {
@@ -23,7 +27,7 @@ class RecipesType extends AbstractType
                 'label' => 'Title',
                 'constraints' => [
                     new Length([
-                        'min' => 2, 
+                        'min' => 2,
                         'minMessage' => 'The title must be at least {{ limit }} characters!',
                         'max' => 20,
                         'maxMessage' => 'The title cannot be longer than {{ limit }} characters!',
@@ -31,14 +35,18 @@ class RecipesType extends AbstractType
                 ],
             ])
 
+            // Hidden field for user
+            ->add('user', HiddenType::class, [
+                'mapped' => false, // This field is not mapped to any property
+            ])
 
             ->add('description', TextType::class, [
                 'label' => 'Description',
                 'constraints' => [
                     new Length([
-                        'min' => 5, 
+                        'min' => 5,
                         'minMessage' => 'The description must be at least {{ limit }} characters!',
-                        'max' => 100,
+                        'max' => 500,
                         'maxMessage' => 'The description cannot be longer than {{ limit }} characters!',
                     ]),
                 ],
@@ -46,15 +54,15 @@ class RecipesType extends AbstractType
 
 
             ->add('ingredients', TextareaType::class, [
-                'label' => 'Ingredients', 
+                'label' => 'Ingredients',
                 'constraints' => [
                     new Length([
-                        'min' => 5, 
+                        'min' => 5,
                         'minMessage' => 'The description must be at least {{ limit }} characters!',
                         'max' => 1000,
                         'maxMessage' => 'The description cannot be longer than {{ limit }} characters!',
                     ]),
-                ],               
+                ],
                 'attr' => [
                     'placeholder' => 'example: 
 Preheat your oven to 220°C;
@@ -75,7 +83,7 @@ Add sliced onions;
                 'label' => 'Instructions',
                 'constraints' => [
                     new Length([
-                        'min' => 5, 
+                        'min' => 5,
                         'minMessage' => 'The instructions must be at least {{ limit }} characters!',
                         'max' => 2000,
                         'maxMessage' => 'The instructions cannot be longer than {{ limit }} characters!',
@@ -125,7 +133,7 @@ Add sliced onions;
                 'label' => 'Cuisine',
                 'constraints' => [
                     new Length([
-                        'min' => 2, 
+                        'min' => 2,
                         'minMessage' => 'The cuisine must be at least {{ limit }} characters!',
                         'max' => 20,
                         'maxMessage' => 'The cuisine cannot be longer than {{ limit }} characters!',
@@ -138,6 +146,21 @@ Add sliced onions;
                 'label' => 'Image',
                 'required' => true, // true if the image is mandatory
                 'data_class' => null, // Allow handling as array
+
+                // 'mapped' => false,  // Indicates that this field is not mapped to any property
+                'constraints' => [
+                    new File([
+                        // 'maxSize' => '7000k',
+                        'mimeTypes' => [
+                            'image/jpg',
+                            'image/jpeg',
+                            'image/png',
+                            'image/webp',
+                            // 'image/gif',
+                        ],
+                        'mimeTypesMessage' => "This image is not a valid type! Allowed types: jpg, jpeg, png, webp."
+                    ])
+                ]
             ])
 
             // ->add('user_id')

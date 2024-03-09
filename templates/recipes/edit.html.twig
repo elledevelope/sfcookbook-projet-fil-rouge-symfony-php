@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cookbook
+{% block title %}Recipe Update | Cookbook
 {% endblock %}
 
 {% block body %}
@@ -8,13 +8,26 @@
 		<div class="sub-new-recipe">
 			<h2>Recipe Update</h2>
 
-			<p>
+			<p class="text-update-recipe">
 				Update your recipe details effortlessly using the form below. Adjust quantities, refine instructions, and keep your dish in sync with your evolving culinary genius. Your kitchen canvas awaits its next stroke of perfection!
 			</p>
 			{{ include('recipes/_form.html.twig', {'button_label': 'Update'}) }}
+
+			<div class="div-btnGoBack">
+				<button type="button" class="btnGoBack">
+					<a href="{{ path('app_recipes_show', {'id': recipe.id}) }}">Back to the recipe</a>
+					<svg stroke-width="4" stroke="currentColor" viewbox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
+						<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+					</svg>
+				</button>
+			</div>
+					{# {{ include('recipes/_delete_form.html.twig') }} #}
+		</div>
+		
+
+
+
 	</section>
 
-		<a href="{{ path('app_recipes_index') }}">back to list</a>
 
-		{{ include('recipes/_delete_form.html.twig') }}
-	{% endblock %}
+{% endblock %}

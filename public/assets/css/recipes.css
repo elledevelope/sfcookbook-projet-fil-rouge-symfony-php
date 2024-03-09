@@ -1,0 +1,640 @@
+/*-------------------------------------- /recipes ------------*/
+/*-------------------------------------- /recipes ------------*/
+.recipes {
+    width: 80%;
+    margin: auto;
+    padding-top: 90px;
+    margin-bottom: 30px;
+}
+
+.recipes .pagename {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 35px;
+    text-align: center;
+    color: #333;
+    padding-bottom: 20px;
+}
+
+.recipes .p-intro {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #810e05;
+    text-align: justify;
+    padding-bottom: 40px;
+}
+
+.recipes a {
+    text-decoration: none;
+}
+
+.recipes .gallery-recipes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.recipes-card {
+    background: #fff3f3;
+    border-radius: 6px;
+    transition: 0.5s;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+
+/* -------------------------------------- ADD TO FAVORITE START */
+.favorite-icon {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 5px;
+}
+
+.favorite-icon:hover {
+    cursor: pointer;
+    opacity: 50%;
+}
+
+.favorite-icon i {
+    font-size: 1.9rem;
+    color: #d02718;
+}
+
+.favorite-icon p {
+    font-size: .9rem;
+    color: rgba(128, 128, 128, 0.742);
+}
+
+.favorite-icon .bx-bookmark-heart {
+    display: inline-block;
+}
+
+.favorite-icon .bx.bxs-bookmark-heart {
+    display: none;
+}
+
+.favorite-icon.like-icon.clicked .bx-bookmark-heart {
+    display: none;
+}
+
+.favorite-icon.like-icon.clicked .bxs-bookmark-heart {
+    display: inline-block;
+}
+
+.favorite-icon.like-icon.clicked p {
+    display: none;
+}
+
+/* -------------------------------------- ADD TO FAVORITE END */
+
+.recipes-card:hover {
+    box-shadow: 0 0 20PX 0PX rgba(0, 0, 0, 0.2);
+}
+
+.recipes-card-img {
+    width: 100%;
+    margin: auto;
+    height: 300px;
+    overflow: hidden;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img {
+    transition: transform 400ms ease-out;
+    overflow: hidden;
+}
+
+.card-img:hover {
+    transform: scale(1.15);
+    overflow: hidden;
+}
+
+.recipe-card-content {
+    width: 100%;
+    margin: auto;
+}
+
+.recipes .level-budget {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.recipes .level-budget p {
+    text-transform: capitalize;
+}
+
+.recipes-card h5 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: #1c212a;
+    text-transform: capitalize;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.recipes-card p {
+    text-align: justify;
+    font-weight: normal;
+    margin: 10px 5px;
+    color: black;
+    font-size: 1rem;
+    text-transform: none;
+    font-style: italic;
+}
+
+.recipes-card .div-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-getCooking {
+    color: #fff;
+    border: 2px solid #f44336;
+    background: #f44336;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: var(--border-radius);
+    padding: 12px 34px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 20px 0;
+}
+
+.btn-getCooking:hover {
+    color: #f24537;
+    border: 2px solid #f24537;
+    transition: 1s;
+    background-color: transparent;
+}
+
+.pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pages a {
+    color: black;
+    padding: 4px;
+}
+
+.pages a:visited {
+    color: gray;
+}
+
+/*-------------------------------------- /recipe------------*/
+/*-------------------------------------- /recipe------------*/
+.recipe-page {
+    width: 80%;
+    margin: auto;
+    padding-top: 90px;
+    margin-bottom: 30px;
+}
+
+.recipe-page .recipe-title {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 35px;
+    text-align: center;
+    color: #333;
+    padding-bottom: 20px;
+}
+
+.recipe-page .recipe-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.recipe-page .recipe-sub-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.recipe-page .p-description {
+    font-size: 1rem;
+    font-weight: 700;
+    font-style: italic;
+    color: #810e05;
+    text-align: justify;
+    padding-bottom: 40px;
+}
+
+.recipe-page .recipe-content ul li {
+    list-style: none;
+    text-align: left;
+}
+
+.recipe-page .instructions {
+    color: #3f4954;
+}
+
+.recipe-page .recipe-img img {
+    border-radius: 6px;
+}
+
+.recipe-page .recipe-cuisine-budget {
+    padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    text-transform: capitalize;
+    color: #810e05;
+}
+
+.recipe-page .recipe-cuisine-budget .cuisine-level {
+    margin: 0 10px;
+}
+
+.recipe-page .p-sub-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1c212a;
+    padding: 30px 0 10px 0;
+}
+
+.recipe-page .ingredients-title {
+    border-top: .5px #1c212a2f solid;
+    padding-top: 20px;
+}
+
+.recipe-page .text-ingredients {
+    border-bottom: .5px #1c212a2f solid;
+    padding-bottom: 20px;
+}
+
+.recipe-page .text-instructions {
+    text-align: justify;
+    color: black;
+}
+
+.recipe-page .recipe-created-by {
+    padding-top: 50px;
+    text-align: right;
+    font-size: .7rem;
+    color: grey;
+    font-style: italic;
+}
+
+
+/*-------------------------------------- /recipes/new ------------*/
+/*-------------------------------------- /recipes/new ------------*/
+.new-recipe {
+    background-image: url("/assets/img/new-recipe.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.sub-new-recipe {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 60px;
+}
+
+.new-recipe h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    padding-top: 90px;
+    margin-bottom: 30px;
+}
+
+.new-recipe p {
+    text-align: justify;
+    color: #3f4954;
+    font-weight: 500;
+}
+
+.sub-new-recipe .text-update-recipe {
+    padding-bottom: 20px;
+}
+
+.new-recipe .happyCooking {
+    text-align: center;
+    padding: 20px 0 50px 0;
+}
+
+.new-recipe form label {
+    font-style: italic;
+    padding-right: 15px;
+}
+
+.new-recipe form {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: black;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.new-recipe form textarea,
+input {
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(94, 90, 90, 0.2);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: black;
+    padding: 20px 45px 20px 20px;
+}
+
+.new-recipe .select-list {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-recipe textarea::placeholder {
+    color: grey;
+    font-size: .9rem;
+}
+
+.small-help-text {
+    font-size: 0.9rem;
+    color: #34495e;
+    font-weight: normal;
+    font-style: italic;
+}
+
+input[type="radio" i] {
+    display: inline;
+    width: fit-content;
+    margin-right: 10px;
+}
+
+form ul {
+    color: red;
+    list-style: none;
+    text-align: left;
+}
+
+
+/*-------------------------------------- SEARCH /recipes by cusine  ------------*/
+/*-------------------------------------- SEARCH /recipes by cusine  ------------*/
+.recipes-by-cuisine h2 {
+    text-transform: capitalize;
+}
+
+.recipes .search-div form {
+    margin-bottom: 30px;
+    display: flex;
+}
+
+.recipes .search-div form input {
+    border: 1px rgba(128, 128, 128, 0.26) solid;
+    border-right: none;
+    outline: none;
+    font-size: 1rem;
+    color: black;
+    border-radius: 3px 0 0 3px;
+}
+
+.recipes .search-div form button {
+    background-color: navajowhite;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 0 3px 3px 0;
+    font-size: 1rem;
+    font-weight: bolder;
+    border: 1px rgba(128, 128, 128, 0.26) solid;
+    border-left: none;
+}
+
+header nav .nav-links ul .search-div form button:hover {
+    opacity: 70%;
+}
+
+
+/*-------------------------------------- User-Recipes PAGE -------------------*/
+/*-------------------------------------- ADD BUTTON */
+#div-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-add {
+    position: relative;
+    width: 160px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #34974d;
+    background-color: #3aa856;
+}
+
+.btn-add,
+.button__icon,
+.button__text {
+    transition: all 0.3s;
+}
+
+.btn-add .button__text {
+    transform: translateX(30px);
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.btn-add .button__icon {
+    position: absolute;
+    transform: translateX(120px);
+    height: 100%;
+    width: 39px;
+    background-color: #34974d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-add .svg {
+    width: 30px;
+    stroke: #fff;
+}
+
+.btn-add:hover {
+    background: #34974d;
+}
+
+.btn-add:hover .button__text {
+    color: transparent;
+}
+
+.btn-add:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+}
+
+.btn-add:active .button__icon {
+    background-color: #2e8644;
+}
+
+.btn-add:active {
+    border: 1px solid #2e8644;
+}
+
+/*--------------------------------------DELETE BTN */
+.delete-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    border: 1px solid #d02718;
+    border-radius: 2px;
+    box-shadow: inset 0px 1px 0px 0px #f5978e;
+    text-shadow: inset 0px 1px 0px #810e05;
+    background: linear-gradient(#f24537, #c62d1f);
+}
+
+.delete-btn:hover {
+    background: linear-gradient(#c62d1f, #f24537);
+}
+
+
+
+
+
+
+
+/*============================================================ media qiery RECIPES*/
+/*============================================================ media qiery RECIPES*/
+@media screen and (min-width: 576px) {
+
+    /*============================================================ media qiery /RECIPES*/
+    .recipes .pagename {
+        font-size: 2.5rem;
+    }
+
+    .recipes .p-intro {
+        font-size: 1.1rem;
+    }
+
+    .recipes .recipes-card {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .recipes-card-img {
+        width: 50%;
+        margin: auto;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 6px;
+        height: 350px;
+    }
+
+    .recipe-card-content {
+        width: 50%;
+        margin: auto;
+    }
+
+    /*============================================================ media qiery ADD TO FAVORITE */
+    /* .favorite-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    } */
+
+    .add-to-favorite-show {
+        position: absolute;
+        top: 120px;
+        right: 70px;
+    }
+
+    .recipes .level-budget {
+        display: flex;
+        justify-content: center;
+    }
+
+    .recipes-card h5 {
+        text-align: left;
+        margin: 10px;
+    }
+
+    /*============================================================ media qiery /RECIPE*/
+    .recipe-page .recipe-title {
+        font-size: 2rem;
+    }
+
+    .recipe-page .recipe-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .recipe-page .p-description {
+        padding: 20px 0 30px 0;
+        font-size: 1.1rem;
+    }
+
+    .recipe-page .recipe-sub-content {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .recipe-page .recipe-img {
+        width: 500px;
+        overflow: hidden;
+        margin-right: 50px;
+    }
+
+    .recipe-page .recipe-sub-content {
+        margin-right: auto;
+    }
+
+    .recipe-page .img-et-ingredients {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .recipe-page .p-ingredients {
+        padding-top: 0;
+    }
+
+    .recipe-page .recipe-bottom {
+        padding-top: 50px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    /*============================================================ media qiery /RECIPES/NEW*/
+    .sub-new-recipe {
+        width: 60%;
+        margin-right: 40px;
+    }
+
+    .new-recipe h2 {
+        font-size: 2rem;
+    }
+
+    .new-recipe p {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .new-recipe .happyCooking {
+        padding: 20px 0 50px 0;
+        text-align: left;
+    }
+}

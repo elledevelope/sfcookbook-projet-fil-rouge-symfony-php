@@ -1,0 +1,226 @@
+/* -------------------------------------- btnGoBack  */
+.div-btnGoBack {
+    margin: 50px 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.div-btnGoBack .btnGoBack {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    position: relative;
+    display: flex;
+    font-weight: 600;
+    font-size: 20px;
+    gap: 0.5rem;
+    align-items: center;
+
+    --primary-color: rgb(189, 42, 42);
+    --hovered-color: #c84747;
+    --hovered-text-color: #e74c3c;
+}
+
+.div-btnGoBack .btnGoBack a {
+    margin: 0;
+    position: relative;
+    font-size: 20px;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.div-btnGoBack .btnGoBack a:hover {
+    color: var(--hovered-text-color);
+    transition: color 0.3s ease-out;
+}
+
+.div-btnGoBack.btnGoBack::after,
+.div-btnGoBack.btnGoBack a::before {
+    position: absolute;
+    content: "";
+    transition: width 0.3s ease-out;
+}
+
+.div-btnGoBack .btnGoBack::after {
+    width: 0;
+    left: 0;
+    bottom: -7px;
+    background: var(--hovered-text-color);
+    height: 2px;
+}
+
+.div-btnGoBack .btnGoBack a::before {
+    width: 0%;
+    inset: 0;
+    color: var(--hovered-text-color);
+    overflow: hidden;
+}
+
+.div-btnGoBack .btnGoBack:hover::after,
+.div-btnGoBack .btnGoBack:hover a::before {
+    width: 100%;
+}
+
+.div-btnGoBack .btnGoBack:hover svg {
+    transform: translateX(4px);
+    color: var(--hovered-color);
+}
+
+.div-btnGoBack .btnGoBack svg {
+    color: var(--primary-color);
+    transition: 0.2s;
+    position: relative;
+    width: 15px;
+    transition-delay: 0.2s;
+}
+
+
+/* -------------------------------------- btn Upload  */
+form .btn-upload {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #34495e;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 20px;
+    padding: 15px 30px;
+}
+
+form .btn-upload:hover {
+    background-color: #C3C7D1ff;
+    color: black;
+    transition: 0.5s;
+}
+
+
+/* -------------------------------------- add btn*/
+#div-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-add {
+    position: relative;
+    width: 160px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #34974d;
+    background-color: #3aa856;
+}
+
+.btn-add,
+.button__icon,
+.button__text {
+    transition: all 0.3s;
+}
+
+.btn-add .button__text {
+    transform: translateX(30px);
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.btn-add .button__icon {
+    position: absolute;
+    transform: translateX(120px);
+    height: 100%;
+    width: 39px;
+    background-color: #34974d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-add .svg {
+    width: 30px;
+    stroke: #fff;
+}
+
+.btn-add:hover {
+    background: #34974d;
+}
+
+.btn-add:hover .button__text {
+    color: transparent;
+}
+
+.btn-add:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+}
+
+.btn-add:active .button__icon {
+    background-color: #2e8644;
+}
+
+.btn-add:active {
+    border: 1px solid #2e8644;
+}
+
+/* -------------------------------------- DELETE BTN */
+.delete-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    border: 1px solid #d02718;
+    border-radius: 2px;
+    box-shadow: inset 0px 1px 0px 0px #f5978e;
+    text-shadow: inset 0px 1px 0px #810e05;
+    background: linear-gradient(#f24537, #c62d1f);
+}
+
+.delete-btn:hover {
+    background: linear-gradient(#c62d1f, #f24537);
+}
+
+
+/* -------------------------------------- edit-delete buttons */
+.edit-delete {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.btn-edit {
+    background-color: #b5c8a7;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #333;
+    font-size: .9rem;
+}
+
+.btn-edit:hover {
+    opacity: 90%;
+}
+
+.btn-delete-profile {
+    background-color: #df6c6c;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #333;
+    font-size: .9rem;
+    border: none;
+}
+
+.btn-delete-profile:hover {
+    opacity: 90%;
+}

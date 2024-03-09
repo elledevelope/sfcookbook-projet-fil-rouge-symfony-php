@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Your profile | Cookbook
+{% endblock %}
+
+{% block body %}
+	<section class="user-profile">
+		<div class="user-intro">
+			<h1>Welcome to your Profile</h1>
+			{# created_at #}
+			<p class="member-since">You are a member of Cookbook community since:
+				<span>{{ user.createdAt ? user.createdAt|date('j F Y') : '' }}</span>
+			</p>
+
+			<div
+				class="edit-delete">
+
+				{# edit btn #}
+				<a class="btn-edit" href="{{ path('app_user_edit', {'id': user.id}) }}">Edit profile ✒️</a>
+				{# delete btn #}
+				{{ include('user/_delete_form.html.twig') }}
+			</div>
+
+			{# favorite recipes #}
+			<div id="div-btn">
+				<button type="button" class="btn-dicover">
+					<a href="{{ path('app_favorites_index') }}">My Favorite Recipes</a>
+					<svg stroke-width="4" stroke="currentColor" viewbox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
+						<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+					</svg>
+				</button>
+			</div>
+
+			{# <p>
+			<span>Your profile is the heart of our community — make it uniquely yours!</span>
+			Dive into a world of flavors and personalize your cooking haven. Update your bio to share your culinary story, set a profile picture that reflects your kitchen charisma, and showcase your favorite recipes. Track your culinary milestones, see the recipes you've loved.</p>#}
+
+		</div>
+
+		<div
+			class="card-user">
+			{# avatar #}
+			{% if user.avatar %}
+				<div>
+					<img src="{{ asset('uploads/avatar/' ~ user.avatar) }}" alt="My avatar">
+				</div>
+			{% else %}
+				<div>
+					<img src="{{ asset('uploads/avatar/default_avatar.png') }}" alt="Avatar">
+				</div>
+			{% endif %}
+
+			{# usermane #}
+			<h2>username:
+				<span>{{ user.username }}</span>
+			</h2>
+
+			{# email #}
+			<p>email:
+				{{ user.email }}</p>
+
+			{# about  #}
+			<div class="user-about">
+				<h2>About me:</h2>
+				<p>{{ user.about ? user.about : 'Tell us about yourself...' }}</p>
+			</div>
+
+			{# btn add new recipe #}
+			<div id="div-btn">
+				<a href="{{ path('app_recipes_new') }}">
+					<button type="button" class="btn-add">
+						<span class="button__text">Add Recipe
+						</span>
+						<span class="button__icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" viewbox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
+								<line y2="19" y1="5" x2="12" x1="12"></line>
+								<line y2="12" y1="12" x2="19" x1="5"></line>
+							</svg>
+						</span>
+					</button>
+				</a>
+			</div>
+			
+			{# Recipes created by the user #}
+			<div class="user-recipes">
+				<h3>Recipes Created by You:</h3>
+				<ul>
+					{% for recipe in user.recipes %}
+						<li>
+							<a href="{{ path('app_recipes_show', {'id': recipe.id}) }}">{{ recipe.title }}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+
+		</section>
+	{% endblock %}

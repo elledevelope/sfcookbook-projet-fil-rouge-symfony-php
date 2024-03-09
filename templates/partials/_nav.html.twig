@@ -1,42 +1,88 @@
 <nav>
 	<!-- logo -->
 	<div id="logo">
-		<a href="{{ path('home') }}">CookBook
+		<a href="{{ path('app_home') }}">CookBook
 			<img id="logoImg" src="{{ asset('assets/img/icons/chef-hat.svg') }}" alt="logo Cookbook"></a>
 	</div>
 
 	<!-- burger -->
 	<div class="burger">
-		<img src="{{ asset('assets/img/icons/bars.svg') }}" alt="bars">
+		<img src="{{ asset('assets/img/icons/bars.svg') }}" alt="bars-icon">
 	</div>
 
 	<div
 		class="nav-links show-menu hide-menu" id="navLinks">
-
 		<!-- close-X -->
 		<div class="close-x">
-			<img src="{{ asset('assets/img/icons/x.svg') }}" alt="bars">
+			<img src="{{ asset('assets/img/icons/x.svg') }}" alt="close-icon">
 		</div>
+
 		<ul>
 			<li>
-				<a href="{{ path('home') }}">Home</a>
+				<a href="{{ path('app_home') }}">Home</a>
 			</li>
 			<li>
 				<a href="{{ path('app_recipes_index') }}">Recipes</a>
 			</li>
-			<li>
-				<a href="#">Cuisines</a>
-			</li>
-			<li>
-				{# <a href="{{ path('login') }}">Log In</a> #}
-			</li>
-			<li>
-				{# <a href="{{ path('register') }}">Sign up</a> #}
-			</li>
-			<!-- <li><a href="#">Favorites</a></li> -->
-			<!-- <li><a href="#">My Recipes</a></li> -->
-		</ul>
 
-		<!-- <div id="login"> <img id="login-Img" src="{{ asset('assets/img/icons/login.svg') }}" alt="logIn"></div> -->
+			{# Search recipes bar #}
+			<div class="search-div">
+				<form
+					action="{{ path('app_search_recipes_by_cuisine') }}" method="get">
+					{# <label for="cuisine">Search by Cuisine:</label> #}
+					<input type="text" id="cuisine" name="cuisine" placeholder="Cuisine...">
+					<button type="submit">
+						<i class='bx bx-search'></i>
+					</button>
+				</form>
+			</div>
+
+
+			{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+				{# favorite  #}
+				<li class="nav-my-fav">
+					<a href="{{ path('app_favorites_index') }}">My Favorites</a>
+				</li>
+				{# profile #}
+				<div class="nav-profile">
+					<a href="{{ path('app_user_show', {'id': app.user.id}) }}">
+						<span class="nav-username">{{ app.user.username }}</span>
+						{# user avatar #}
+						{% if app.user.avatar %}
+							<div class="nav-avatar">
+								<img src="{{ asset('uploads/avatar/' ~ app.user.avatar) }}" alt="{{ app.user.username }}">
+							</div>
+
+						{% else %}
+							<div class="nav-avatar">
+								<img src="{{ asset('uploads/avatar/default_avatar.png') }}" alt="Avatar">
+							</div>
+						{% endif %}
+					</a>
+				</div>
+
+				{# admin dashboard #}
+				{% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN') %}
+					<a class="nav-my-fav" href="{{ path('admin') }}">Dashboard</a>
+				{% endif %}
+
+				{# logout #}
+				<div class="logout-btn">
+					<a href="{{path('app_logout')}}">Logout</a>
+				</div>
+
+			{% else %}
+				{# login #}
+				<div class="login-li">
+					<div class="login-btn">
+						<a href="{{path('app_login')}}">Login</a>
+						{# <img class="login-icon" src="{{ asset('assets/img/icons/login.svg') }}" alt="logIn"> #}
+					</div>
+					<div class="register-btn">
+						<a href="{{path('app_register')}}">Register</a>
+					</div>
+				</div>
+			{% endif %}
+		</ul>
 	</div>
 </nav>

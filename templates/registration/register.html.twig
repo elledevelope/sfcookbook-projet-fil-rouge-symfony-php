@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register | Cookbook
+{% endblock %}
+
+{% block body %}
+
+	<div class="container-log">
+		<div class="wrapper">
+
+			<h5>Register</h5>
+
+			{{ form_errors(registrationForm) }}
+
+			{{ form_start(registrationForm) }}
+
+			<div class="input-box">
+				{{ form_row(registrationForm.email) }}
+				<i class='bx bxs-envelope'></i>
+			</div>
+
+			<div class="input-box">
+				{{ form_row(registrationForm.username) }}
+				<i class='bx bxs-user'></i>
+			</div>
+
+			<div class="input-box">
+				{{ form_row(registrationForm.password.first) }}
+				<i class='bx bxs-lock-alt'></i>
+			</div>
+
+			<div class="input-box">
+				{{ form_row(registrationForm.password.second) }}
+				<i class='bx bxs-lock-alt'></i>
+			</div>
+
+			<div class="terms-check-box">
+			{{ form_row(registrationForm.agreeTerms) }}
+				{# <a href="{{ path('app_terms_conditions') }}"></a> #}
+			</div>
+
+			<button type="submit" class="btn">Register</button>
+
+			<div class="member-link">
+				<p>Already a member?</p>
+				<a href="{{ path('app_login') }}"> Login </a>
+			</div>
+
+			{{ form_end(registrationForm) }}
+
+		</div>
+	</div>
+{% endblock %}

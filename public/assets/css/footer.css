@@ -1,0 +1,84 @@
+/*-------------------------------------- Footer------------*/
+footer {
+    background-color: #04091eb3;
+}
+
+footer ul {
+    list-style: none;
+    text-transform: capitalize;
+    font-size: 0.8rem;
+}
+
+footer a {
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #bbbbbb;
+}
+
+.container-footer {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.footer-links ul,
+li {
+    padding: 8px 12px;
+    text-align: center;
+}
+
+.footer-links ul li a:hover {
+    color: #ffffff;
+}
+
+.footer-social ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-social i {
+    color: #f44336;
+}
+
+.footer-copyright p {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.7rem;
+    color: #bbbbbb;
+}
+
+.footer-copyright a {
+    text-transform: lowercase;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+/* ============================================================ media qiery FOOTER */
+/* ============================================================ media qiery FOOTER */
+@media (min-width: 576px) {
+    footer {
+padding-top: 50px;
+    }
+    .container-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .footer-links ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 0;
+        margin-top: 0;
+    }
+}

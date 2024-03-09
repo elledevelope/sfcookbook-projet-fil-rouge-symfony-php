@@ -8,97 +8,41 @@
 			{% endblock %}
 		</title>
 
-		{# Include external stylesheets #}
-		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-		<link
-		rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		{# External stylesheets #}
+		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> {# Boxicons #}
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"/> 	{# Font Awesome icon library #}
+
 
 		{# Linking to the SVG file using the asset function #}
-		<link
-		rel="icon" type="image/svg+xml" href="{{ asset('assets/img/icons/chef-hat.svg') }}">
+		<link rel="icon" type="image/svg+xml" href="{{ asset('assets/img/icons/chef-hat.svg') }}"> {# flaticon #}
 
 
-		{# Include your own stylesheets #}
+		{# My own stylesheets #}
 		{% block stylesheets %}
-			<link
-			href="{{ asset('assets/css/style.css') }}" rel="stylesheet"/>
-			{# style.css #}
-
-			<link
-			href="{{ asset('assets/css/landingPage.css') }}" rel="stylesheet"/>
-			{# landingPage.css #}
-
-			<link
-			href="{{ asset('assets/css/recipes.css') }}" rel="stylesheet"/>
-			{# recipes.css #}
-
-			<link
-			href="{{ asset('assets/css/dashboard.css') }}" rel="stylesheet"/>
-			{# dashboard.css #}
-
-			<link
-			href="{{ asset('assets/css/user.css') }}" rel="stylesheet"/>
-			{# user.css #}
-
-			<link
-			href="{{ asset('assets/css/footer.css') }}" rel="stylesheet"/>
-			{# footer.css #}
-
-			<link
-			href="{{ asset('assets/css/privacy-terms.css') }}" rel="stylesheet"/>
-		{# privacy-terms.css #}
+			<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet"/>	{# style.css #}
+			<link href="{{ asset('assets/css/landingPage.css') }}" rel="stylesheet"/> {# landingPage.css #}
+			<link href="{{ asset('assets/css/recipes.css') }}" rel="stylesheet"/> {# recipes.css #}
+			<link href="{{ asset('assets/css/dashboard-user.css') }}" rel="stylesheet"/> {# dashboard-user.css #}
+			<link href="{{ asset('assets/css/user.css') }}" rel="stylesheet"/> {# user.css #}
+			<link href="{{ asset('assets/css/footer.css') }}" rel="stylesheet"/> {# footer.css #}
+			<link href="{{ asset('assets/css/buttons.css') }}" rel="stylesheet"/> {# buttons.css #}
+			<link href="{{ asset('assets/css/privacy-terms.css') }}" rel="stylesheet"/> {# privacy-terms.css #}
 		{% endblock %}
 
-		{# Include ImportMap and other JavaScript files #}
+		{# JavaScript files #}
 		{% block javascripts %}
-			 <script src="{{ asset('assets/js/script.js') }}" defer></script>
+			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> {# jQuery #}
+			<script src="{{ asset('assets/js/script.js') }}" defer></script>
 		{% endblock %}
 	</head>
 
 	<header>
-		{{ include('partials/_nav.html.twig') }}
+		{{ include('partials/_nav.html.twig') }} {# nav #}
 	</header>
 
 	<body>
 		{% block body %}{% endblock %}
-
-		<footer>
-			<section class="container-footer">
-				<div class="footer-links">
-					<ul>
-						<li>
-							<a href="#">About Us</a>
-						</li>
-						<li>
-							<a href="{{ path('app_privacy_policy') }}">Privacy Policy</a>
-						</li>
-						<li>
-							<a href="{{ path('app_terms_conditions') }}">Terms & Conditions</a>
-						</li>
-						<li>
-							<a href="#">Contact</a>
-						</li>
-					</li</ul>
-				</div>
-
-				<div class="footer-right">
-					<div class="footer-social">
-						<ul>
-							<li><a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
-							<li><a href="https://www.pinterest.com/" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a></li>
-							<li><a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
-							<li><a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
-						</ul>
-					</div>
-					<div class="footer-copyright">
-						<p>&copy;
-							{{ "now"|date("Y") }}
-							Cookbook | Designed and developed by
-							<a href="https://github.com/elledevelope" target="_blank">elledevelope</a>
-						</p>
-					</div>
-				</div>
-			</section>
-		</footer>
+		{{ include('partials/_footer.html.twig') }} {# footer #}		
 	</body>
 </html>

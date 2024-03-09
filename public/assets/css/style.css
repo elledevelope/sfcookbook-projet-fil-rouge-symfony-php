@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,200;1,400&display=swap&family=Mulish:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img,
+input {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+ul {
+    list-style: none;
+}
+
+a,
+li,
+button {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+:root {
+    --color-heading: #1c212a;
+
+    --doc-width: 90%;
+    --spacing-medium: 15px;
+    --satin-sheen-gold: #C9A757ff;
+    --french-gray: #C3C7D1ff;
+    --champagne-pink: #E5D1C7ff;
+    --battleship-gray: #7F7561ff;
+    --french-gray-2: #CECCD1ff;
+    --khaki: #C7AE98ff;
+    --alice-blue: #DDE2EBff;
+    --umber: #705C53ff;
+    --engineering-orange: #C83016ff;
+    --dark-moss-green: #4C4D12ff;
+    --color1: #718daa;
+    --color-brand: #e74c3c;
+    --color2: #34495e;
+    --color-grey: #777;
+
+    --color_light: #f8f9fa;
+    --color-white: #ffffff;
+    --color-unaccent: #808080;
+    --color-medium: #e8e8e8;
+
+    --spacing-small: 10px;
+    --spacing-large: 30px;
+
+    --border-radius: 5px;
+    --box-shadow: 0 16px 24px 2px rgba(33, 37, 41, 0.02),
+        0 6px 30px 5px rgba(33, 37, 41, 0.04), 0 8px 10px -5px rgba(33, 37, 41, 0.1);
+
+    --satin-sheen-gold: #C9A757ff;
+    --french-gray: #C3C7D1ff;
+    --champagne-pink: #E5D1C7ff;
+    --battleship-gray: #7F7561ff;
+    --french-gray-2: #CECCD1ff;
+    --khaki: #C7AE98ff;
+    --alice-blue: #DDE2EBff;
+    --umber: #705C53ff;
+    --engineering-orange: #C83016ff;
+    --dark-moss-green: #4C4D12ff;
+
+
+    /* toggle */
+    --text-gray: #3f4954;
+    --midnight: #b6b6b6;
+    --text-white: #fff;
+    --border-h1-card: #f1f1f1;
+    --btn-main-gradient: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%);
+    --background-color-btn-cards: #728DDD;
+    --box-shadow-btn-cards: #999;
+    --box-shadow-btn-cards-active: #666;
+    --background-nav: transparent;
+    --background-nav-scrolled: #D4E9B5;
+
+}
+
+body {
+    /* font-family: Arial, sans-serif; */
+    /* font-family: 'Dancing Script', cursive; */
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Mulish'; */
+    /* background-color: #e4e9f7; */
+}
+
+
+/* ---------------------------- LOGIN ---------------------------- */
+/* ---------------------------- SINGUP --------------------------- */
+form a {
+    color: #3c63d7;
+    text-decoration: none;
+}
+
+form label {
+    color: #5e3a34;
+}
+
+.container-log {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/assets/img/background_login.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+.wrapper {
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: black;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.wrapper h5 {
+    font-size: 36px;
+    text-align: center;
+    color: #C83016ff;
+}
+
+.wrapper .input-box {
+    width: 100%;
+    height: 50px;
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-box i {
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(94, 90, 90, 0.2);
+    border-radius: 40px;
+    font-size: 1rem;
+    color: black;
+    padding: 20px 45px 20px 20px;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background-color: #C83016ff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.wrapper .btn:hover {
+    background-color: #04091eb3;
+    transition: 0.5s;
+}
+
+.wrapper .member-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.member-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.member-link p {
+    margin-right: 10px;
+}
+
+.member-link a:hover {
+    text-decoration: underline;
+}
+
+.wrapper .input-inner {
+    width: 400px;
+    margin: auto;
+}

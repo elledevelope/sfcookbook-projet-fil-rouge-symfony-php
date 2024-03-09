@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in | Cookbook {% endblock %}
+
+{% block body %}
+<div class="container-log">
+    <div class="wrapper">
+          <h5>Log in</h5>
+
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
+
+
+      
+                <div class="input-box login-label">
+                    <div class="input-inner" >
+                        <label for="inputEmail">Email</label>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                    </div>          
+                </div>
+
+                <div class="input-box login-label">
+                    <div class="input-inner">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                    </div>   
+                </div>
+
+                <input type="hidden" name="_csrf_token"
+                    value="{{ csrf_token('authenticate') }}"
+                >
+
+                <button class="btn" type="submit">
+                    Login
+                </button>
+
+                <div class="member-link">
+                <a href="{{path('app_register')}}">Not a member yet? Join for free!</a>
+                </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

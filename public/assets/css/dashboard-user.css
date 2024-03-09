@@ -1,0 +1,155 @@
+/*-------------------------------------- Dashboard user ------------*/
+.dashboard {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.dashboard h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: black;
+    line-height: 35px;
+    text-align: center;
+    padding-top: 120px;
+    margin-bottom: 30px;
+}
+
+.dashboard p {
+    text-align: justify;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: .9rem;
+}
+
+.dashboard table {
+    width: 90%;
+    margin: auto;
+}
+
+table img {
+    padding: 10px;
+}
+
+table th {
+    color: brown;
+}
+
+table td {
+    padding: 10px;
+}
+
+/*-------------------------------------- Dashboard user: OPEN BTN ------------*/
+.open-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    border: 1px solid #bf9480;
+    border-radius: 2px;
+    box-shadow: inset 0px 1px 0px 0px #bf9480;
+    text-shadow: inset 0px 1px 0px #810e05;
+    background: linear-gradient(#C9A757ff, #bf9480);
+}
+
+.open-btn:hover {
+    background: linear-gradient(#bf9480, #C9A757ff);
+}
+
+
+/*-------------------------------------- Dashboard user: UPDATE BTN ------------*/
+.update-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    border: 1px solid #b6b6b6;
+    border-radius: 2px;
+    box-shadow: inset 0px 1px 0px 0px #b6b6b6;
+    text-shadow: inset 0px 1px 0px #810e05;
+    background: linear-gradient(#3f4954, #b6b6b6);
+}
+
+.update-btn:hover {
+    background: linear-gradient(#b6b6b6, #3f4954);
+}
+
+
+/*-------------------------------------- Dashboard user: btnGoBack  ------------*/
+.div-btnGoBack {
+    margin: 50px 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btnGoBack {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    position: relative;
+    display: flex;
+    font-weight: 600;
+    font-size: 20px;
+    gap: 0.5rem;
+    align-items: center;
+    --primary-color: rgb(189, 42, 42);
+    --hovered-color: #c84747;
+    --hovered-text-color: #e74c3c;
+}
+
+.btnGoBack a {
+    margin: 0;
+    position: relative;
+    font-size: 20px;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.btnGoBack a:hover {
+    color: var(--hovered-text-color);
+    transition: color 0.3s ease-out;
+}
+
+.btnGoBack::after,
+.btnGoBack a::before {
+    position: absolute;
+    content: "";
+    transition: width 0.3s ease-out;
+}
+
+.btnGoBack::after {
+    width: 0;
+    left: 0;
+    bottom: -7px;
+    background: var(--hovered-text-color);
+    height: 2px;
+}
+
+.btnGoBack a::before {
+    width: 0%;
+    inset: 0;
+    color: var(--hovered-text-color);
+    overflow: hidden;
+}
+
+.btnGoBack:hover::after,
+.btnGoBack:hover a::before {
+    width: 100%;
+}
+
+.btnGoBack:hover svg {
+    transform: translateX(4px);
+    color: var(--hovered-color);
+}
+
+.btnGoBack svg {
+    color: var(--primary-color);
+    transition: 0.2s;
+    position: relative;
+    width: 15px;
+    transition-delay: 0.2s;
+}
