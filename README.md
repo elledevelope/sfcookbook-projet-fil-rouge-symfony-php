@@ -7,7 +7,7 @@ This project is a web application developed using Symfony and PHP, designed to s
 ## Table of contents
 
 - [Overview](#overview)
-- [Screenshots](#screenshot)
+- [Screenshots](#screenshots)
 - [Technologies Used](#technologies-used)
 - [Features](#features)
 - [Usage](#usage)
@@ -18,11 +18,21 @@ This project is a web application developed using Symfony and PHP, designed to s
 - [Appendix](#appendix)
 
 
-## Screenshoots
+## Screenshots
+<!-- Cookbook landing page, format mobile:
+![screenshot-landing-page-Cookbook-mobile.png](/public/screenshots/1-screenshot-landing-page-Cookbook-mobile.png) -->
 
-![Design preview: burger menu mobile](/screenshot-maquette_architects-burger-menu.png)
+Cookbook ``/recipes`` page (view by registered user), format desktop:
 
-![Design preview: desktop](/screenshot-maquette_architects-desktop.png)
+![screenshot-cookbook-recipes-page-registered-user-desktop](/public/screenshots/8-screenshot-cookbook-recipes-page-registered-user-desktop.png)
+
+Cookbook ``user profile``, format desktop:
+
+![screenshot-cookbook-user-profile-desktop](/public/screenshots/4-screenshot-cookbook-user-profile-desktop.png)
+
+Recipe view by the recipe's author, format mobile:
+
+![screenshot-cookbook-recipe-view-by-author-mobile.png](/public/screenshots/6-screenshot-cookbook-recipe-view-by-author-mobile.png)
 
 ## Technologies Used
 
