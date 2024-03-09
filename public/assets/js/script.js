@@ -6,19 +6,17 @@ const menu = document.querySelector('.nav-links');
 
 
 // click event burger icon      
-burgerIcon.addEventListener('click', function () {
+burgerIcon.addEventListener('click', () => {
     menu.style.display = 'block';
 });
 
 // click event close-x icon
-closeIcon.addEventListener('click', function () {
+closeIcon.addEventListener('click', () => {
     menu.style.display = 'none';
 });
 
 
-
 //   const navLinks = document.getElementById("navLinks");
-
 //   function showMenu(){
 //       navLinks.style.right = "0";
 //   }
@@ -30,7 +28,6 @@ closeIcon.addEventListener('click', function () {
 
 
 // ---------------Scroll nav:
-
 // const nav = document.querySelector('nav');
 // const navLinks = document.querySelectorAll('.nav-links ul li');
 
@@ -61,36 +58,13 @@ closeIcon.addEventListener('click', function () {
 
 
 // --------------- Add / Remove favorite recipe:
-// $('.like-icon').click(function () {
-//     const recipeId = $(this).data('recipe-id');
-//     console.log(recipeId);
-
-//     $(this).toggleClass('clicked'); 
-//     // AJAX-query
-//     $.ajax({
-//         url: '/add-to-favorites/' + recipeId,
-//         type: 'POST',
-//         success: (response) => {
-//             if (response.success) {
-//                 alert('Recipe added to favorites!');
-//             } else {
-//                 alert('Error occurred while adding recipe to favorites!');
-//             }
-//         },
-//         error: () => {
-//             alert('Error occurred while processing your request!');
-//         }
-//     });
-// });
-
-
 $('.like-icon').click(function () {
     const recipeId = $(this).data('recipe-id');
     const isFavorite = $(this).hasClass('clicked');
 
     $(this).toggleClass('clicked');
 
-    // Determine the endpoint based on whether the recipe is being added or removed from favorites
+    // Endpoint based on whether the recipe is being added or removed from favorites
     const endpoint = isFavorite ? '/remove-from-favorites/' : '/add-to-favorites/';
 
     // AJAX-query
@@ -113,13 +87,3 @@ $('.like-icon').click(function () {
         }
     });
 });
-
-
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     const favoriteIcon = document.querySelector('.favorite-icon.like-icon');
-  
-//     favoriteIcon.addEventListener('click', function() {
-//       this.classList.toggle('clicked');
-//     });
-// });
