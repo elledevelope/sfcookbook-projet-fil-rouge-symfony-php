@@ -26,8 +26,8 @@ This project is a web application developed using Symfony and PHP, designed to s
 
 ## Technologies Used
 
-- **Symfony** 
-- **PHP** 
+- **Symfony** Version 5.7.8
+- **PHP** Version 8.2.4
 - **XAMPP (Apache, MySQL, PHP, phpMyAdmin)** 
 - **EasyAdminBundle**
 - **AJAX** 
