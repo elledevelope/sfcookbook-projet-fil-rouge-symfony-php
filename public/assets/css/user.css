@@ -8,16 +8,7 @@
     padding-bottom: 100px;
 }
 
-.user-profile p {
-    color: #666;
-}
-
-.user-profile .user-intro {
-    width: 90%;
-    margin: auto;
-}
-
-.user-profile .user-intro h1 {
+.user-profile h1 {
     font-size: 1.5rem;
     font-weight: 600;
     color: #333;
@@ -25,6 +16,15 @@
     text-align: center;
     padding-top: 120px;
     margin-bottom: 10px;
+}
+
+.user-profile p {
+    color: #666;
+}
+
+.user-profile .user-intro {
+    width: 90%;
+    margin: auto;
 }
 
 .user-profile .user-intro .member-since {
@@ -43,10 +43,6 @@
 }
 
 .user-profile .btn-edit {
-    /* position: absolute;
-    top: 5px;
-    right: 5px; */
-    /* background-color: #dfcdcd; */
     background-color: #b5c8a7;
     padding: 5px 10px;
     border-radius: 5px;
@@ -59,9 +55,6 @@
 }
 
 .user-profile .btn-delete-profile {
-    /* position: absolute;
-    bottom: 5px;
-    right: 5px; */
     background-color: #df6c6c;
     padding: 5px 10px;
     border-radius: 5px;
@@ -82,7 +75,6 @@
     background: #fff3f3;
     border-radius: 10px;
     box-shadow: 0 0 20PX 0PX rgba(0, 0, 0, 0.2);
-    /* position: relative; */
 }
 
 .user-profile .card-user img {
@@ -128,13 +120,12 @@
     transition: 0.5s;
 }
 
-/* ------------------ MEDIA QUERY - USER  ------------------ */
+/*============================================================ MEDIA QUERY user profile   */
 @media screen and (min-width: 576px) {
 
-    /* ------------------ media: USER EDIT */
+    /*============================================================ media qiery User Edit */
     .section-wrapper {
         width: 50%;
         margin: auto;
     }
-
 }
