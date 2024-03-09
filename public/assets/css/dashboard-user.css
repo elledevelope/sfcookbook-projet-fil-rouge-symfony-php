@@ -1,8 +1,7 @@
-/* DASHBOARD USER */
+/*-------------------------------------- Dashboard user ------------*/
 .dashboard {
     width: 90%;
     margin: auto;
-    /* padding-top: 150px; */
     margin-bottom: 30px;
 }
 
@@ -40,7 +39,7 @@ table td {
     padding: 10px;
 }
 
-/* OPEN BTN start*/
+/*-------------------------------------- Dashboard user: OPEN BTN ------------*/
 .open-btn {
     display: inline-block;
     padding: 10px 20px;
@@ -57,9 +56,9 @@ table td {
 .open-btn:hover {
     background: linear-gradient(#bf9480, #C9A757ff);
 }
-/* OPEN BTN end*/
 
-/* UPDATE BTN start*/
+
+/*-------------------------------------- Dashboard user: UPDATE BTN ------------*/
 .update-btn {
     display: inline-block;
     padding: 10px 20px;
@@ -76,9 +75,9 @@ table td {
 .update-btn:hover {
     background: linear-gradient(#b6b6b6, #3f4954);
 }
-/* UPDATE BTN end*/
 
-/* btnGoBack start */
+
+/*-------------------------------------- Dashboard user: btnGoBack  ------------*/
 .div-btnGoBack {
     margin: 50px 0;
     display: flex;
@@ -97,7 +96,6 @@ table td {
     font-size: 20px;
     gap: 0.5rem;
     align-items: center;
-
     --primary-color: rgb(189, 42, 42);
     --hovered-color: #c84747;
     --hovered-text-color: #e74c3c;
@@ -155,4 +153,3 @@ table td {
     width: 15px;
     transition-delay: 0.2s;
 }
-/* btnGoBack end */

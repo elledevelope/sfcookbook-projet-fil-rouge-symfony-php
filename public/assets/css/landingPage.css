@@ -620,13 +620,11 @@ header nav .nav-links ul .login-li .register-btn a:hover {
 
 
 
-/* ------------------ MEDIA QUERY - LANDING PAGE ------------------ */
-/* ------------------ MEDIA QUERY - LANDING PAGE ------------------ */
-/* ------------------ MEDIA QUERY - LANDING PAGE  ------------------ */
-/* ------------------ MEDIA QUERY - LANDING PAGE  ------------------ */
+/* ============================================================  MEDIA QUERY - LANDING PAGE */
+/* ============================================================  MEDIA QUERY - LANDING PAGE */
 @media screen and (min-width: 576px) {
 
-    /* ------------------ media: HEADER */
+    /* ============================================================ media qiery HEADER */
     header nav {
         display: flex;
         justify-content: space-between;
@@ -638,16 +636,6 @@ header nav .nav-links ul .login-li .register-btn a:hover {
     .close-x {
         display: none;
     }
-
-    /* .show-menu {
-                        display: block;
-                        opacity: 1;
-                        transform: translateX(0);
-                    }
-                    .hide-menu {
-                        opacity: 0;
-                        transform: translateX(-100%);
-                    } */
 
     header nav .nav-links {
         display: block;
@@ -685,7 +673,7 @@ header nav .nav-links ul .login-li .register-btn a:hover {
         transition: 0.5s;
     }
 
-    /* ------------------ media: SEARCH NAV */
+    /*============================================================ media qiery SEARCH NAV */
     header nav .nav-links ul .search-div form {
         margin: 0 30px 0 0;
         box-shadow: 0 16px 24px 2px rgba(33, 37, 41, 0.02),
@@ -700,13 +688,13 @@ header nav .nav-links ul .login-li .register-btn a:hover {
         background-color: #e74d3c9c;
     }
 
-    /* ------------------ media: LOGIN-REGISTER NAV */
+    /*============================================================ media qiery LOGIN-REGISTER NAV */
     header nav .nav-links ul .login-li {
         width: 160px;
         margin: auto;
     }
 
-    /* ------------------ media: PROFILE NAV */
+    /*============================================================ media qiery PROFILE NAV */
     header nav .nav-links ul .nav-profile a {
         margin: 5px 30px 0 0;
     }
@@ -715,14 +703,20 @@ header nav .nav-links ul .login-li .register-btn a:hover {
         color: #cfb364;
     }
 
-    /* ------------------ media: LOGOUT NAV */
-    .logout-btn:hover {
+    /*============================================================ media qiery LOGOUT NAV */
+    header nav .logout-btn:hover {
         background-color: #414769;
     }
 
+    /*============================================================ media qiery MY FAVORITE LI NAV */
 
+    header nav .nav-my-fav {
+        font-size: .7rem;
+        text-transform: capitalize;
+        width: 130px;
+    }
 
-    /* ------------------------------------------------------------------ media: HERO */
+    /*============================================================ media qiery HERO */
     .hero .text-box h1 {
         font-size: 4rem;
     }
@@ -731,13 +725,13 @@ header nav .nav-links ul .login-li .register-btn a:hover {
         font-size: 1.5rem;
     }
 
-    /*  About - landing page query */
+    /*============================================================ media qiery Landing page: About*/
     .about-landing h2 {
         font-size: 2rem;
         padding-bottom: 50px;
     }
 
-    /* Key Features query */
+    /*============================================================ media qiery Landing page: Key Features query */
     .features {
         display: flex;
         flex-direction: row;
@@ -753,7 +747,7 @@ header nav .nav-links ul .login-li .register-btn a:hover {
         flex: 1;
     }
 
-    /* World of recipes query */
+    /*============================================================ media qiery Landing page: World of recipes */
     .worldRecipes h2 {
         font-size: 2rem;
         padding-bottom: 50px;
