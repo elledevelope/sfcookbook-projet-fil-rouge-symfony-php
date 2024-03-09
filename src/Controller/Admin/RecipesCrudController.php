@@ -28,8 +28,8 @@ class RecipesCrudController extends AbstractCrudController
             TextField::new('budget'),
             TextField::new('cuisine'),
             ImageField::new('image')
-            ->setBasePath('/uploads') // Путь к директории, где хранятся изображения, начиная с public
-            ->setUploadDir('public\uploads') // Относительный путь к директории для загрузки изображений относительно корневой директории проекта
+            ->setBasePath('/uploads') // Path to the directory where the images are stored, starting with public
+            ->setUploadDir('public\uploads') // Relative path to the directory for loading images relative to the root directory of the project
             ->onlyOnForms(),
         ];
     }
