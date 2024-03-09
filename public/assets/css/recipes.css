@@ -45,28 +45,8 @@
     position: relative;
 }
 
-/* .recipes-card .favorite-icon .bx-heart {
-    font-size: 1.5rem;
-    color: #c62d1f;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.929);
-    background-color: #a8a83a;
-    border-radius: 20px;
-    padding: 7px;
-    cursor: pointer;
-    transition: all 0.5s;
-}
 
-.recipes-card .favorite-icon .bx-heart:hover {
-    font-size: 1.7rem;
-    padding: 10px;
-}
-
-*/
-
-/* LIKE ADD TO FAVORITE START */
+/* -------------------------------------- ADD TO FAVORITE START */
 .favorite-icon {
     display: flex;
     justify-content: flex-end;
@@ -109,44 +89,8 @@
     display: none;
 }
 
-/* LIKE ADD TO FAVORITE END */
+/* -------------------------------------- ADD TO FAVORITE END */
 
-
-/* .heart:hover {
-    cursor: pointer;
-}
-
-.heart {
-    width: 20px;
-    height: 20px;
-    position: relative;
-    transition: all .5s;
-}
-
-.heart:before,
-.heart:after {
-    content: "";
-    position: absolute;
-    top: 5px;
-    width: 10px;
-    height: 16px;
-    border-radius: 10px 10px 0 0;
-    background: red;
-}
-
-.heart:before {
-    left: 10px;
-    transform: rotate(-45deg);
-    transform-origin: 0 100%;
-}
-
-.heart:after {
-    left: 0;
-    transform: rotate(45deg);
-    transform-origin: 100% 100%;
-}
-
-*/
 .recipes-card:hover {
     box-shadow: 0 0 20PX 0PX rgba(0, 0, 0, 0.2);
 }
@@ -339,11 +283,6 @@
     background-position: center;
 }
 
-/* .sub-new-recipe form .error {
-    color: red;
-    font-weight: 400;
-} */
-
 .sub-new-recipe {
     width: 90%;
     margin: auto;
@@ -461,6 +400,99 @@ header nav .nav-links ul .search-div form button:hover {
 }
 
 
+/*-------------------------------------- User-Recipes PAGE -------------------*/
+/*-------------------------------------- ADD BUTTON */
+#div-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-add {
+    position: relative;
+    width: 160px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #34974d;
+    background-color: #3aa856;
+}
+
+.btn-add,
+.button__icon,
+.button__text {
+    transition: all 0.3s;
+}
+
+.btn-add .button__text {
+    transform: translateX(30px);
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.btn-add .button__icon {
+    position: absolute;
+    transform: translateX(120px);
+    height: 100%;
+    width: 39px;
+    background-color: #34974d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-add .svg {
+    width: 30px;
+    stroke: #fff;
+}
+
+.btn-add:hover {
+    background: #34974d;
+}
+
+.btn-add:hover .button__text {
+    color: transparent;
+}
+
+.btn-add:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+}
+
+.btn-add:active .button__icon {
+    background-color: #2e8644;
+}
+
+.btn-add:active {
+    border: 1px solid #2e8644;
+}
+
+/*--------------------------------------DELETE BTN */
+.delete-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    border: 1px solid #d02718;
+    border-radius: 2px;
+    box-shadow: inset 0px 1px 0px 0px #f5978e;
+    text-shadow: inset 0px 1px 0px #810e05;
+    background: linear-gradient(#f24537, #c62d1f);
+}
+
+.delete-btn:hover {
+    background: linear-gradient(#c62d1f, #f24537);
+}
+
+
+
+
+
+
 
 /*============================================================ media qiery RECIPES*/
 /*============================================================ media qiery RECIPES*/
@@ -494,25 +526,18 @@ header nav .nav-links ul .search-div form button:hover {
         margin: auto;
     }
 
-    /* media: bookmark like */
-    .favorite-icon {
+    /*============================================================ media qiery ADD TO FAVORITE */
+    /* .favorite-icon {
         position: absolute;
         top: 10px;
         right: 10px;
-    }
-
-    /* .recipes-card .favorite-icon .bx-heart {
-        box-shadow: none;
-        background-color: #a8a83a00;
-        transition: all 0.5s;
-    }
-
-    .recipes-card .favorite-icon .bx-heart:hover {
-        font-size: 1.7rem;
-        cursor: pointer;
-
     } */
 
+    .add-to-favorite-show{
+        position: absolute;
+        top: 120px;
+        right: 70px;
+    }
     .recipes .level-budget {
         display: flex;
         justify-content: center;
@@ -590,101 +615,4 @@ header nav .nav-links ul .search-div form button:hover {
         padding: 20px 0 50px 0;
         text-align: left;
     }
-
-
 }
-
-
-
-/*-------------------User-Recipes PAGE -------------------*/
-/* ADD BUTTON */
-/* ADD BUTTON */
-#div-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.btn-add {
-    position: relative;
-    width: 160px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border: 1px solid #34974d;
-    background-color: #3aa856;
-}
-
-.btn-add,
-.button__icon,
-.button__text {
-    transition: all 0.3s;
-}
-
-.btn-add .button__text {
-    transform: translateX(30px);
-    color: #fff;
-    font-weight: 500;
-    font-size: 1rem;
-}
-
-.btn-add .button__icon {
-    position: absolute;
-    transform: translateX(120px);
-    height: 100%;
-    width: 39px;
-    background-color: #34974d;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-add .svg {
-    width: 30px;
-    stroke: #fff;
-}
-
-.btn-add:hover {
-    background: #34974d;
-}
-
-.btn-add:hover .button__text {
-    color: transparent;
-}
-
-.btn-add:hover .button__icon {
-    width: 148px;
-    transform: translateX(0);
-}
-
-.btn-add:active .button__icon {
-    background-color: #2e8644;
-}
-
-.btn-add:active {
-    border: 1px solid #2e8644;
-}
-
-
-
-/* DELETE BTN start*/
-.delete-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #e74c3c;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 400;
-    border: 1px solid #d02718;
-    border-radius: 2px;
-    box-shadow: inset 0px 1px 0px 0px #f5978e;
-    text-shadow: inset 0px 1px 0px #810e05;
-    background: linear-gradient(#f24537, #c62d1f);
-}
-
-.delete-btn:hover {
-    background: linear-gradient(#c62d1f, #f24537);
-}
-
-/* DELETE BTN end*/
