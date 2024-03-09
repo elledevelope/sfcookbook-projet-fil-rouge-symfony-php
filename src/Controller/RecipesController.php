@@ -33,7 +33,7 @@ class RecipesController extends AbstractController
         $recipes = $paginator->paginate(
             $recipesRepository->findBy([], ['id' => 'DESC']),
             $request->query->getInt('page', 1), /*page number*/
-            10 /*limit per page*/
+            4 /*limit per page*/
         );
 
         $isFavorite = function ($recipeId) {
@@ -128,7 +128,7 @@ class RecipesController extends AbstractController
         ]);
     }
 
-    //added 10.01.2024:
+
     #[Route('/{id}/edit', name: 'app_recipes_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Recipes $recipe, EntityManagerInterface $entityManager): Response
     {

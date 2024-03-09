@@ -178,7 +178,20 @@
     background-color: transparent;
 }
 
+.pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.pages a {
+    color: black;
+    padding: 4px;
+}
+
+.pages a:visited {
+    color: gray;
+}
 
 /*-------------------------------------- /recipe------------*/
 /*-------------------------------------- /recipe------------*/

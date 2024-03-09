@@ -8,6 +8,10 @@
 		<h2 class="pagename">Discover Culinary Delights</h2>
 		<p class="p-intro">Elevate your home cooking with our curated collection of mouthwatering recipes. From Mediterranean-inspired Pan-Roasted Chicken to classic American Baked Potato Soup, explore diverse flavors and create unforgettable meals in your own kitchen. Let the adventure begin!</p>
 
+		{# <p>We offer a selection of
+			{{ recipes.getTotalItemCount }}
+			delicious recipes!</p> #} 	{# pagination #}
+
 		<div class="gallery-recipes">
 			{% for recipe in recipes %}
 				<div class="recipes-card">
@@ -22,8 +26,8 @@
 
 						{# like bookmark #}
 						<div class="favorite-icon like-icon {% if recipe.isFavorite %}clicked{% endif %}" data-recipe-id="{{ recipe.id }}">
-							{# <i class='bx bx-heart'></i> #}
-							{# <div class="heart"></div> #}<p>Add to favorite
+							<p>
+							Add to favorite
 							</p><i class='bx bx-bookmark-heart'> </i>
 							<i class='bx bxs-bookmark-heart'></i>
 						</div>
@@ -51,5 +55,11 @@
 				<p>No records found</p>
 			{% endfor %}
 		</div>
+		<div class="pages">
+				{{ knp_pagination_render(recipes) }} {# pagination #}
+		</div>
+
+
+
 	</section>
 {% endblock %}
