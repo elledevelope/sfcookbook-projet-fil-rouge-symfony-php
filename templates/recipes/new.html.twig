@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cookbook
+{% block title %}Create new Recipe | Cookbook
 {% endblock %}
 
 {% block body %}
@@ -11,22 +11,20 @@
 				Let's build a community filled with delicious inspirations together!<br><br>
 
 				We believe in the power of community and the joy of cooking. Whether you're a seasoned chef or a passionate home cook, we invite you to showcase your favorite recipes on our platform.<br><br>
-
 				To share your culinary masterpiece, simply upload the details below. Don't forget to include the description, ingredients,and step-by-step instructions that make your recipe unique. 
-								Get ready to inspire others and celebrate the love of cooking. Your recipe might be the next favorite for someone around the world.
+				Get ready to inspire others and celebrate the love of cooking. Your recipe might be the next favorite for someone around the world.
 			</p>
 			<p class="happyCooking">Happy cooking!</p>
 			{{ include('recipes/_form.html.twig') }}
 
-		<div class="div-btnGoBack">
-			<button type="button" class="btnGoBack">
-				<a href="{{ path('app_recipes_index') }}">Back to recipes</a>
-				<svg stroke-width="4" stroke="currentColor" viewbox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
-					<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
-				</svg>
-			</button>
-		</div>
-		
+			<div class="div-btnGoBack">
+				<button type="button" class="btnGoBack">
+					<a href="{{ path('app_recipes_index') }}">Back to recipes</a>
+					<svg stroke-width="4" stroke="currentColor" viewbox="0 0 24 24" fill="none" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
+						<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linejoin="round" stroke-linecap="round"></path>
+					</svg>
+				</button>
+			</div>		
 		</div>
 	</section>
 {% endblock %}

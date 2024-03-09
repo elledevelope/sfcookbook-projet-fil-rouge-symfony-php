@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Your profile
+{% block title %}Your profile | Cookbook
 {% endblock %}
 
 {% block body %}
@@ -12,8 +12,7 @@
 				<span>{{ user.createdAt ? user.createdAt|date('j F Y') : '' }}</span>
 			</p>
 
-			<div
-				class="edit-delete">
+			<div class="edit-delete">
 				{# edit btn #}
 				<a class="btn-edit" href="{{ path('app_user_edit', {'id': user.id}) }}">Edit profile ✒️</a>
 				{# delete btn #}

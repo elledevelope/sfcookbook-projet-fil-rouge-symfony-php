@@ -43,7 +43,7 @@
 							<i class='bx bx-globe'></i>:
 							{{ recipe.cuisine }}</p>
 						{# <!-- level --> #}
-						<p>
+						<p class="cuisine-level">
 							<i class='bx bxs-bowl-rice'></i>:
 							{{ recipe.level }}</p>
 						{# <!-- budget --> #}
@@ -98,8 +98,8 @@
 
 		{# Edit and Delete buttons (only for the author) #}
 		{% if recipe.user is not null and recipe.user.id == app.user.id %}
-			<div class="recipe-buttons">
-				<a href="{{ path('app_recipes_edit', {'id': recipe.id}) }}">Edit</a>
+			<div class="edit-delete">
+				<a class="btn-edit" href="{{ path('app_recipes_edit', {'id': recipe.id}) }}">Edit ✒️</a>
 				{{ include('recipes/_delete_form.html.twig') }}
 			</div>
 		{% endif %}

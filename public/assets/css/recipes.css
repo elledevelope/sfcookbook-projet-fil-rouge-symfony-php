@@ -243,6 +243,10 @@
     color: #810e05;
 }
 
+.recipe-page .recipe-cuisine-budget .cuisine-level {
+    margin: 0 10px;
+}
+
 .recipe-page .p-sub-title {
     font-size: 1.5rem;
     font-weight: 600;
@@ -300,6 +304,10 @@
     text-align: justify;
     color: #3f4954;
     font-weight: 500;
+}
+
+.sub-new-recipe .text-update-recipe {
+    padding-bottom: 20px;
 }
 
 .new-recipe .happyCooking {
@@ -533,11 +541,12 @@ header nav .nav-links ul .search-div form button:hover {
         right: 10px;
     } */
 
-    .add-to-favorite-show{
+    .add-to-favorite-show {
         position: absolute;
         top: 120px;
         right: 70px;
     }
+
     .recipes .level-budget {
         display: flex;
         justify-content: center;

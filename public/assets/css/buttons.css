@@ -189,3 +189,38 @@ form .btn-upload:hover {
     background: linear-gradient(#c62d1f, #f24537);
 }
 
+
+/* -------------------------------------- edit-delete buttons */
+.edit-delete {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.btn-edit {
+    background-color: #b5c8a7;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #333;
+    font-size: .9rem;
+}
+
+.btn-edit:hover {
+    opacity: 90%;
+}
+
+.btn-delete-profile {
+    background-color: #df6c6c;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #333;
+    font-size: .9rem;
+    border: none;
+}
+
+.btn-delete-profile:hover {
+    opacity: 90%;
+}

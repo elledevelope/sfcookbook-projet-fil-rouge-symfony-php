@@ -33,40 +33,6 @@
     font-size: .9rem;
 }
 
-.user-profile .edit-delete {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 300px;
-    margin: auto;
-    padding: 20px 0;
-}
-
-.user-profile .btn-edit {
-    background-color: #b5c8a7;
-    padding: 5px 10px;
-    border-radius: 5px;
-    color: #333;
-    font-size: .9rem;
-}
-
-.user-profile .btn-edit:hover {
-    opacity: 90%;
-}
-
-.user-profile .btn-delete-profile {
-    background-color: #df6c6c;
-    padding: 5px 10px;
-    border-radius: 5px;
-    color: #333;
-    font-size: .9rem;
-    border: none;
-}
-
-.user-profile .btn-delete-profile:hover {
-    opacity: 90%;
-}
-
 .user-profile .card-user {
     width: 90%;
     max-width: 600px;
