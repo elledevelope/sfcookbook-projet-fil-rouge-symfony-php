@@ -711,7 +711,7 @@ header nav .nav-links ul .login-li .register-btn a:hover {
     /*============================================================ media qiery MY FAVORITE LI NAV */
 
     header nav .nav-my-fav {
-        font-size: .7rem;
+        /* font-size: .7rem; */
         text-transform: capitalize;
         width: 130px;
     }

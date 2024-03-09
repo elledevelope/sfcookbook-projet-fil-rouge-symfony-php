@@ -63,9 +63,7 @@
 
 				{# admin dashboard #}
 				{% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN') %}
-					<div class="nav-dashboard">
-						<a href="{{ path('admin') }}">Dashboard</a>
-					</div>
+					<a class="nav-my-fav" href="{{ path('admin') }}">Dashboard</a>
 				{% endif %}
 
 				{# logout #}
