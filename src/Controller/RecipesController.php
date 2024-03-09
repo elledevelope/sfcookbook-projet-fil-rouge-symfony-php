@@ -70,12 +70,10 @@ class RecipesController extends AbstractController
 
             // Persist the entity to generate the ID
             $entityManager->persist($recipe);
-            $entityManager->flush();
 
-            // Now the entity has an ID
-            $entityId = $recipe->getId();
             $file = $form['image']->getData();
             if ($file) {
+                $entityId = $recipe->getId(); // Get the ID before flush
                 $newFilename = 'recipe_' . $entityId . '.' . $file->guessExtension();
 
                 // Move the file to the desired directory
@@ -87,16 +85,15 @@ class RecipesController extends AbstractController
 
                     // Set the image property of the recipe entity to the filename
                     $recipe->setImage($newFilename);
-
-                    // Persist the changes to the entity
-                    $entityManager->persist($recipe);
-                    $entityManager->flush();
                 } catch (FileException $e) {
                     // Handle file upload error
                     // Log the error or display a message
                     $this->addFlash('error', 'Error uploading the file.');
                 }
             }
+
+            // Now flush the changes to the entity
+            $entityManager->flush();
 
             return $this->redirectToRoute('app_recipes_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -106,6 +103,7 @@ class RecipesController extends AbstractController
             'form' => $form,
         ]);
     }
+
 
 
     #[Route('/{id}', name: 'app_recipes_show', methods: ['GET'])]
@@ -173,6 +171,7 @@ class RecipesController extends AbstractController
             'form' => $form->createView(), // Note: Create the form view using createView() method
         ]);
     }
+
 
     #[Route('/{id}', name: 'app_recipes_delete', methods: ['POST'])]
     public function delete(Request $request, Recipes $recipe, EntityManagerInterface $entityManager): Response

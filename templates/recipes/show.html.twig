@@ -86,7 +86,7 @@
 			{{ recipe.createdAt ? recipe.createdAt|date('j F Y') : '' }}
 			by
 			{% if recipe.user is not null %}
-				{% if recipe.user.id == app.user.id %}
+				{% if recipe.user.id is not null and app.user is not null and recipe.user.id == app.user.id %}
 					<strong>{{ app.user.username }}</strong>
 				{% else %}
 					{{ recipe.user.username }}
@@ -96,8 +96,8 @@
 			{% endif %}
 		</p>
 
-		{# Edit and Delete buttons (only for the author) #}
-		{% if recipe.user is not null and recipe.user.id == app.user.id %}
+		{# Edit and Delete buttons (only for the author of the recipe) #}
+		{% if app.user and recipe.user and app.user.id == recipe.user.id %}
 			<div class="edit-delete">
 				<a class="btn-edit" href="{{ path('app_recipes_edit', {'id': recipe.id}) }}">Edit ✒️</a>
 				{{ include('recipes/_delete_form.html.twig') }}
