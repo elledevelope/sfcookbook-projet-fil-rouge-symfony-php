@@ -12,13 +12,27 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 #[Route('/user')]
 class UserController extends AbstractController
 {
+    private $authorizationChecker;
+
+    public function __construct(AuthorizationCheckerInterface $authorizationChecker)
+    {
+        $this->authorizationChecker = $authorizationChecker;
+    }
+
     #[Route('/', name: 'app_user_index', methods: ['GET'])]
     public function index(UserRepository $userRepository): Response
     {
+        // Checking if the current user has the administrator role
+        if (!$this->authorizationChecker->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException('Access denied.');
+        }
+
         return $this->render('user/index.html.twig', [
             'users' => $userRepository->findAll(),
         ]);
@@ -27,12 +41,24 @@ class UserController extends AbstractController
     #[Route('/new', name: 'app_user_new', methods: ['GET', 'POST'])]
     public function new(Request $request): Response
     {
+        // Checking if the current user has the administrator role
+        if (!$this->authorizationChecker->isGranted('ROLE_ADMIN')) {
+            throw new AccessDeniedException('Access denied.');
+        }
+
         return $this->redirectToRoute('app_register');
     }
 
     #[Route('/{id}', name: 'app_user_show', methods: ['GET'])]
     public function show(User $user): Response
     {
+        $currentUser = $this->getUser();
+
+        // Checking if the current user matches the requested profile
+        if ($currentUser !== $user) {
+            throw $this->createAccessDeniedException('Access denied.');
+        }
+    
         return $this->render('user/show.html.twig', [
             'user' => $user,
         ]);
