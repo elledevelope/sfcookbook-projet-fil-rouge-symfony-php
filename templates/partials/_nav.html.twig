@@ -25,11 +25,12 @@
 				<a href="{{ path('app_recipes_index') }}">Recipes</a>
 			</li>
 
-			{# Search recipes bar #}
-			<div class="search-div">
-				<form
-					action="{{ path('app_search_recipes_by_cuisine') }}" method="get">
-					{# <label for="cuisine">Search by Cuisine:</label> #}
+			{# Barre de recherche de recettes #}
+			<div
+				class="search-div">
+				{# Formulaire avec action pointant vers la route 'app_search_recipes_by_cuisine' #}
+				<form action="{{ path('app_search_recipes_by_cuisine') }}" method="get">
+					{# Champ de saisie pour le nom de la cuisine #}
 					<input type="text" id="cuisine" name="cuisine" placeholder="Cuisine...">
 					<button type="submit">
 						<i class='bx bx-search'></i>

@@ -195,19 +195,23 @@ class RecipesController extends AbstractController
         ]);
     }
 
-    // Search recipes :
+    // Recherche de recettes par cuisine :
     #[Route('/search/recipes-by-cuisine', name: 'app_search_recipes_by_cuisine', methods: ['GET'])]
     public function searchRecipesByCuisine(Request $request, RecipesRepository $recipesRepository): Response
     {
+        // Récupération de la cuisine depuis la requête
         $cuisine = $request->query->get('cuisine');
 
+        // Recherche des recettes selon la cuisine spécifiée
         $recipes = $recipesRepository->findByCuisine($cuisine);
 
+        // Rendu de la vue des recettes par cuisine avec les données
         return $this->render('recipes/by_cuisine.html.twig', [
             'recipes' => $recipes,
             'cuisine' => $cuisine,
         ]);
     }
+
 
     // Add to favorite :
     #[Route('/add-to-favorites/{id}', name: 'add_to_favorites', methods: ['POST'])]
