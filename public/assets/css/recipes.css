@@ -28,52 +28,46 @@
     text-decoration: none;
 }
 
-.recipes .gallery-recipes {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.recipes-card {
+.recipes .gallery-recipes .recipes-card {
     background: #fff3f3;
     border-radius: 6px;
     transition: 0.5s;
     margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
+}
+
+.recipes .gallery-recipes .recipes-card:hover {
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
 }
 
 
 /* -------------------------------------- ADD TO FAVORITE START */
-.favorite-icon {
+.recipes .gallery-recipes .recipes-card .recipe-card-content .favorite-icon {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin: 5px;
 }
 
-.favorite-icon:hover {
+.recipes .gallery-recipes .recipes-card .recipe-card-content .favorite-icon:hover {
     cursor: pointer;
     opacity: 50%;
 }
 
-.favorite-icon i {
+.recipes .gallery-recipes .recipes-card .recipe-card-content .favorite-icon i {
     font-size: 1.9rem;
     color: #d02718;
 }
 
-.favorite-icon p {
+.recipes .gallery-recipes .recipes-card .recipe-card-content .favorite-icon p {
     font-size: .9rem;
     color: rgba(128, 128, 128, 0.742);
 }
 
-.favorite-icon .bx-bookmark-heart {
+.recipes .gallery-recipes .recipes-card .recipe-card-content .favorite-icon .bx-bookmark-heart {
     display: inline-block;
 }
 
-.favorite-icon .bx.bxs-bookmark-heart {
+.recipes .gallery-recipes .recipes-card .recipe-card-content .favorite-icon .bx.bxs-bookmark-heart {
     display: none;
 }
 
@@ -91,11 +85,7 @@
 
 /* -------------------------------------- ADD TO FAVORITE END */
 
-.recipes-card:hover {
-    box-shadow: 0 0 20PX 0PX rgba(0, 0, 0, 0.2);
-}
-
-.recipes-card-img {
+.recipes .gallery-recipes .recipes-card .recipes-card-img {
     width: 100%;
     margin: auto;
     height: 300px;
@@ -107,32 +97,32 @@
     align-items: center;
 }
 
-.card-img {
+.recipes .gallery-recipes .recipes-card .recipes-card-img .card-img {
     transition: transform 400ms ease-out;
     overflow: hidden;
 }
 
-.card-img:hover {
+.recipes .gallery-recipes .recipes-card .recipes-card-img .card-img:hover {
     transform: scale(1.15);
     overflow: hidden;
 }
 
-.recipe-card-content {
+.recipes .gallery-recipes .recipes-card .recipe-card-content {
     width: 100%;
     margin: auto;
 }
 
-.recipes .level-budget {
+.recipes .gallery-recipes .level-budget {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.recipes .level-budget p {
+.recipes .gallery-recipes .recipes-card .recipe-card-content .level-budget p {
     text-transform: capitalize;
 }
 
-.recipes-card h5 {
+.recipes .gallery-recipes .recipes-card .recipe-card-content h5 {
     font-size: 1.5rem;
     line-height: 1.2;
     color: #1c212a;
@@ -151,7 +141,7 @@
     font-style: italic;
 }
 
-.recipes-card .div-btn {
+.recipes .gallery-recipes .recipes-card .div-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -528,13 +518,11 @@ header nav .nav-links ul .search-div form button:hover {
         font-size: 1.1rem;
     }
 
-    .recipes .recipes-card {
+    .recipes .gallery-recipes .recipes-card {
         display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
     }
 
-    .recipes-card-img {
+    .recipes .gallery-recipes .recipes-card .recipes-card-img {
         width: 50%;
         margin: auto;
         border-top-right-radius: 0px;
@@ -542,22 +530,9 @@ header nav .nav-links ul .search-div form button:hover {
         height: 350px;
     }
 
-    .recipe-card-content {
+    .recipes .gallery-recipes .recipes-card .recipe-card-content {
         width: 50%;
         margin: auto;
-    }
-
-    /*============================================================ media qiery ADD TO FAVORITE */
-    /* .favorite-icon {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-    } */
-
-    .add-to-favorite-show {
-        position: absolute;
-        top: 120px;
-        right: 70px;
     }
 
     .recipes .level-budget {
@@ -569,6 +544,14 @@ header nav .nav-links ul .search-div form button:hover {
         text-align: left;
         margin: 10px;
     }
+
+    /*============================================================ media qiery ADD TO FAVORITE */
+    .add-to-favorite-show {
+        position: absolute;
+        top: 120px;
+        right: 70px;
+    }
+
 
     /*============================================================ media qiery /RECIPE*/
     .recipe-page .recipe-title {

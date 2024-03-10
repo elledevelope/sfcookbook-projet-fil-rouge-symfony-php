@@ -9,29 +9,37 @@
 		<p class="p-intro">Elevate your home cooking with our curated collection of mouthwatering recipes. From Mediterranean-inspired Pan-Roasted Chicken to classic American Baked Potato Soup, explore diverse flavors and create unforgettable meals in your own kitchen. Let the adventure begin!</p>
 
 		{# <p>We offer a selection of
-			{{ recipes.getTotalItemCount }}
-			delicious recipes!</p> #} 	{# pagination #}
+					{{ recipes.getTotalItemCount }}
+					delicious recipes!</p> #}
+		{# pagination #}
 
-		<div class="gallery-recipes">
+		{# Galerie de recettes #}
+			<div
+			class="gallery-recipes"> {# Boucle sur chaque recette #}
 			{% for recipe in recipes %}
-				<div class="recipes-card">
+				<div
+					class="recipes-card">
+					{# Vérifie s'il y a une image associée à la recette #}
 					{% if recipe.image %}
-						<div class="recipes-card-img">
+						<div
+							class="recipes-card-img">
+							{# Affichage de l'image de la recette #}
 							<img class="crop-horizontal card-img" src="/uploads/{{ recipe.image }}" alt="{{ recipe.title }}">
 						</div>
 					{% endif %}
 
+					{#Contenu de la carte de la recette #}
 					<div
 						class="recipe-card-content">
-
-						{# like bookmark #}
+						{# Bouton pour ajouter aux favoris #}
 						<div class="favorite-icon like-icon {% if recipe.isFavorite %}clicked{% endif %}" data-recipe-id="{{ recipe.id }}">
-							<p>
-							Add to favorite
-							</p><i class='bx bx-bookmark-heart'> </i>
+							<p>Add to favorite</p>
+							{#Icone de coeur pleine ou vide en fonction de si la recette est déjà favorite #}
+							<i class='bx bx-bookmark-heart'></i>
 							<i class='bx bxs-bookmark-heart'></i>
 						</div>
 
+						{# Informations sur le niveau et le budget de la recette #}
 						<div class="level-budget">
 							<p>
 								<i class='bx bx-globe'></i>:
@@ -44,21 +52,26 @@
 								{{ recipe.budget }}</p>
 						</div>
 
+						{# Titre et description de la recette #}
 						<h5>{{ recipe.title }}</h5>
 						<p class="recipes-card-description">{{ recipe.description }}</p>
+
+						{# Bouton pour accéder à la recette détaillée #}
 						<div class="div-btn">
 							<a class="btn-getCooking" href="{{ path('app_recipes_show', {'id': recipe.id}) }}">Get Cooking!</a>
 						</div>
 					</div>
 				</div>
 			{% else %}
+				{# Message s'il n'y a pas de recettes #}
 				<p>No records found</p>
 			{% endfor %}
 		</div>
-		<div class="pages">
-				{{ knp_pagination_render(recipes) }} {# pagination #}
-		</div>
 
+		<div class="pages">
+			{{ knp_pagination_render(recipes) }}
+			{# pagination #}
+		</div>
 
 
 	</section>
