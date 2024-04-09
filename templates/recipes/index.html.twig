@@ -9,8 +9,8 @@
 		<p class="p-intro">Elevate your home cooking with our curated collection of mouthwatering recipes. From Mediterranean-inspired Pan-Roasted Chicken to classic American Baked Potato Soup, explore diverse flavors and create unforgettable meals in your own kitchen. Let the adventure begin!</p>
 
 		{# <p>We offer a selection of
-					{{ recipes.getTotalItemCount }}
-					delicious recipes!</p> #}
+							{{ recipes.getTotalItemCount }}
+							delicious recipes!</p> #}
 		{# pagination #}
 
 		{# Galerie de recettes #}
@@ -34,10 +34,16 @@
 						{# Bouton pour ajouter aux favoris #}
 						<div class="favorite-icon like-icon {% if recipe.isFavorite %}clicked{% endif %}" data-recipe-id="{{ recipe.id }}">
 							<p>Add to favorite</p>
-							{#Icone de coeur pleine ou vide en fonction de si la recette est déjà favorite #}
-							<i class='bx bx-bookmark-heart'></i>
-							<i class='bx bxs-bookmark-heart'></i>
+							{# Icone de coeur pleine ou vide en fonction de si la recette est déjà favorite #}
+							{% if recipe.isFavorite %}
+								<i class='bx bxs-bookmark-heart'></i>
+								<!-- Use solid heart icon if the recipe is a favorite -->
+							{% else %}
+								<i class='bx bx-bookmark-heart'></i>
+								<!-- Use outline heart icon if the recipe is not a favorite -->
+							{% endif %}
 						</div>
+
 
 						{# Informations sur le niveau et le budget de la recette #}
 						<div class="level-budget">

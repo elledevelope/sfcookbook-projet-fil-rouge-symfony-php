@@ -19,13 +19,6 @@ class FavoriteRecipesController extends AbstractController
     }
 
 
-    // #[Route('/favorite/recipes', name: 'app_favorite_recipes')]
-    // public function index(): Response
-    // {
-    //     return $this->render('favorite_recipes/index.html.twig', [
-    //         'controller_name' => 'FavoriteRecipesController',
-    //     ]);
-    // }
 
 
     #[Route('/favorites', name: 'app_favorites_index', methods: ['GET'])]

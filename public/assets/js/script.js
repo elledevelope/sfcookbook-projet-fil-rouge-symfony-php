@@ -16,53 +16,16 @@ closeIcon.addEventListener('click', () => {
 });
 
 
-//   const navLinks = document.getElementById("navLinks");
-//   function showMenu(){
-//       navLinks.style.right = "0";
-//   }
-
-//   function hideMenu(){
-//       navLinks.style.right = "-200px";
-//   }
-
-
-
-// ---------------Scroll nav:
-// const nav = document.querySelector('nav');
-// const navLinks = document.querySelectorAll('.nav-links ul li');
-
-// function handleScroll() {
-//     // Add or remove the 'scrolled' class based on scroll position
-//     if (window.scrollY > 0) {
-//         nav.classList.add('scrolled');
-//     } else {
-//         nav.classList.remove('scrolled');
-//     }
-
-//     // Add or remove the 'active' class based on scroll position
-//     navLinks.forEach(link => {
-//         const sectionId = link.querySelector('a').getAttribute('href').substring(1);
-//         const section = document.getElementById(sectionId);
-//         const rect = section.getBoundingClientRect();
-
-//         if (rect.top <= 0 && rect.bottom > 0) {
-//             link.classList.add('active');
-//         } else {
-//             link.classList.remove('active');
-//         }
-//     });
-// }
-
-// // Add scroll event listener
-// window.addEventListener('scroll', handleScroll);
-
 
 // --------------- Add / Remove favorite recipe:
 $('.like-icon').click(function () {
+    const $icon = $(this).find('i');
+    const $text = $(this).find('p');
     const recipeId = $(this).data('recipe-id');
     const isFavorite = $(this).hasClass('clicked');
 
-    $(this).toggleClass('clicked');
+    // Toggle visibility of the text
+    $text.toggle();
 
     // Endpoint based on whether the recipe is being added or removed from favorites
     const endpoint = isFavorite ? '/remove-from-favorites/' : '/add-to-favorites/';
@@ -73,6 +36,16 @@ $('.like-icon').click(function () {
         type: isFavorite ? 'DELETE' : 'POST',
         success: (response) => {
             if (response.success) {
+                // Toggle the 'clicked' class on the like-icon
+                $(this).toggleClass('clicked');
+
+                // Explicitly add or remove classes to ensure correct icon is displayed
+                if (isFavorite) {
+                    $icon.removeClass('bx-bookmark-heart').addClass('bxs-bookmark-heart');
+                } else {
+                    $icon.removeClass('bxs-bookmark-heart').addClass('bx-bookmark-heart');
+                }
+
                 if (isFavorite) {
                     // alert('Recipe removed from favorites!');
                 } else {
