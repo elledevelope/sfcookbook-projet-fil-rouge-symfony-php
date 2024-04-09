@@ -23,13 +23,8 @@ This project is a web application developed using Symfony and PHP, designed to s
 <img src="./public/screenshots/2-screenshot-cookbook-mobile-menu.png" alt="Coobook menu mobile" width="300px" height="400px"  target="_blank"> <img src="./public/screenshots/cookbook-login-mobile.png" alt="Coobook login page mobile" width="300px" height="400px" target="_blank">
 
 
-<img src="./public/screenshots/8-screenshot-cookbook-recipes-page-registered-user-desktop.png" alt="Cookbook ``/recipes`` page (view by registered user), format desktop"  width="300px" height="400px" target="_blank">
-
-<img src="./public/screenshots/cookbook-recipe-page-desktop.png" alt="Cookbook Recipe page format desktop" width="400px" height="400px"   target="_blank"> 
-
-<img src="./public/screenshots/7-screenshot-cookbook-recipe-edit-registered-user-desktop.png" alt="Recipe `update` form for a registered user, format desktop" width="340px" height="400px" target="_blank">
-
-<img src="./public/screenshots/4-screenshot-cookbook-user-profile-desktop.png" alt="Cookbook ``user profile``, format desktop" width="440px" height="400px" target="_blank">
+<img src="./public/screenshots/8-screenshot-cookbook-recipes-page-registered-user-desktop.png" alt="Cookbook ``/recipes`` page (view by registered user), format desktop"  width="300px" height="400px" target="_blank"> <img src="./public/screenshots/cookbook-recipe-page-desktop.png" alt="Cookbook Recipe page format desktop" width="400px" height="400px"   target="_blank">
+<img src="./public/screenshots/7-screenshot-cookbook-recipe-edit-registered-user-desktop.png" alt="Recipe `update` form for a registered user, format desktop" width="340px" height="400px" target="_blank"> <img src="./public/screenshots/4-screenshot-cookbook-user-profile-desktop.png" alt="Cookbook ``user profile``, format desktop" width="440px" height="400px" target="_blank">
 
 
 
