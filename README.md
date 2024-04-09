@@ -19,26 +19,36 @@ This project is a web application developed using Symfony and PHP, designed to s
 
 
 ## Screenshots
+<!-- <img src="./public/screenshots/1-screenshot-landing-page-Cookbook-mobile.png" alt="Coobook landing page mobile" width="250px" height="400px" target="_blank"> -->
+<img src="./public/screenshots/2-screenshot-cookbook-mobile-menu.png" alt="Coobook menu mobile" width="300px" height="400px"  target="_blank"> <img src="./public/screenshots/cookbook-login-mobile.png" alt="Coobook login page mobile" width="300px" height="400px" target="_blank">
+
+
+<img src="./public/screenshots/8-screenshot-cookbook-recipes-page-registered-user-desktop.png" alt="Cookbook ``/recipes`` page (view by registered user), format desktop"  width="300px" height="400px" target="_blank">
+
+<img src="./public/screenshots/cookbook-recipe-page-desktop.png" alt="Cookbook Recipe page format desktop" width="400px" height="400px"   target="_blank"> 
+
+<img src="./public/screenshots/7-screenshot-cookbook-recipe-edit-registered-user-desktop.png" alt="Recipe `update` form for a registered user, format desktop" width="340px" height="400px" target="_blank">
+
+<img src="./public/screenshots/4-screenshot-cookbook-user-profile-desktop.png" alt="Cookbook ``user profile``, format desktop" width="440px" height="400px" target="_blank">
+
+
+
 <!-- Cookbook landing page, format mobile:
 ![screenshot-landing-page-Cookbook-mobile.png](/public/screenshots/1-screenshot-landing-page-Cookbook-mobile.png) -->
 
-Cookbook ``/recipes`` page (view by registered user), format desktop:
-
-<a href="/public/screenshots/8-screenshot-cookbook-recipes-page-registered-user-desktop.png" target="_blank"><img src="/public/screenshots/8-screenshot-cookbook-recipes-page-registered-user-desktop.png" width="800"></a>
-
-
-Cookbook ``user profile``, format desktop:
-
-<a href="/public/screenshots/4-screenshot-cookbook-user-profile-desktop.png" target="_blank"><img src="/public/screenshots/4-screenshot-cookbook-user-profile-desktop.png" width="800"></a>
+<!-- Cookbook ``/recipes`` page (view by registered user), format desktop: -->
+<!-- <a href="/public/screenshots/8-screenshot-cookbook-recipes-page-registered-user-desktop.png" target="_blank"><img src="/public/screenshots/8-screenshot-cookbook-recipes-page-registered-user-desktop.png" width="800"></a> -->
 
 
-Recipe view by the recipe's author, format mobile:
+<!-- Cookbook ``user profile``, format desktop: -->
+<!-- <a href="/public/screenshots/4-screenshot-cookbook-user-profile-desktop.png" target="_blank"><img src="/public/screenshots/4-screenshot-cookbook-user-profile-desktop.png" width="800"></a> -->
 
-<a href="/public/screenshots/6-screenshot-cookbook-recipe-view-by-author-mobile.png" target="_blank"><img src="/public/screenshots/6-screenshot-cookbook-recipe-view-by-author-mobile.png" width="400"></a>
 
-Recipe `update` form for a registered user, format desktop:
+<!-- Recipe view by the recipe's author, format mobile:
+<a href="/public/screenshots/6-screenshot-cookbook-recipe-view-by-author-mobile.png" target="_blank"><img src="/public/screenshots/6-screenshot-cookbook-recipe-view-by-author-mobile.png" width="400"></a> -->
 
-<a href="/public/screenshots/7-screenshot-cookbook-recipe-edit-registered-user-desktop.png" target="_blank"><img src="/public/screenshots/7-screenshot-cookbook-recipe-edit-registered-user-desktop.png" width="800"></a>
+<!-- Recipe `update` form for a registered user, format desktop:
+<a href="/public/screenshots/7-screenshot-cookbook-recipe-edit-registered-user-desktop.png" target="_blank"><img src="/public/screenshots/7-screenshot-cookbook-recipe-edit-registered-user-desktop.png" width="800"></a> -->
 
 
 ## Technologies Used
