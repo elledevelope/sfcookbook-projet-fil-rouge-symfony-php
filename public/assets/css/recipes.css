@@ -48,14 +48,14 @@
     margin: 5px;
 }
 
-.recipes .gallery-recipes .recipes-card .recipe-card-content .favorite-icon:hover {
-    cursor: pointer;
-    opacity: 50%;
-}
-
-.recipes .gallery-recipes .recipes-card .recipe-card-content .favorite-icon i {
+.favorite-icon i {
     font-size: 1.9rem;
     color: #d02718;
+}
+
+.favorite-icon i:hover {
+    cursor: pointer;
+    opacity: 50%;
 }
 
 .recipes .gallery-recipes .recipes-card .recipe-card-content .favorite-icon p {
@@ -66,23 +66,9 @@
 .recipes .gallery-recipes .recipes-card .recipe-card-content .favorite-icon .bx-bookmark-heart {
     display: inline-block;
 }
-
-.recipes .gallery-recipes .recipes-card .recipe-card-content .favorite-icon .bx.bxs-bookmark-heart {
-    display: none;
+.gallery-recipes .recipes-card .recipe-card-content .favorite-icon.clicked p {
+    display: none; 
 }
-
-.favorite-icon.like-icon.clicked .bx-bookmark-heart {
-    display: none;
-}
-
-.favorite-icon.like-icon.clicked .bxs-bookmark-heart {
-    display: inline-block;
-}
-
-.favorite-icon.like-icon.clicked p {
-    display: none;
-}
-
 /* -------------------------------------- ADD TO FAVORITE END */
 
 .recipes .gallery-recipes .recipes-card .recipes-card-img {
