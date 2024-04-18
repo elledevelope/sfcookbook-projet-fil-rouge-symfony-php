@@ -7,12 +7,12 @@
 {% block body %}
 	<section
 		class="recipe-page">
-		{# add to favorite #}
-		<div class="favorite-icon like-icon add-to-favorite-show {% if isFavorite %}clicked{% endif %}" data-recipe-id="{{ recipe.id }}">
-			<p>Add to favorite</p>
-			<i class='bx bx-bookmark-heart'></i>
-			<i class='bx bxs-bookmark-heart'></i>
-		</div>
+{# add to favorite #}
+{# <div class="favorite-icon like-icon add-to-favorite-show {% if isFavorite %}clicked{% endif %}" data-recipe-id="{{ recipe.id }}">
+    <p>{% if isFavorite %}Remove from favorites{% else %}Add to favorites{% endif %}</p>
+    <i class='bx bx-bookmark-heart {% if isFavorite %}hidden{% endif %}'></i>
+    <i class='bx bxs-bookmark-heart {% if not isFavorite %}hidden{% endif %}'></i>
+</div> #}
 
 		{# <!-- title --> #}
 		<h2 class="recipe-title">{{ recipe.title }}</h2>

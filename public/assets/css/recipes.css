@@ -66,10 +66,12 @@
 .recipes .gallery-recipes .recipes-card .recipe-card-content .favorite-icon .bx-bookmark-heart {
     display: inline-block;
 }
+
 .gallery-recipes .recipes-card .recipe-card-content .favorite-icon.clicked p {
-    display: none; 
+    display: none;
+    /* -------------------------------------- ADD TO FAVORITE END */
 }
-/* -------------------------------------- ADD TO FAVORITE END */
+
 
 .recipes .gallery-recipes .recipes-card .recipes-card-img {
     width: 100%;
@@ -109,7 +111,7 @@
 }
 
 .recipes .gallery-recipes .recipes-card .recipe-card-content h5 {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     line-height: 1.2;
     color: #1c212a;
     text-transform: capitalize;
@@ -122,7 +124,7 @@
     font-weight: normal;
     margin: 10px 5px;
     color: black;
-    font-size: 1rem;
+    font-size: .9rem;
     text-transform: none;
     font-style: italic;
 }
@@ -396,6 +398,19 @@ header nav .nav-links ul .search-div form button:hover {
     opacity: 70%;
 }
 
+/*-------------------------------------- FAVORITE_RECIPE /favorites  ------------*/
+/*-------------------------------------- FAVORITE_RECIPE /favorites  ------------*/
+/*-------------------------------------- remove from favorite */
+.recipes .recipe-card-content .remove-favorite {
+    margin-left: 20px;
+    color: red;
+    font-size: .9rem;
+}
+
+.recipes .recipe-card-content .remove-favorite:hover {
+    cursor: pointer;
+    opacity: 70%;
+}
 
 /*-------------------------------------- User-Recipes PAGE -------------------*/
 /*-------------------------------------- ADD BUTTON */
@@ -520,6 +535,15 @@ header nav .nav-links ul .search-div form button:hover {
         width: 50%;
         margin: auto;
     }
+
+    .recipes .gallery-recipes .recipes-card .recipe-card-content h5 {
+        font-size: 1.5rem;
+    }
+
+    .recipes-card p {
+        font-size: 1rem;
+    }
+    
 
     .recipes .level-budget {
         display: flex;

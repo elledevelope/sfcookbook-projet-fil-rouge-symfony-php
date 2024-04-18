@@ -18,7 +18,8 @@ closeIcon.addEventListener('click', () => {
 
 
 // --------------- Add / Remove favorite recipe:
-$('.like-icon').on('click', function (event) {
+// Bind event handler to execute only once
+$('.like-icon').one('click', function(event) {
     // Ensure the event is triggered by the .like-icon div or its children
     if (!$(event.target).closest('.like-icon').length) {
         return; // Ignore clicks on other elements
@@ -70,5 +71,32 @@ $('.like-icon').on('click', function (event) {
     });
 });
 
+
+// --------------- Remove favorite recipe (/favorites page):
+    $('.remove-from-favorite').click(function() {
+        const recipeId = $(this).data('recipe-id');
+        
+        $.ajax({
+            url: '/remove-from-favorites/' + recipeId,
+            type: 'DELETE',
+            success: function(response) {
+                if (response.success) {
+                    // Remove the deleted recipe from the UI
+                    $('.remove-from-favorite[data-recipe-id="' + recipeId + '"]').closest('.recipes-card').remove();
+                    
+                    // Check if there are any remaining favorite recipes
+                    if ($('.favorite-recipe').length === 0) {
+                        // If no favorites left, display "No records found"
+                        $('.gallery-recipes').html('<p>No records found</p>');
+                    }
+                } else {
+                    alert('Failed to remove the recipe from favorites.');
+                }
+            },
+            error: function() {
+                alert('An error occurred while trying to remove the recipe from favorites.');
+            }
+        });
+    });
 
 
