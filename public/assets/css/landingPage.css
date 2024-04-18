@@ -1,242 +1,7 @@
-header nav {
-    /* background: transparent; */
-    background-color: #f4f4f497;
-    padding: 0 2rem;
-    /* position: fixed; */
-    height: 0rem;
-    min-height: 4.2rem;
-    width: 100%;
-    z-index: 100;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-    /* box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75); */
-}
-
-header nav #logo {
-    padding: 30px;
-    display: inline;
-}
-
-header nav #logo a {
-    font-family: 'Dancing Script', cursive;
-    font-size: 3rem;
-    font-weight: 900;
-    color: #e74c3c;
-    text-decoration: none;
-}
-
-header nav #logo #logoImg {
-    width: 40px;
-}
-
-header nav .burger {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    cursor: pointer;
-}
-
-/* ------------- toggle menu js ------------- */
-header nav .nav-links {
-    height: 100vh;
-    width: 250px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    transition: all 1s ease;
-    background: #f44336;
-    display: none;
-}
-
-header nav .nav-links .close-x {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    cursor: pointer;
-}
-
-header nav .nav-links ul {
-    list-style: none;
-    text-transform: uppercase;
-    font-weight: 500;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 4.2rem;
-    padding: 30px;
-}
-
-header nav .nav-links ul li {
-    text-align: left;
-}
-
-header nav .nav-links ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-}
-
-header nav .nav-links ul li a:hover {
-    color: white;
-}
-
-header nav .nav-links ul li::after {
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: white;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-}
-
-header nav .nav-links ul li:hover::after {
-    width: 100%;
-}
-
-/* ------------- scroll nav js ------------- */
-/* .scrolled {
-    background-color: rgba(4, 9, 30, 0.7);
-}
-
-.nav-links ul li.active a {
-    color: #090909;
-}
-*/
-/* ------------- scroll nav js end ------------- */
-/* SEARCH NAV */
-header nav .nav-links ul .search-div form {
-    display: flex;
-    margin: 30px 0;
-}
-
-header nav .nav-links ul .search-div form input {
-    height: 25px;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    color: black;
-    border-radius: 3px 0 0 3px;
-}
-
-header nav .nav-links ul .search-div form button {
-    background-color: navajowhite;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 0 3px 3px 0;
-    font-size: 1rem;
-    font-weight: bolder;
-}
-
-header nav .nav-links ul .search-div form button:hover {
-    opacity: 70%;
-}
-
-
-/* PROFILE NAV */
-header nav .nav-links ul .nav-profile a {
-    color: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-    margin-bottom: 30px;
-}
-
-header nav .nav-links ul .nav-profile .nav-username {
-    width: fit-content;
-    color: #CFC4A6;
-    text-transform: none;
-}
-
-header nav .nav-links ul .nav-profile .nav-avatar {
-    width: 25px;
-    height: 25px;
-    margin-left: 10px;
-    border-radius: 50%;
-}
-
-header nav .nav-links ul .nav-profile:hover {
-    opacity: 70%;
-}
-
-/* LOGOUT NAV */
-header nav .nav-links ul .logout-btn {
-    text-transform: capitalize;
-    padding: 7px 10px;
-    border-radius: 7px;
-    background-color: #414769;
-    text-align: center;
-}
-
-header nav .nav-links ul .logout-btn a {
-    color: white;
-}
-
-header nav .nav-links ul .logout-btn:hover {
-    background-color: #05071279;
-    cursor: pointer;
-}
-
-/* LOGIN-REGISTER NAV */
-header nav .nav-links ul .login-li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-transform: capitalize;
-}
-
-header nav .nav-links ul .login-li .login-btn a {
-    padding: 7px 10px;
-    border-radius: 7px;
-    background-color: #C9A757ff;
-    color: #37553f;
-    box-shadow: 0 16px 24px 2px rgba(33, 37, 41, 0.02),
-        0 6px 30px 5px rgba(33, 37, 41, 0.04), 0 8px 10px -5px rgba(33, 37, 41, 0.1);
-    transition: background-color 0.3s ease;
-}
-
-header nav .nav-links ul .login-li .register-btn a {
-    padding: 7px 10px;
-    border-radius: 7px;
-    background-color: #37553f;
-    color: #C9A757ff;
-    box-shadow: 0 16px 24px 2px rgba(33, 37, 41, 0.02),
-        0 6px 30px 5px rgba(33, 37, 41, 0.04), 0 8px 10px -5px rgba(33, 37, 41, 0.1);
-    transition: background-color 0.3s ease;
-
-}
-
-header nav .nav-links ul .login-li .login-btn a:hover {
-    /* background-color: rgba(55, 85, 63, 0.82);
-    color: #C9A757ff; */
-    background-color: #807e7a;
-}
-
-header nav .nav-links ul .login-li .register-btn a:hover {
-    /* background-color: rgba(167, 136, 62, 0.762);
-    color: #37553f; */
-    background-color: #807e7a;
-}
-
-/* .login-icon {
-    width: 20px;
-    height: 20px;
-    margin-left: 7px;
-    margin-bottom: 3px;
-} */
-
-
 /* ------------- Hero section ------------- */
 .hero .parallax-one {
-    min-height: 100vh;
-    width: 100%;
+    /* min-height: 100vh; */
+    min-height: 60vh;
     /* padding-top: 200px; 
     padding-bottom: 200px;  */
     overflow: hidden;
@@ -262,7 +27,8 @@ header nav .nav-links ul .login-li .register-btn a:hover {
 }
 
 .hero .text-box h1 {
-    font-size: 2.5rem;
+    /* font-size: 2.5rem; */
+    font-size: 1.5rem;
 }
 
 .hero .text-box p {
@@ -306,7 +72,8 @@ header nav .nav-links ul .login-li .register-btn a:hover {
 .about-landing h2 {
     word-spacing: 10px;
     color: #1f1f1f;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
+    font-size: 1.2rem;
 }
 
 .about-landing .about-intro p {
@@ -388,13 +155,12 @@ header nav .nav-links ul .login-li .register-btn a:hover {
 .features p {
     text-align: center;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: .9rem;
 }
 
 .features h3 {
     text-align: center;
     font-weight: bold;
-    font-size: 1.4rem;
     line-height: 1;
     padding-bottom: 20px;
 }
@@ -420,8 +186,7 @@ header nav .nav-links ul .login-li .register-btn a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    margin: 15px;
+    width: 50%;
 }
 
 .collaborative-cooking {
@@ -474,7 +239,7 @@ header nav .nav-links ul .login-li .register-btn a:hover {
 
 .worldRecipes h2 {
     color: #1f1f1f;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     word-spacing: 10px;
 }
 
@@ -618,105 +383,15 @@ header nav .nav-links ul .login-li .register-btn a:hover {
 }
 
 
-
-
 /* ============================================================  MEDIA QUERY - LANDING PAGE */
 /* ============================================================  MEDIA QUERY - LANDING PAGE */
 @media screen and (min-width: 576px) {
-
-    /* ============================================================ media qiery HEADER */
-    header nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 4rem;
-    }
-
-    header nav .burger,
-    .close-x {
-        display: none;
-    }
-
-    header nav .nav-links {
-        display: block;
-        position: absolute;
-        top: 0;
-        background-color: #e74c3c00;
-    }
-
-    header nav .nav-links ul {
-        display: flex;
-        flex-direction: row;
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 15px 4rem;
-    }
-
-    header nav .nav-links ul li a {
-        color: #f44336;
-        text-decoration: none;
-        font-size: 1rem;
-    }
-
-    header nav .nav-links ul li a:hover {
-        color: #e74c3c;
-    }
-
-    header nav .nav-links ul li::after {
-        content: '';
-        width: 0%;
-        height: 2px;
-        background: #f44336;
-        display: block;
-        margin: auto;
-        transition: 0.5s;
-    }
-
-    /*============================================================ media qiery SEARCH NAV */
-    header nav .nav-links ul .search-div form {
-        margin: 0 30px 0 0;
-        box-shadow: 0 16px 24px 2px rgba(33, 37, 41, 0.02),
-            0 6px 30px 5px rgba(33, 37, 41, 0.04), 0 8px 10px -5px rgba(33, 37, 41, 0.1);
-    }
-
-    header nav .nav-links ul .search-div form input {
-        width: 200px;
-    }
-
-    header nav .nav-links ul .search-div form button {
-        background-color: #e74d3c9c;
-    }
-
-    /*============================================================ media qiery LOGIN-REGISTER NAV */
-    header nav .nav-links ul .login-li {
-        width: 160px;
-        margin: auto;
-    }
-
-    /*============================================================ media qiery PROFILE NAV */
-    header nav .nav-links ul .nav-profile a {
-        margin: 5px 30px 0 0;
-    }
-
-    header nav .nav-links ul .nav-profile .nav-username {
-        color: #cfb364;
-    }
-
-    /*============================================================ media qiery LOGOUT NAV */
-    header nav .logout-btn:hover {
-        background-color: #414769;
-    }
-
-    /*============================================================ media qiery MY FAVORITE LI NAV */
-
-    header nav .nav-my-fav {
-        /* font-size: .7rem; */
-        text-transform: capitalize;
-        width: 130px;
-    }
-
     /*============================================================ media qiery HERO */
+
+    .hero .parallax-one {
+        min-height: 100vh;
+    }
+
     .hero .text-box h1 {
         font-size: 4rem;
     }
@@ -735,16 +410,27 @@ header nav .nav-links ul .login-li .register-btn a:hover {
     .features {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .features p {
+        font-size: 1rem;
     }
 
     .features h3 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         padding-bottom: 20px;
     }
 
     .features .avantages {
-        margin: 0 20px;
-        flex: 1;
+        /* margin: 0 20px;
+        flex: 1; */
+        width: 30%;
+        height: 500px;
+    }
+
+    .features .avantages-icon {
+        width: 150px;
     }
 
     /*============================================================ media qiery Landing page: World of recipes */
@@ -759,4 +445,27 @@ header nav .nav-links ul .login-li .register-btn a:hover {
         flex-direction: row;
     }
 
+}
+
+/* ++++++++++++++++ MEDIA QUERY - feature cards - desktop */
+@media screen and (min-width: 900px) {
+    .features p {
+        padding: 20px 0;
+    }
+
+    .features h3 {
+        font-size: 2rem;
+        padding-bottom: 20px;
+    }
+
+    .features .avantages {
+        /* margin: 0 20px;
+        flex: 1; */
+        width: 30%;
+        height: 500px;
+    }
+
+    .features .avantages-icon {
+        width: 150px;
+    }
 }

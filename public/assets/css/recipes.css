@@ -8,7 +8,7 @@
 }
 
 .recipes .pagename {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     line-height: 35px;
     text-align: center;
@@ -18,7 +18,7 @@
 
 .recipes .p-intro {
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 500;
     color: #810e05;
     text-align: justify;
     padding-bottom: 40px;
@@ -181,7 +181,8 @@
 }
 
 .recipe-page .recipe-title {
-    font-size: 2rem;
+    /* font-size: 2rem; */
+    font-size: 1.5rem;
     font-weight: 600;
     line-height: 35px;
     text-align: center;
@@ -203,7 +204,7 @@
 
 .recipe-page .p-description {
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 500;
     font-style: italic;
     color: #810e05;
     text-align: justify;
@@ -232,6 +233,7 @@
     margin: auto;
     text-transform: capitalize;
     color: #810e05;
+    font-size: .9rem;
 }
 
 .recipe-page .recipe-cuisine-budget .cuisine-level {
@@ -239,7 +241,7 @@
 }
 
 .recipe-page .p-sub-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #1c212a;
     padding: 30px 0 10px 0;
@@ -253,11 +255,13 @@
 .recipe-page .text-ingredients {
     border-bottom: .5px #1c212a2f solid;
     padding-bottom: 20px;
+    font-size: .9rem;
 }
 
 .recipe-page .text-instructions {
     text-align: justify;
     color: black;
+    font-size: .9rem;
 }
 
 .recipe-page .recipe-created-by {
@@ -506,9 +510,9 @@ header nav .nav-links ul .search-div form button:hover {
 
 
 
-/*============================================================ media qiery RECIPES*/
-/*============================================================ media qiery RECIPES*/
-@media screen and (min-width: 576px) {
+/*============================================================ media qiery RECIPES --- tablette and desktop*/
+/*============================================================ media qiery RECIPES --- tablette and desktop*/
+@media screen and (min-width: 876px) {
 
     /*============================================================ media qiery /RECIPES*/
     .recipes .pagename {
@@ -543,7 +547,6 @@ header nav .nav-links ul .search-div form button:hover {
     .recipes-card p {
         font-size: 1rem;
     }
-    
 
     .recipes .level-budget {
         display: flex;
@@ -582,6 +585,7 @@ header nav .nav-links ul .search-div form button:hover {
     .recipe-page .recipe-sub-content {
         display: flex;
         flex-wrap: nowrap;
+        margin-right: auto;
     }
 
     .recipe-page .recipe-img {
@@ -590,8 +594,12 @@ header nav .nav-links ul .search-div form button:hover {
         margin-right: 50px;
     }
 
-    .recipe-page .recipe-sub-content {
-        margin-right: auto;
+    .recipe-page .recipe-cuisine-budget {;
+        font-size: 1rem;
+    }
+
+    .recipe-page .p-sub-title {
+        font-size: 1.5rem;
     }
 
     .recipe-page .img-et-ingredients {
@@ -601,6 +609,14 @@ header nav .nav-links ul .search-div form button:hover {
 
     .recipe-page .p-ingredients {
         padding-top: 0;
+    }
+
+    .recipe-page .text-ingredients {
+        font-size: 1rem;
+    }
+
+    .recipe-page .text-instructions {
+        font-size: 1rem;
     }
 
     .recipe-page .recipe-bottom {

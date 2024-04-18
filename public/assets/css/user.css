@@ -43,9 +43,21 @@
     box-shadow: 0 0 20PX 0PX rgba(0, 0, 0, 0.2);
 }
 
+.user-profile .card-user h2{
+    font-size: 1.1rem;
+}
+
+.user-profile .card-user p{
+    font-size: .9rem;
+}
+
+.user-profile .card-user h3{
+    font-size: 1rem;
+}
+
 .user-profile .card-user img {
     border-radius: 50%;
-    max-width: 150px;
+    max-width: 100px;
     height: auto;
     margin-bottom: 10px;
 }
@@ -92,7 +104,21 @@
 }
 /*============================================================ MEDIA QUERY user profile   */
 @media screen and (min-width: 576px) {
+    .user-profile .card-user h2{
+        font-size: 1.6rem;
+    }
 
+    .user-profile .card-user h3{
+        font-size: 1.3rem;
+    }
+
+    .user-profile .card-user p{
+        font-size: 1rem;
+    }
+
+    .user-profile .card-user img {
+        max-width: 150px;
+    }
     /*============================================================ media qiery User Edit */
     .section-wrapper {
         width: 50%;
