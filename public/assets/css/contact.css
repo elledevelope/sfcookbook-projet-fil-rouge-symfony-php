@@ -1,0 +1,51 @@
+.contact{
+    background-image: url("/assets/img/contact.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.contact .contact-wrapper{
+    width: 80%;
+    margin: auto;
+    padding-top: 90px;
+    /* margin-bottom: 30px; */
+    height: 100vh;
+}
+
+.contact p, a {
+    font-size: .9rem;
+    text-align: center;
+    font-weight: 500;
+    color: #810e05;
+}
+
+.contact .pagename {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 35px;
+    text-align: center;
+    color: #333;
+    padding-bottom: 20px;
+}
+
+.contact .contact-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(240, 248, 255, 0.222);
+    padding: 40px;
+}
+
+/*============================================================ media qiery */
+/*============================================================ media qiery */
+@media screen and (min-width: 576px) {
+
+    .contact .pagename {
+        font-size: 2rem;
+    }
+    .contact p, a {
+        font-size: 1rem;
+    }
+}
