@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}About | Cookbook{% endblock %}
+
+{% block body %}
+<section class="about">
+    <h1 class ="pagename">Welcome to Cookbook - Web Symfony Project </h1>
+<div class="about-wrapper">
+    <div class="about-img"><img src="{{ asset('assets/img/about-cookbook.jpg') }}" alt="About Cookbook"></div>
+
+    <div class="about-text">    
+        <span>Cookbook is side project born out of my passion for web development and my journey with Symfony PHP.</span>
+
+         <p>As a student in web development, <span>Cookbook serves as my pet project</span> — a sandbox for me to hone my skills and explore the world of web development.</p>
+        
+        <p>Cookbook is not just a website; <span>it's a virtual kitchen where I experiment with Symfony PHP and learn the ins and outs of creating dynamic web applications</span>. <br>
+        Here, users can register, create, and publish recipes, also add recipes to a favorite list, simulating a real-world scenario in a controlled environment.</p>
+        
+        <p><span>While Cookbook may not be a real-world application, it represents countless hours of learning and dedication poured into mastering Symfony PHP</span>. Through Cookbook, I aim to showcase my progress and share my enthusiasm for web development with others.</p>
+        
+        <p>So, whether you're here to browse recipes or simply curious about the world of web development, welcome to Cookbook. Join me on this journey of learning and discovery as I continue to refine my skills and build towards the future.</p>
+    </div>
+</div>
+</section>
+{% endblock %}

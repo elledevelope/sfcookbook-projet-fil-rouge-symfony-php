@@ -1,0 +1,72 @@
+.about {
+    width: 80%;
+    margin: auto;
+    padding-top: 90px;
+    margin-bottom: 30px;
+}
+
+.about p,
+span {
+    font-size: .9rem;
+    text-align: justify;
+}
+
+.about .about-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.about p {
+    margin: 10px 0;
+}
+
+.about .pagename {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 35px;
+    text-align: center;
+    color: #333;
+    padding-bottom: 20px;
+}
+
+.about span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #810e05;
+    text-align: justify;
+    padding-bottom: 40px;
+}
+
+/*============================================================ media qiery */
+/*============================================================ media qiery */
+@media screen and (min-width: 876px) {
+    .about {
+        height: 100vh;
+    }
+
+    .about .pagename {
+        /* text-align: left; */
+        padding-bottom: 100px;
+    }
+
+    .about .about-wrapper {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        /* align-items: center; */
+        width: 80%;
+        margin: auto;
+    }
+
+    /* .about .about-wrapper .about-img img {
+        width: 50%;
+    } */
+    .about .about-wrapper .about-img {
+        width: 500px;
+    }
+
+    .about .about-wrapper .about-text {
+        margin-right: 50px;
+        width: 40%;
+    }
+}
