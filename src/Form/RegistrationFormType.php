@@ -44,13 +44,20 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('password', RepeatedType::class, [
+                // Définition du type de champ comme un champ de mot de passe
                 'type' => PasswordType::class,
+                // Message d'erreur en cas de non-correspondance entre les champs de mot de passe
                 'invalid_message' => 'The password fields must match.',
+                // Options supplémentaires pour le champ
                 'options' => ['attr' => ['class' => 'password-field']],
+                // Le champ est requis
                 'required' => true,
+                // Options pour le premier champ de mot de passe
                 'first_options'  => ['label' => 'Password'],
-                'second_options' => ['label' => 'Repeat Password'],
+                // Options pour le deuxième champ de mot de passe (confirmation)
+                'second_options' => ['label' => 'Repeat the password'],
             ]);
+            
     }
 
     public function configureOptions(OptionsResolver $resolver): void

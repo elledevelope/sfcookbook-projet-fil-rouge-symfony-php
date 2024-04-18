@@ -1,0 +1,64 @@
+.about {
+    background-image: url("/assets/img/about-cookbook-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.about .about-wrapper {
+    width: 80%;
+    margin: auto;
+    padding-top: 90px;
+    height: 100vh;
+}
+
+.about p {
+    font-size: .9rem;
+    text-align: center;
+    font-weight: 500;
+    /* color: #810e05; */
+    color: white;
+}
+
+.about .about-text span {
+    font-size: .9rem;
+    text-align: center;
+    font-weight: 700;
+    color: rgb(255, 219, 219);
+}
+
+.about .pagename {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 35px;
+    text-align: center;
+    color: brown;
+    padding-bottom: 40px;
+}
+
+.about .about-text {
+    background-color: rgba(84, 85, 87, 0.629);
+    padding: 40px;
+}
+
+/*============================================================ media qiery */
+/*============================================================ media qiery */
+@media screen and (min-width: 576px) {
+
+    .about .pagename {
+        font-size: 2rem;
+    }
+
+    .about p,
+    span {
+        font-size: 1rem;
+    }
+
+    .about .about-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+}

@@ -14,12 +14,18 @@
 			cuisine 😋⤵️
 		</p>
 
-		{# Search recipes form #}
+		{# Formulaire de recherche par cuisine #}
 		<div class="search-div">
 			<p>Search by Cuisine:</p>
+			{# Formulaire avec action pointant vers la route 'app_search_recipes_by_cuisine' #}
 			<form action="{{ path('app_search_recipes_by_cuisine') }}" method="get">
-				<input type="text" id="cuisine" name="cuisine" placeholder="ex: Italian">
-				<button type="submit">
+				{# Champ de saisie pour le nom de la cuisine #}
+				<input
+				type="text" id="cuisine" name="cuisine" placeholder="ex: Italian">
+				{# Bouton de soumission du formulaire #}
+				<button
+					type="submit">
+					{# Icone de recherche #}
 					<i class='bx bx-search'></i>
 				</button>
 			</form>

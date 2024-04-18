@@ -21,12 +21,10 @@
 
 					<div
 						class="recipe-card-content">
-						{# like bookmark#}
-						{# <div class="favorite-icon like-icon {% if favoriteRecipe.isFavorite %}clicked{% endif %}" data-recipe-id="{{ favoriteRecipe.id }}">
-							<p>Add to favorite</p>
-							<i class='bx bx-bookmark-heart'></i>
-							<i class='bx bxs-bookmark-heart'></i>
-						</div> #}
+						{# Remove from favorite button #}
+                        <div class="remove-from-favorite {% if favoriteRecipe.isFavorite %}clicked{% endif %}" data-recipe-id="{{ favoriteRecipe.recipe.id }}">
+                            <p class="remove-favorite">{% if favoriteRecipe.isFavorite %}Remove from favorites ❌{% endif %}</p>
+                        </div>
 
 						<div class="level-budget">
 							<p>

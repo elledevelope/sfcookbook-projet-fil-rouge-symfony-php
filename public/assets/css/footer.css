@@ -6,13 +6,12 @@ footer {
 footer ul {
     list-style: none;
     text-transform: capitalize;
-    font-size: 0.8rem;
 }
 
 footer a {
     text-transform: capitalize;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: .8rem;
     cursor: pointer;
     color: #bbbbbb;
 }
@@ -65,8 +64,13 @@ li {
 /* ============================================================ media qiery FOOTER */
 @media (min-width: 576px) {
     footer {
-padding-top: 50px;
+        padding-top: 50px;
     }
+
+    footer a {
+        font-size: 1rem;
+    }
+
     .container-footer {
         display: flex;
         flex-direction: row;
