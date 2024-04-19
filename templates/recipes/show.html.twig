@@ -5,17 +5,16 @@
 {% endblock %}
 
 {% block body %}
-	<section
-		class="recipe-page">
-{# add to favorite #}
-{# <div class="favorite-icon like-icon add-to-favorite-show {% if isFavorite %}clicked{% endif %}" data-recipe-id="{{ recipe.id }}">
-    <p>{% if isFavorite %}Remove from favorites{% else %}Add to favorites{% endif %}</p>
-    <i class='bx bx-bookmark-heart {% if isFavorite %}hidden{% endif %}'></i>
-    <i class='bx bxs-bookmark-heart {% if not isFavorite %}hidden{% endif %}'></i>
-</div> #}
+	<section class="recipe-page">
+		{# add to favorite #}
+		{# <div class="favorite-icon like-icon add-to-favorite-show {% if isFavorite %}clicked{% endif %}" data-recipe-id="{{ recipe.id }}">
+						    <p>{% if isFavorite %}Remove from favorites{% else %}Add to favorites{% endif %}</p>
+						    <i class='bx bx-bookmark-heart {% if isFavorite %}hidden{% endif %}'></i>
+						    <i class='bx bxs-bookmark-heart {% if not isFavorite %}hidden{% endif %}'></i>
+						</div> #}
 
 		{# <!-- title --> #}
-		<h2 class="recipe-title">{{ recipe.title }}</h2>
+			<h2 class="recipe-title"> {{ recipe.title }}</h2>
 
 		<div
 			class="recipe-content">
@@ -58,12 +57,11 @@
 						<p class="p-sub-title ingredients-title">Ingredients:</p>
 						<ul class="ul-recipe text-ingredients">
 							{% for ingredient in ingredientsArray %}
-								<li>{{ ingredient|trim }}</li>
+								<li>{{ ingredient|striptags|trim }}.</li>
 							{% endfor %}
 						</ul>
 					</div>
 				</div>
-
 			</div>
 
 			{# <!-- instructions --> #}
@@ -72,9 +70,10 @@
 				<p class="p-sub-title">Instructions:</p>
 				<ul class="ul-recipe text-instructions">
 					{% for index, instruction in instructionsArray %}
-						<li>
-							<strong>{{ (index + 1) }}.</strong>
-							{{ instruction|trim }}.</li>
+						{% if instruction|trim != '' %}
+							<li><strong>{{ (index + 1) }}.</strong> 
+								{{ instruction|striptags|trim }}.</li>
+						{% endif %}
 					{% endfor %}
 				</ul>
 			</div>

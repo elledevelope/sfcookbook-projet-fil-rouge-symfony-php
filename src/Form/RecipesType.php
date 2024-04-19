@@ -15,6 +15,8 @@ use Symfony\Component\Validator\Constraints\Length;
 
 
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class RecipesType extends AbstractType
 {
@@ -29,7 +31,7 @@ class RecipesType extends AbstractType
                     new Length([
                         'min' => 2,
                         'minMessage' => 'The title must be at least {{ limit }} characters!',
-                        'max' => 20,
+                        'max' => 30,
                         'maxMessage' => 'The title cannot be longer than {{ limit }} characters!',
                     ]),
                 ],
@@ -59,8 +61,15 @@ class RecipesType extends AbstractType
                     new Length([
                         'min' => 5,
                         'minMessage' => 'The description must be at least {{ limit }} characters!',
-                        'max' => 1000,
+                        'max' => 1200,
                         'maxMessage' => 'The description cannot be longer than {{ limit }} characters!',
+                    ]),
+                    new NotBlank([
+                        'message' => 'Please enter instructions.',
+                    ]),
+                    new Regex([
+                        'pattern' => '/^[^<>]+$/',
+                        'message' => 'HTML tags are not allowed in the instructions.',
                     ]),
                 ],
                 'attr' => [
@@ -85,7 +94,7 @@ Add sliced onions;
                     new Length([
                         'min' => 5,
                         'minMessage' => 'The instructions must be at least {{ limit }} characters!',
-                        'max' => 2000,
+                        'max' => 5000,
                         'maxMessage' => 'The instructions cannot be longer than {{ limit }} characters!',
                     ]),
                 ],

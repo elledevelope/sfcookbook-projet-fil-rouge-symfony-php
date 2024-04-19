@@ -1,0 +1,31 @@
+{# templates/admin/field/text_editor.html.twig #}
+
+{% block easyadmin_field_text_editor %}
+    {% set value = field.getValue() %}
+    {% set value = value|raw %}
+    
+    {# Split the instructions into lines #}
+    {% set lines = value|split("\n") %}
+    
+    {# Initialize the line number counter #}
+    {% set lineNumber = 1 %}
+    
+    {# Loop through each line #}
+    {% for line in lines %}
+        {# Trim leading and trailing whitespace #}
+        {% set line = line|trim %}
+        
+        {# Check if the line is not empty #}
+        {% if line|length > 0 %}
+            {# Check if the line ends with a period #}
+            {% if line ends with '.' %}
+                {# Add a new line number #}
+                {{ lineNumber }}. {{ line }}<br>
+                {% set lineNumber = lineNumber + 1 %}
+            {% else %}
+                {# Display the line without a list number #}
+                {{ line }}<br>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}
