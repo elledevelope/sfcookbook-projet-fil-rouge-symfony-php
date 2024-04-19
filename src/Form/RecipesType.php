@@ -15,6 +15,8 @@ use Symfony\Component\Validator\Constraints\Length;
 
 
 use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class RecipesType extends AbstractType
 {
@@ -61,6 +63,13 @@ class RecipesType extends AbstractType
                         'minMessage' => 'The description must be at least {{ limit }} characters!',
                         'max' => 1000,
                         'maxMessage' => 'The description cannot be longer than {{ limit }} characters!',
+                    ]),
+                    new NotBlank([
+                        'message' => 'Please enter instructions.',
+                    ]),
+                    new Regex([
+                        'pattern' => '/^[^<>]+$/',
+                        'message' => 'HTML tags are not allowed in the instructions.',
                     ]),
                 ],
                 'attr' => [
