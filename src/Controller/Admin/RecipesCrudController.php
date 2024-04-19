@@ -37,7 +37,8 @@ class RecipesCrudController extends AbstractCrudController
     // Helper function to sanitize HTML using stripTags
     private function sanitizeHtml($html)
     {
-        return strip_tags($html);
+        // Remove HTML tags and trim white spaces
+        return trim(strip_tags($html));
     }
 
     // Override the updateEntity() method to sanitize all fields before saving
@@ -55,4 +56,3 @@ class RecipesCrudController extends AbstractCrudController
         parent::updateEntity($entityManager, $entityInstance);
     }
 }
-
