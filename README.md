@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a web application developed using Symfony and PHP, designed to serve as a "Cookbook" where registered users can perform CRUD operations on recipes. The website includes user authentication, role-based access control with an admin role, and AJAX functionality for registered users to add recipes to their favorites. The design is responsive, ensuring a seamless user experience across various devices.
+This project is a web application developed using Symfony and PHP, designed to serve as a "Cookbook" where registered users can perform CRUD operations on recipes. The website includes user authentication, role-based access control with an admin role, and CRUD for recipes. <!-- AJAX functionality for registered users to add recipes to their favorites --> The design is responsive, ensuring a seamless user experience across various devices.
 
 ## Table of contents
 
@@ -24,7 +24,7 @@ This project is a web application developed using Symfony and PHP, designed to s
 
 
 <img src="./public/screenshots/8-screenshot-cookbook-recipes-page-registered-user-desktop.png" alt="Cookbook ``/recipes`` page (view by registered user), format desktop"  width="300px" height="400px" target="_blank"> <img src="./public/screenshots/cookbook-recipe-page-desktop.png" alt="Cookbook Recipe page format desktop" width="400px" height="400px"   target="_blank">
-<img src="./public/screenshots/7-screenshot-cookbook-recipe-edit-registered-user-desktop.png" alt="Recipe `update` form for a registered user, format desktop" width="340px" height="400px" target="_blank"> <img src="./public/screenshots/4-screenshot-cookbook-user-profile-desktop.png" alt="Cookbook ``user profile``, format desktop" width="440px" height="400px" target="_blank">
+<img src="./public/screenshots/7-screenshot-cookbook-recipe-edit-registered-user-desktop.png" alt="Recipe `update` form for a registered user, format desktop" width="340px" height="400px" target="_blank"> <img src="./public/screenshots/4-screenshot-cookbook-user-profile-desktop.png" alt="Cookbook ``user profile``, format desktop" width="440px" height="370px" target="_blank">
 
 
 
@@ -52,7 +52,6 @@ This project is a web application developed using Symfony and PHP, designed to s
 - **PHP** Version 8.2.4
 - **XAMPP (Apache, MySQL, PHP, phpMyAdmin)** 
 - **EasyAdminBundle**
-- **AJAX** 
 - **JavaScript** 
 - **HTML5** 
 - **CSS3** 
@@ -65,7 +64,7 @@ This project is a web application developed using Symfony and PHP, designed to s
 
 - **CRUD Operations:** Registered users can create, read, update, and delete recipes.
 
-- **AJAX for Favorites:** AJAX functionality allows registered users to add recipes to their favorites without reloading the page.
+<!--- **AJAX for Favorites:** AJAX functionality allows registered users to add recipes to their favorites without reloading the page. -->
 
 - **Responsive Design:** The website layout adjusts seamlessly to different screen sizes, providing an optimal viewing experience for users on smartphones, tablets, and desktops.
 
